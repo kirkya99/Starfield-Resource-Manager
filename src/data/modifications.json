@@ -1,0 +1,161 @@
+[
+  {
+    "Modification": "Bull Barrel",
+    "Type": "Weapon",
+    "Slot": "Barrel",
+    "Resources": {
+      "Nickel": 3,
+      "Sealant": 1,
+      "Tungsten": 1
+    }
+  },
+  {
+    "Modification": "Extended Barrel",
+    "Type": "Weapon",
+    "Slot": "Barrel",
+    "Resources": {
+      "Iron": 2,
+      "Nickel": 2,
+      "Sealant": 1
+    }
+  },
+  {
+    "Modification": "Fluted Barrel",
+    "Type": "Weapon",
+    "Slot": "Barrel",
+    "Resources": {
+      "Nickel": 3,
+      "Sealant": 1,
+      "Titanium": 2
+    }
+  },
+  {
+    "Modification": "Long Barrel",
+    "Type": "Weapon",
+    "Slot": "Barrel",
+    "Resources": {
+      "Iron": 1,
+      "Nickel": 1,
+      "Sealant": 1
+    }
+  },
+  {
+    "Modification": "Long Barrel with Laser Sight",
+    "Type": "Weapon",
+    "Slot": "Barrel",
+    "Resources": {
+      "Helium-3": 1,
+      "Iron": 1,
+      "Neon": 1,
+      "Nickel": 1,
+      "Sealant": 1
+    }
+  },
+  {
+    "Modification": "Magnetic Rails",
+    "Type": "Weapon",
+    "Slot": "Barrel",
+    "Resources": {
+      "Cobalt": 2,
+      "Lubricant": 1,
+      "Supercooled Magnet": 1
+    }
+  },
+  {
+    "Modification": "Short Barrel",
+    "Type": "Weapon",
+    "Slot": "Barrel",
+    "Resources": {
+      "Iron": 1,
+      "Nickel": 1
+    }
+  },
+  {
+    "Modification": "Short Barrel with Laser Sight",
+    "Type": "Weapon",
+    "Slot": "Barrel",
+    "Resources": {
+      "Helium-3": 1,
+      "Iron": 1,
+      "Neon": 1,
+      "Nickel": 1
+    }
+  },
+  {
+    "Modification": "Stabilizing Barrel",
+    "Type": "Weapon",
+    "Slot": "Barrel",
+    "Resources": {
+      "Lubricant": 1,
+      "Nickel": 2,
+      "Tungsten": 2
+    }
+  },
+  {
+    "Modification": "Standard Barrel",
+    "Type": "Weapon",
+    "Slot": "Barrel",
+    "Resources": {
+      "Iron": 1,
+      "Sealant": 1
+    }
+  },
+  {
+    "Modification": "Standard Barrel with Laser Sight",
+    "Type": "Weapon",
+    "Slot": "Barrel",
+    "Resources": {
+      "Helium-3": 3,
+      "Iron": 2,
+      "Sealant": 1
+    }
+  },
+  {
+    "Modification": "Supressor (barrel)",
+    "Type": "Weapon",
+    "Slot": "Barrel",
+    "Resources": {
+      "Polymer": 2,
+      "Titanium": 3,
+      "Tungsten": 2
+    }
+  },
+  {
+    "Modification": "Tech Barrel",
+    "Type": "Weapon",
+    "Slot": "Barrel",
+    "Resources": {
+      "Iron": 2,
+      "Nickel": 2,
+      "Sealant": 1
+    }
+  },
+  {
+    "Modification": "Amplifier (cover)",
+    "Type": "Weapon",
+    "Slot": "Cover",
+    "Resources": {
+      "Adhesive": 2,
+      "Isocentered Magnet": 1,
+      "Zero Wire": 1
+    }
+  },
+  {
+    "Modification": "Removed Cover",
+    "Type": "Weapon",
+    "Slot": "Cover",
+    "Resources": {
+      "Aluminium": 1,
+      "Sealant": 1
+    }
+  },
+  {
+    "Modification": "Standard Cover",
+    "Type": "Weapon",
+    "Slot": "Cover",
+    "Resources": {
+      "Iron": 2,
+      "Nickel": 1
+    }
+  }
+]

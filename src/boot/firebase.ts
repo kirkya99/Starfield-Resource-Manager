@@ -25,7 +25,7 @@ const auth: Auth = getAuth(firebaseApp)
 const db: Firestore = getFirestore(firebaseApp)
 const analytics: Analytics = getAnalytics(firebaseApp)
 
-// const modsRef: CollectionReference = collection(db, 'modifications')
-// const shoppingListRef: CollectionReference = collection(db, 'shopping')
+const modsRef: CollectionReference = collection(db, 'modifications')
+const shoppingListRef: CollectionReference = collection(db, 'shopping')
 
-export { firebaseApp, auth, db, analytics }
+export { firebaseApp, auth, db, analytics, modsRef, shoppingListRef }
