@@ -19,11 +19,13 @@ const firebaseConfig: FirebaseOptions = {
   measurementId: 'G-R405TX4NP8'
 }
 
-export const firebaseApp = initializeApp(firebaseConfig)
+const firebaseApp = initializeApp(firebaseConfig)
 
-export const auth: Auth = getAuth(firebaseApp)
-export const db: Firestore = getFirestore(firebaseApp)
-export const analytics: Analytics = getAnalytics(firebaseApp)
+const auth: Auth = getAuth(firebaseApp)
+const db: Firestore = getFirestore(firebaseApp)
+const analytics: Analytics = getAnalytics(firebaseApp)
 
-export const modsRef: CollectionReference = collection(db, 'modifications')
-export const shoppingListRef: CollectionReference = collection(db, 'shopping')
+// const modsRef: CollectionReference = collection(db, 'modifications')
+// const shoppingListRef: CollectionReference = collection(db, 'shopping')
+
+export { firebaseApp, auth, db, analytics }
