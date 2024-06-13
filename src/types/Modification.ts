@@ -9,3 +9,5 @@ export interface Modification {
   Slot: string;
   Resources: Resources;
 }
+
+// TODO: Add tracked modifications
