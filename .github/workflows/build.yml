@@ -19,7 +19,10 @@ jobs:
         node-version: '14'
 
     - name: Install dependencies
-      run: npm install
+      run: npm ci
 
     - name: Build
-      run: quasar build
+      run: npm run build
+
+    - name: Test
+      run: npm run test
