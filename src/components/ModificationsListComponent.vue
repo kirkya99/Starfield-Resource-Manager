@@ -20,7 +20,7 @@ export default defineComponent({
   methods: {
     async readModsJson () {
       try {
-        const response = await axios.get('./src/data/modifications.json')
+        const response = await axios.get('/data/modifications.json')
         this.allModsList = response.data
         this.allModsNames = this.allModsList.map(item => item.Modification)
       } catch (error) {
