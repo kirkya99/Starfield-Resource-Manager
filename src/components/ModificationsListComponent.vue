@@ -18,11 +18,11 @@ export default defineComponent({
   },
   methods: {
     async readModsJson () {
-      try{
+      try {
         const response = await fetch('.src/data/modifications.json')
         this.allModsList = response.json()
-        this.allModsNames = this.allModsList.map(item => item.Modification) 
-      } catch(error) {
+        this.allModsNames = this.allModsList.map(item => item.Modification)
+      } catch (error) {
         console.error('Error fetching JSON data:', error)
       }
     }
