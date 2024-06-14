@@ -15,8 +15,6 @@ export default defineComponent({
   },
   created () {
     this.receiveModifications()
-    console.log(this.modifications)
-    console.log(Columns)
   },
   methods: {
     onSubmit () {
@@ -25,7 +23,7 @@ export default defineComponent({
         this.selectedMod = null
       }
     },
-    validateModification (val: unknown): boolean | string {
+    validateModification (val: Modification): boolean | string {
       return !!val || 'Please select a modification'
     },
     receiveModifications () {
