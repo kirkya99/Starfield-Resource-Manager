@@ -24,7 +24,7 @@ export default defineComponent({
           .then((data) => {
             this.allModsList = data
             this.allModsNames = this.allModsList.map(item => item.Modification)
-          }
+          })
           .catch((error) => console.error('Error fetching JSON data:', error))
           .finally(console.log("JSON data fetched.")
     }
