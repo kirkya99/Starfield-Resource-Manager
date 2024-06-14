@@ -1,4 +1,4 @@
-# Starfield Resource Tracker (starfield-resource-tracker)
+# [Starfield Resource Tracker (starfield-resource-tracker)](https://starfield-resource-tracker.netlify.app)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/7a1434ed-a11b-4437-be48-e2cf29a91a29/deploy-status)](https://app.netlify.com/sites/starfield-resource-manager/deploys)
 
 A mobile tracker for managing the tracked resources in Bethesda's Starfield.
