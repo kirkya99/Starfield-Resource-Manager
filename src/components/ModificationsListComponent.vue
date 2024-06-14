@@ -18,7 +18,7 @@ export default defineComponent({
   },
   methods: {
     async readModsJson () {
-      fetch('/data/modifications.json')
+      await fetch('.src/data/modifications.json')
         .then((response) => response.json())
         .then((data) => {
           this.allModsList = data
