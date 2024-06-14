@@ -19,10 +19,13 @@ export default defineComponent({
   methods: {
     async readModsJson () {
       try {
-        const response = await fetch('.src/data/modifications.json')
-        console.log(response)
-        this.allModsList = await response
-        this.allModsNames = this.allModsList.map(item => item.Modification)
+        const response = await fetch('/src/data/modifications.json')
+        if (!response.ok) {
+          throw new Error('Network response was not ok')
+        }
+
+        this.allModsList = await response.json()
+        this.allModsNames = this.allModsList.map(item: Modification => item.Modification)
       } catch (error) {
         console.error('Error fetching JSON data:', error)
       }
