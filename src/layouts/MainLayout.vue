@@ -1,5 +1,40 @@
+<script lang="ts">
+import { defineComponent } from 'vue'
+import packageJson from '../../package.json'
+import { useRouter } from 'vue-router'
+
+export default defineComponent({
+  name: 'MainLayout',
+
+  components: {},
+
+  data () {
+    return {
+      router: useRouter(),
+      leftDrawerOpen: false,
+      version: packageJson.version,
+      routes: [
+        { name: 'Home', path: '/home', separator: true },
+        { name: 'Modifications', path: '/mods', separator: false }
+      ]
+    }
+  },
+
+  methods: {
+    toggleLeftDrawer () {
+      this.leftDrawerOpen = !this.leftDrawerOpen
+    },
+    navigate (path: string) {
+      this.router.push(path)
+    }
+
+  }
+})
+
+</script>
+
 <template>
-  <q-layout view="lHh Lpr lFf">
+  <q-layout view="hHh Lpr lFf">
     <q-header elevated>
       <q-toolbar>
         <q-btn
@@ -12,106 +47,34 @@
         />
 
         <q-toolbar-title>
-          Quasar App
+          <div>Starfield Resource Manager</div>
         </q-toolbar-title>
 
-        <div>Quasar v{{ $q.version }}</div>
+        <div>v{{ version }}</div>
       </q-toolbar>
     </q-header>
+    <div v-if="$q.platform.is.desktop">
+      <q-drawer show-if-above v-model=" leftDrawerOpen" side="left" behavior="desktop" elevated>
+        <q-list>
+          <q-item v-for="route in routes" clickable :key="route.path" @click="navigate(route.path)">
+            <q-item-section>{{ route.name }}</q-item-section>
+          </q-item>
+        </q-list>
+      </q-drawer>
+    </div>
 
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-    >
-      <q-list>
-        <q-item-label
-          header
-        >
-          Essential Links
-        </q-item-label>
-
-        <EssentialLink
-          v-for="link in linksList"
-          :key="link.title"
-          v-bind="link"
-        />
-      </q-list>
-    </q-drawer>
+    <div v-if="$q.platform.is.mobile">
+      <q-drawer show-if-above v-model=" leftDrawerOpen" side="left" behavior="mobile" elevated>
+        <q-list>
+          <q-item v-for="route in routes" clickable :key="route.path" @click="navigate(route.path)">
+            <q-item-section>{{ route.name }}</q-item-section>
+          </q-item>
+        </q-list>
+      </q-drawer>
+    </div>
 
     <q-page-container>
-      <router-view />
+      <router-view/>
     </q-page-container>
   </q-layout>
 </template>
-
-<script lang="ts">
-import { defineComponent } from 'vue'
-import EssentialLink, { EssentialLinkProps } from 'components/EssentialLink.vue'
-
-const linksList: EssentialLinkProps[] = [
-  {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev'
-  },
-  {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework'
-  },
-  {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev'
-  },
-  {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev'
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev'
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev'
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
-  }
-]
-
-export default defineComponent({
-  name: 'MainLayout',
-
-  components: {
-    EssentialLink
-  },
-
-  data () {
-    return {
-      linksList,
-      leftDrawerOpen: false
-    }
-  },
-
-  methods: {
-    toggleLeftDrawer () {
-      this.leftDrawerOpen = !this.leftDrawerOpen
-    }
-  }
-})
-</script>

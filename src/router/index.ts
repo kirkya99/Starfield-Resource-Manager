@@ -3,7 +3,7 @@ import {
   createMemoryHistory,
   createRouter,
   createWebHashHistory,
-  createWebHistory
+  createWebHistory, RouteLocationNormalized
 } from 'vue-router'
 
 import routes from './routes'
@@ -30,6 +30,15 @@ export default route(function (/* { store, ssrContext } */) {
     // quasar.conf.js -> build -> vueRouterMode
     // quasar.conf.js -> build -> publicPath
     history: createHistory(process.env.VUE_ROUTER_BASE)
+  })
+
+  Router.beforeEach(async (to: RouteLocationNormalized) => {
+    const authorized = true
+
+    if (!authorized && to.name !== 'Login') {
+      // redirect the user to the login page
+      return { name: 'Login' }
+    }
   })
 
   return Router
