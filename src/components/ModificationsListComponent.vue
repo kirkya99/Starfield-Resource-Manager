@@ -19,7 +19,7 @@ export default defineComponent({
   methods: {
     async readModsJson () {
       try {
-        const response = await fetch('/src/data/modifications.json')
+        const response = await fetch('./src/data/modifications.json')
         if (!response.ok) {
           throw new Error('Network response was not ok')
         }
