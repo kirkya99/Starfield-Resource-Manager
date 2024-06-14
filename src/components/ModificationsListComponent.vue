@@ -25,7 +25,7 @@ export default defineComponent({
         }
 
         this.allModsList = await response.json()
-        this.allModsNames = this.allModsList.map(item: Modification => item.Modification)
+        this.allModsNames = this.allModsList.map(item => item.Modification)
       } catch (error) {
         console.error('Error fetching JSON data:', error)
       }
