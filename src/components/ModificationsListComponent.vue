@@ -20,7 +20,7 @@ export default defineComponent({
     async readModsJson () {
       try {
         const response = await fetch('.src/data/modifications.json')
-        this.allModsList = response.json()
+        this.allModsList = await response.json()
         this.allModsNames = this.allModsList.map(item => item.Modification)
       } catch (error) {
         console.error('Error fetching JSON data:', error)
