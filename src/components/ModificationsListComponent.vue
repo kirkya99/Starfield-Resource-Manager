@@ -1,6 +1,5 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
-import axios from 'axios'
 import { Modification } from 'src/types/Modification'
 
 export default defineComponent({
@@ -20,13 +19,13 @@ export default defineComponent({
   methods: {
     async readModsJson () {
       fetch('/data/modifications.json')
-          .then((response) => response.json())
-          .then((data) => {
-            this.allModsList = data
-            this.allModsNames = this.allModsList.map(item => item.Modification)
-          })
-          .catch((error) => console.error('Error fetching JSON data:', error))
-          .finally(console.log("JSON data fetched."))
+        .then((response) => response.json())
+        .then((data) => {
+          this.allModsList = data
+          this.allModsNames = this.allModsList.map(item => item.Modification)
+        })
+        .catch((error) => console.error('Error fetching JSON data:', error))
+        .finally(console.log('JSON data fetched.'))
     }
   }
 })
