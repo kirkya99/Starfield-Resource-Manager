@@ -17,31 +17,40 @@ export function getModifications (): Modification[] {
   }))
 }
 
-export const Columns = [
+export const Columns:
   {
-    name: 'modification',
-    required: true,
-    label: 'Modification',
-    align: 'left',
-    field: 'Modification',
-    sortable: true
-  },
-  {
-    name: 'type',
-    required: true,
-    label: 'Type',
-    align: 'left',
-    field: 'Type',
-    sortable: true
-  },
-  {
-    name: 'slot',
-    required: true,
-    label: 'Slot',
-    align: 'left',
-    field: 'Slot',
-    sortable: true
-  }
-]
-
-// TODO: Add tracked modifications
+    name: string;
+    label: string; field: string | ((row: Modification) => Modification);
+    required?: boolean | undefined;
+    align?: 'left' | 'right' | 'center' | undefined;
+    sortable?: boolean | undefined;
+    sort?: ((a: Modification, b: Modification, rowA: Modification, rowB: Modification) => number) | undefined;}[] =
+  [
+    {
+      name: 'modification',
+      label: 'Modification',
+      field: 'Modification',
+      required: false,
+      align: 'left',
+      sortable: false,
+      sort: undefined
+    },
+    {
+      name: 'type',
+      label: 'Type',
+      field: 'Type',
+      required: false,
+      align: 'left',
+      sortable: false,
+      sort: undefined
+    },
+    {
+      name: 'slot',
+      label: 'Slot',
+      field: 'Slot',
+      required: false,
+      align: 'left',
+      sortable: false,
+      sort: undefined
+    }
+  ]

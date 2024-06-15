@@ -11,12 +11,10 @@ export default defineComponent({
       leftDrawerOpen: false,
       version: packageJson.version,
       selectedItem: '',
-      routes: [
-        { name: 'Home', path: '/home', separator: true, icon: 'home' },
-        { name: 'Modifications', path: '/mods', separator: false, icon: 'build' },
-        { name: 'Research', path: '/research', separator: false, icon: 'science' },
-        { name: 'Outpost modules', path: '/outpost', separator: false, icon: 'flag' }
-      ]
+      homeRoute: { name: 'Home', path: '/home', separator: true, icon: 'home' },
+      modsRoute: { name: 'Modifications', path: '/mods', separator: false, icon: 'build' },
+      researchRoute: { name: 'Research', path: '/research', separator: false, icon: 'science' },
+      outpostModulesRoute: { name: 'Outpost modules', path: '/outpost', separator: false, icon: 'flag' }
     }
   },
   methods: {
@@ -65,13 +63,43 @@ export default defineComponent({
     <q-drawer show-if-above v-model=" leftDrawerOpen" side="left" elevated>
       <q-scroll-area class="fit">
         <q-list>
-          <q-item clickable @click="navigate('Home', '/home')" :active="'Home' === selectedItem"
+          <q-item clickable @click="navigate(homeRoute.name, homeRoute.path)" :active="homeRoute.name === selectedItem"
                   v-ripple>
             <q-item-section avatar>
-              <q-icon name="build"/>
+              <q-icon :name="homeRoute.icon"/>
             </q-item-section>
             <q-item-section>
-              Home
+              {{ homeRoute.name }}
+            </q-item-section>
+          </q-item>
+          <q-separator/>
+          <q-item clickable @click="navigate(modsRoute.name, modsRoute.path)"
+                  :active="modsRoute.name === selectedItem" v-ripple>
+            <q-item-section avatar>
+              <q-icon :name="modsRoute.icon"/>
+            </q-item-section>
+            <q-item-section>
+              {{ modsRoute.name }}
+            </q-item-section>
+          </q-item>
+          <q-item clickable @click="navigate(researchRoute.name, researchRoute.path)"
+                  :active="researchRoute.name === selectedItem"
+                  v-ripple>
+            <q-item-section avatar>
+              <q-icon :name="researchRoute.icon"/>
+            </q-item-section>
+            <q-item-section>
+              {{ researchRoute.name }}
+            </q-item-section>
+          </q-item>
+          <q-item clickable @click="navigate(outpostModulesRoute.name, outpostModulesRoute.path)"
+                  :active="outpostModulesRoute.name === selectedItem"
+                  v-ripple>
+            <q-item-section avatar>
+              <q-icon :name="outpostModulesRoute.icon"/>
+            </q-item-section>
+            <q-item-section>
+              {{ outpostModulesRoute.name }}
             </q-item-section>
           </q-item>
           <q-separator/>
