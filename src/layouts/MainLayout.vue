@@ -65,17 +65,15 @@ export default defineComponent({
     <q-drawer show-if-above v-model=" leftDrawerOpen" side="left" elevated>
       <q-scroll-area class="fit">
         <q-list>
-          <template v-for="(route, index) in routes" :key="index">
-            <q-item clickable @click="navigate(route.name, route.path)" :active="route.name === selectedItem"
-                    v-ripple>
-              <q-item-section avatar>
-                <q-icon :name="route.icon"/>
-              </q-item-section>
-              <q-item-section>
-                {{ route.name }}
-              </q-item-section>
-            </q-item>
-          </template>
+          <q-item clickable @click="navigate('Home', '/home')" :active="'Home' === selectedItem"
+                  v-ripple>
+            <q-item-section avatar>
+              <q-icon name="build"/>
+            </q-item-section>
+            <q-item-section>
+              Home
+            </q-item-section>
+          </q-item>
           <q-separator/>
         </q-list>
       </q-scroll-area>
