@@ -1,9 +1,20 @@
 // src/types/Modification.ts
+import modificationsJson from 'src/data/modifications.json'
+
 export interface Modification {
   Modification: string;
   Type: string;
   Slot: string;
   Resources: Map<string, number>
+}
+
+export function getModifications (): Modification[] {
+  return modificationsJson.map(item => ({
+    Modification: item.Modification,
+    Type: item.Type,
+    Slot: item.Slot,
+    Resources: new Map<string, number>(Object.entries(item.Resources))
+  }))
 }
 
 export const Columns = [

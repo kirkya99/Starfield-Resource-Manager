@@ -1,18 +1,14 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
-// import LoginComponent from 'components/LoginComponent.vue'
 
 export default defineComponent({
-  name: 'LoginPage',
-  components: {
-  }
+  name: 'OutpostModulesPage'
 })
 </script>
 
 <template>
-<!--    <LoginComponent />-->
   <q-page padding>
-    Login or Register here
+    Outpost modules
   </q-page>
 </template>
 

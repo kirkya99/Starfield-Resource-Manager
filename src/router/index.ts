@@ -34,10 +34,10 @@ export default route(function (/* { store, ssrContext } */) {
 
   Router.beforeEach(async (to: RouteLocationNormalized) => {
     const authorized = true
-
-    if (!authorized && to.name !== 'Login') {
-      // redirect the user to the login page
-      return { name: 'Login' }
+    if (to.meta.requiresAuth) {
+      if (!authorized && to.name !== 'Login') {
+        return { name: 'Login' }
+      }
     }
   })
 

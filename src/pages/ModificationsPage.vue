@@ -1,13 +1,13 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
-import AddItemComponent from 'components/AddItemComponent.vue'
+import ModificationsListComponent from 'components/ModificationsListComponent.vue'
 import { Modification } from 'src/data/Modification'
 import modificationsJson from '../data/modifications.json'
 
 export default defineComponent({
   name: 'ModificationsPage',
   components: {
-    AddItemComponent
+    ModificationsListComponent
   },
   data () {
     return {
@@ -25,6 +25,9 @@ export default defineComponent({
     },
     getModification (modification: Modification) {
       this.modifications.push(modification)
+    },
+    filterFunction (item: Modification, needle: string) {
+      return item.Modification.toLocaleLowerCase().includes(needle)
     }
   }
 })
@@ -32,8 +35,7 @@ export default defineComponent({
 
 <template>
   <q-page padding>
-    <div class="text-h4">Modifications</div>
-    <AddItemComponent :receive-items="getModifications" type="Modification" @addItemToWishlist="getModification"/>
+    <ModificationsListComponent />
   </q-page>
 </template>
 
