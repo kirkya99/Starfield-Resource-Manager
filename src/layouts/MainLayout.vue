@@ -5,29 +5,26 @@ import { useRouter } from 'vue-router'
 
 export default defineComponent({
   name: 'MainLayout',
-
-  components: {},
-
   data () {
     return {
       router: useRouter(),
       leftDrawerOpen: false,
       version: packageJson.version,
+      selectedItem: '',
       routes: [
-        { name: 'Home', path: '/home', separator: true },
-        { name: 'Modifications', path: '/mods', separator: false }
+        { name: 'Home', path: '/home', separator: true, icon: 'home' },
+        { name: 'Modifications', path: '/mods', separator: false, icon: 'build' }
       ]
     }
   },
-
   methods: {
     toggleLeftDrawer () {
       this.leftDrawerOpen = !this.leftDrawerOpen
     },
-    navigate (path: string) {
+    navigate (name: string, path: string) {
+      this.selectedItem = name
       this.router.push(path)
     }
-
   }
 })
 
@@ -55,21 +52,40 @@ export default defineComponent({
     </q-header>
     <div v-if="$q.platform.is.desktop">
       <q-drawer show-if-above v-model=" leftDrawerOpen" side="left" behavior="desktop" elevated>
-        <q-list>
-          <q-item v-for="route in routes" clickable :key="route.path" @click="navigate(route.path)">
-            <q-item-section>{{ route.name }}</q-item-section>
-          </q-item>
-        </q-list>
+        <q-scroll-area class="fit">
+          <q-list>
+            <template v-for="(route, index) in routes" :key="index">
+              <q-item clickable @click="navigate(route.name, route.path)" :active="route.name === selectedItem"
+                      v-ripple>
+                <q-item-section avatar>
+                  <q-icon :name="route.icon"/>
+                </q-item-section>
+                <q-item-section>
+                  {{ route.name }}
+                </q-item-section>
+                <q-separator :key="'sep' + index" v-if="route.separator"/>
+              </q-item>
+            </template>
+          </q-list>
+        </q-scroll-area>
       </q-drawer>
     </div>
 
     <div v-if="$q.platform.is.mobile">
       <q-drawer show-if-above v-model=" leftDrawerOpen" side="left" behavior="mobile" elevated>
-        <q-list>
-          <q-item v-for="route in routes" clickable :key="route.path" @click="navigate(route.path)">
-            <q-item-section>{{ route.name }}</q-item-section>
-          </q-item>
-        </q-list>
+        <q-scroll-area class="fit">
+          <q-list>
+            <q-item v-for="route in routes" clickable :key="route.path" @click="navigate(route.name, route.path)"
+                    :active="route.name === selectedItem" v-ripple>
+              <q-item-section avatar>
+                <q-icon :name="route.icon"/>
+              </q-item-section>
+              <q-item-section>
+                {{ route.name }}
+              </q-item-section>
+            </q-item>
+          </q-list>
+        </q-scroll-area>
       </q-drawer>
     </div>
 

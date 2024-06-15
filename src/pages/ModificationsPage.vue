@@ -15,7 +15,7 @@ export default defineComponent({
     }
   },
   methods: {
-    getModifications () : Modification[] {
+    getModifications (): Modification[] {
       return modificationsJson.map(item => ({
         Modification: item.Modification,
         Type: item.Type,
@@ -31,7 +31,10 @@ export default defineComponent({
 </script>
 
 <template>
-  <AddItemComponent :receive-items="getModifications" type="Modification" @addItemToWishlist="getModification"/>
+  <q-page padding>
+    <div class="text-h4">Modifications</div>
+    <AddItemComponent :receive-items="getModifications" type="Modification" @addItemToWishlist="getModification"/>
+  </q-page>
 </template>
 
 <style scoped>

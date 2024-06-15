@@ -1,5 +1,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { Notify } from 'quasar'
+import { Modification } from 'src/data/Modification'
 
 export default defineComponent({
   name: 'ModificationsListComponent',
@@ -17,7 +19,7 @@ export default defineComponent({
   data () {
     return {
       items: [],
-      selectedItem: null
+      selectedItem: null as Modification | null
     }
   },
   created () {
@@ -27,11 +29,23 @@ export default defineComponent({
     onSubmit () {
       if (this.selectedItem != null) {
         this.$emit('addItemToWishlist', this.selectedItem)
+        Notify.create({
+          type: 'positive',
+          message: `${this.selectedItem.Modification} added to ${this.type} list`,
+          actions: [
+            {
+              icon: 'close',
+              color: 'white'
+            }]
+        })
         this.selectedItem = null
       }
     },
-    validateModification (val: unknown): boolean | string {
-      return !!val || `Please select a ${this.type}`
+    validateModification (value: Modification | null): boolean | string {
+      if (!value) {
+        return 'Selection is required'
+      }
+      return true
     }
   }
 })
@@ -39,12 +53,12 @@ export default defineComponent({
 
 <template>
   <q-form @submit="onSubmit" @reset="() => selectedItem = null">
-    <div class="row justify-around items-center">
+    <div class="row items-center">
       <div class="col-8">
-        <q-select filled v-model="selectedItem" :options="items" :label="type.toLowerCase()" :option-label="type" clearable use-input/>
+        <q-select filled v-model="selectedItem" :options="items" :label="type" :option-label="type" clearable use-input dense/>
       </div>
-      <div class="col-3 ">
-        <q-btn align="around" type="submit" label="Save modification" color="primary" icon="add" size="lg" :rules="[validateModification]" />
+      <div class="col-4">
+        <q-btn align="around" type="submit" label="Add" color="primary" icon="add" :rules="[validateModification]" />
       </div>
     </div>
   </q-form>
