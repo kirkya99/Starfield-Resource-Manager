@@ -19,7 +19,7 @@ const routes: RouteRecordRaw[] = [
         meta: { requiresAuth: true }
       },
       {
-        name: 'Mods',
+        name: 'Modifications',
         path: 'mods',
         component: () => import('pages/ModificationsPage.vue'),
         meta: { requiresAuth: true }
