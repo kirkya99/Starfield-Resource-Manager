@@ -1,5 +1,5 @@
 // src/types/Modification.ts
-import modificationsJson from 'src/data/modifications.json'
+import modificationsJson from 'src/json/modifications.json'
 
 export interface Modification {
   Modification: string;
@@ -20,11 +20,13 @@ export function getModifications (): Modification[] {
 export const Columns:
   {
     name: string;
-    label: string; field: string | ((row: Modification) => Modification);
+    label: string;
+    field?: string | ((row: Modification) => Modification) | undefined;
     required?: boolean | undefined;
     align?: 'left' | 'right' | 'center' | undefined;
     sortable?: boolean | undefined;
-    sort?: ((a: Modification, b: Modification, rowA: Modification, rowB: Modification) => number) | undefined;}[] =
+    sort?: ((a: Modification, b: Modification, rowA: Modification, rowB: Modification) => number) | undefined;
+  }[] =
   [
     {
       name: 'modification',
@@ -38,7 +40,7 @@ export const Columns:
     {
       name: 'type',
       label: 'Type',
-      field: 'Type',
+      field: 'Slot',
       required: false,
       align: 'left',
       sortable: false,
@@ -52,5 +54,15 @@ export const Columns:
       align: 'left',
       sortable: false,
       sort: undefined
+    },
+    {
+      name: 'action',
+      label: 'Action',
+      field: 'Slot',
+      required: false,
+      align: 'center',
+      sortable: false,
+      sort: undefined
     }
+
   ]

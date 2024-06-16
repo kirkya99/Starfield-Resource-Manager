@@ -1,12 +1,14 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { Notify } from 'quasar'
-import { getModifications, Modification, Columns } from 'src/data/Modification'
+import { Notify, useQuasar } from 'quasar'
+import { getModifications, Modification, Columns } from 'src/typescript/Modification'
 
 export default defineComponent({
   name: 'ModificationsListComponent',
+  components: {},
   data () {
     return {
+      $q: useQuasar(),
       modifications: [] as Modification[],
       selectedItem: null as Modification | null,
       myModifications: [] as Modification[],
@@ -16,7 +18,9 @@ export default defineComponent({
         sortBy: 'desc',
         descending: false,
         rowsPerPage: 20
-      }
+      },
+      deleteDialogOpened: false,
+      toBeDeleted: null as Modification | null
     }
   },
   created () {
@@ -47,6 +51,32 @@ export default defineComponent({
             }]
         })
       }
+    },
+    deleteRow (row: { key: string }) {
+      const toBeRemovedModificationIndex: number | null = this.myModifications.findIndex(modification => modification.Modification === row.key)
+
+      if (toBeRemovedModificationIndex !== -1) {
+        this.myModifications.splice(toBeRemovedModificationIndex, 1)
+        Notify.create({
+          type: 'positive',
+          message: `${row.key} removed from modifications list`,
+          actions: [
+            {
+              icon: 'close',
+              color: 'white'
+            }]
+        })
+      } else {
+        Notify.create({
+          type: 'negative',
+          message: `Error while removing: Failed to remove ${row.key} from modifications list`,
+          actions: [
+            {
+              icon: 'close',
+              color: 'white'
+            }]
+        })
+      }
     }
   }
 })
@@ -66,12 +96,34 @@ export default defineComponent({
     </div>
     <div class="col-md-9 col-xs-12 q-mt-md">
       <q-table flat bordered :rows="myModifications" :columns="modsColumns" row-key="Modification"
-               :pagination="initialPagination" style="height: 70vh" hide-no-data >
+               :pagination="initialPagination" style="max-height: 70vh">
+        <template v-slot:header="props">
+          <q-tr :props="props">
+            <q-th
+              v-for="col in props.cols"
+              :key="col.name"
+              :props="props"
+              class="sticky-header"
+            >
+              {{ col.label }}
+            </q-th>
+          </q-tr>
+        </template>
+        <template v-slot:body-cell-action="props">
+          <q-td key="action" :props="props">
+            <q-btn flat round icon="delete" @click="deleteRow(props)"></q-btn>
+          </q-td>
+        </template>
       </q-table>
     </div>
   </div>
 </template>
 
 <style scoped>
-
+.sticky-header {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 1;
+}
 </style>
