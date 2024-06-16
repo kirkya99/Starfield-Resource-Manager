@@ -10,27 +10,23 @@ export default defineComponent({
     dialogCancelColor: String,
     dialogText: String,
     dialogOpened: Boolean,
-    dialogIcon: String,
-    dialogBackgroundColor: String,
-    dialogTextColor: String
+    dialogIcon: String
   },
-  emits: ['onConfirm'],
+  emits: ['onConfirmation'],
   data () {
     return {
-      confirmText: this.dialogCancelText as string,
+      confirmText: this.dialogConfirmText as string,
       cancelText: this.dialogCancelText as string,
       confirmColor: this.dialogConfirmColor as string,
       cancelColor: this.dialogCancelColor as string,
-      text: this.dialogText as string,
+      dialogMessage: this.dialogText as string,
       opened: this.dialogOpened as boolean,
-      icon: this.dialogIcon as string,
-      backgroundColor: this.dialogBackgroundColor as string,
-      textColor: this.dialogTextColor as string
+      icon: this.dialogIcon as string
     }
   },
   methods: {
     onConfirm () {
-      this.$emit('onConfirm')
+      this.$emit('onConfirmation')
       this.opened = false
     },
     onCancel () {
@@ -44,8 +40,8 @@ export default defineComponent({
   <q-dialog v-model="opened" persistent>
     <q-card>
       <q-card-section class="row items-center">
-        <q-avatar :icon="icon" :color="backgroundColor" :text-color="textColor" />
-        <span class="q-ml-sm">{{ text }}</span>
+        <q-avatar flat :icon="icon" :text-color="confirmColor" />
+        <span class="q-ml-sm">{{ dialogMessage }}</span>
       </q-card-section>
 
       <q-card-actions align="right">

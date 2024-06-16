@@ -1,18 +1,19 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
+import LoginComponent from 'components/LoginComponent.vue'
 // import LoginComponent from 'components/LoginComponent.vue'
 
 export default defineComponent({
   name: 'LoginPage',
   components: {
+    LoginComponent
   }
 })
 </script>
 
 <template>
-<!--    <LoginComponent />-->
   <q-page padding>
-    Login or Register here
+    <LoginComponent />
   </q-page>
 </template>
 

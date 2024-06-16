@@ -1,21 +1,30 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import packageJson from '../../package.json'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 
 export default defineComponent({
   name: 'MainLayout',
   data () {
     return {
       router: useRouter(),
+      route: useRoute(),
+      showHeaderAndDrawer: true,
       leftDrawerOpen: false,
       version: packageJson.version,
       selectedItem: '',
-      homeRoute: { name: 'Home', path: '/home', separator: true, icon: 'home' },
-      modsRoute: { name: 'Modifications', path: '/mods', separator: false, icon: 'build' },
-      researchRoute: { name: 'Research', path: '/research', separator: false, icon: 'science' },
-      outpostModulesRoute: { name: 'Outpost modules', path: '/outpost', separator: false, icon: 'flag' }
+      homeRoute: { name: 'Home', path: '/home', icon: 'home' },
+      modsRoute: { name: 'Modifications', path: '/mods', icon: 'build' },
+      researchRoute: { name: 'Research', path: '/research', icon: 'science' },
+      outpostModulesRoute: { name: 'Outpost modules', path: '/outpost', icon: 'flag' },
+      logoutRoute: { name: 'Logout', path: '/', icon: 'logout' }
     }
+  },
+  mounted () {
+    this.checkRoute()
+  },
+  updated () {
+    this.checkRoute()
   },
   methods: {
     toggleLeftDrawer () {
@@ -24,7 +33,13 @@ export default defineComponent({
     navigate (name: string, path: string) {
       this.selectedItem = name
       this.router.push(path)
+    },
+    checkRoute () {
+      console.log(this.route.name)
+
+      this.showHeaderAndDrawer = this.route.name !== 'Login'
     }
+
   }
 })
 
@@ -33,7 +48,7 @@ export default defineComponent({
 <template>
 
   <q-layout view="hHh Lpr lFf">
-    <q-header elevated>
+    <q-header v-if="showHeaderAndDrawer" elevated>
       <q-toolbar class="row justify-between">
         <q-btn
           flat
@@ -51,7 +66,10 @@ export default defineComponent({
                 <q-item-section>Profile</q-item-section>
               </q-item>
               <q-separator/>
-              <q-item clickable v-close-popup>
+              <q-item clickable v-close-popup dense>
+                <q-item-section>
+                  <q-avatar icon="logout" />
+                </q-item-section>
                 <q-item-section>Logout</q-item-section>
               </q-item>
             </q-list>
@@ -60,10 +78,10 @@ export default defineComponent({
       </q-toolbar>
     </q-header>
 
-    <q-drawer show-if-above v-model=" leftDrawerOpen" side="left" elevated>
+    <q-drawer v-if="showHeaderAndDrawer" show-if-above v-model=" leftDrawerOpen" side="left" elevated>
       <q-scroll-area class="fit">
         <q-list>
-          <q-item clickable @click="navigate(homeRoute.name, homeRoute.path)" :active="homeRoute.name === selectedItem"
+          <q-item clickable @click="navigate(homeRoute.name, homeRoute.path)" :active="homeRoute.name === route.name"
                   v-ripple>
             <q-item-section avatar>
               <q-icon :name="homeRoute.icon"/>
@@ -103,6 +121,15 @@ export default defineComponent({
             </q-item-section>
           </q-item>
           <q-separator/>
+          <q-item clickable @click="navigate(logoutRoute.name, logoutRoute.path)"
+                  v-ripple>
+            <q-item-section avatar>
+              <q-icon :name="logoutRoute.icon"/>
+            </q-item-section>
+            <q-item-section>
+              {{ logoutRoute.name }}
+            </q-item-section>
+          </q-item>
         </q-list>
       </q-scroll-area>
     </q-drawer>

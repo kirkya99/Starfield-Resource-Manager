@@ -2,10 +2,13 @@
 import { defineComponent } from 'vue'
 import { Notify, useQuasar } from 'quasar'
 import { getModifications, Modification, Columns } from 'src/typescript/Modification'
+import DeleteRowDialogComponent from 'components/DialogComponent.vue'
 
 export default defineComponent({
   name: 'ModificationsListComponent',
-  components: {},
+  components: {
+    DeleteRowDialogComponent
+  },
   data () {
     return {
       $q: useQuasar(),
@@ -20,7 +23,8 @@ export default defineComponent({
         rowsPerPage: 20
       },
       deleteDialogOpened: false,
-      toBeDeleted: null as Modification | null
+      toBeDeletedName: null as string | null,
+      selectedButton: false
     }
   },
   created () {
@@ -52,14 +56,18 @@ export default defineComponent({
         })
       }
     },
-    deleteRow (row: { key: string }) {
-      const toBeRemovedModificationIndex: number | null = this.myModifications.findIndex(modification => modification.Modification === row.key)
+    callDeleteDialog (row: { key: string }) {
+      this.toBeDeletedName = row.key
+      this.deleteDialogOpened = true
+    },
+    deleteRow () {
+      const toBeRemovedModificationIndex: number | null = this.myModifications.findIndex(modification => modification.Modification === this.toBeDeletedName)
 
       if (toBeRemovedModificationIndex !== -1) {
         this.myModifications.splice(toBeRemovedModificationIndex, 1)
         Notify.create({
           type: 'positive',
-          message: `${row.key} removed from modifications list`,
+          message: `${this.toBeDeletedName} removed from modifications list`,
           actions: [
             {
               icon: 'close',
@@ -69,7 +77,7 @@ export default defineComponent({
       } else {
         Notify.create({
           type: 'negative',
-          message: `Error while removing: Failed to remove ${row.key} from modifications list`,
+          message: 'Error while removing: Failed to remove item from modifications list',
           actions: [
             {
               icon: 'close',
@@ -111,12 +119,19 @@ export default defineComponent({
         </template>
         <template v-slot:body-cell-action="props">
           <q-td key="action" :props="props">
-            <q-btn flat round icon="delete" @click="deleteRow(props)"></q-btn>
+            <q-btn flat round icon="delete" @click="callDeleteDialog(props)"></q-btn>
           </q-td>
         </template>
       </q-table>
     </div>
   </div>
+
+  <DeleteRowDialogComponent :dialogConfirmText="'Delete'" :dialogCancelText="'Cancel'" :dialogConfirmColor="'negative'"
+                            :dialogCancelColor="'primary'"
+                            :dialogText="`Remove ${toBeDeletedName} from modifications list?`"
+                            :dialogOpened="deleteDialogOpened" @update:dialogOpened="deleteDialogOpened = $event"
+                            @onConfirmation="deleteRow"/>
+
 </template>
 
 <style scoped>
