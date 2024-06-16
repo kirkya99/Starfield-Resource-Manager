@@ -21,11 +21,11 @@ export const Columns:
   {
     name: string;
     label: string;
-    field?: string | ((row: Modification) => Modification) | undefined;
-    required?: boolean | undefined;
-    align?: 'left' | 'right' | 'center' | undefined;
-    sortable?: boolean | undefined;
-    sort?: ((a: Modification, b: Modification, rowA: Modification, rowB: Modification) => number) | undefined;
+    field: string | ((row: Modification) => Modification);
+    required?: boolean;
+    align?: 'left' | 'right' | 'center';
+    sortable?: boolean;
+    sort?: ((a: Modification, b: Modification, rowA: Modification, rowB: Modification) => number);
   }[] =
   [
     {
@@ -58,11 +58,10 @@ export const Columns:
     {
       name: 'action',
       label: 'Action',
-      field: 'Slot',
+      field: 'Action',
       required: false,
       align: 'center',
       sortable: false,
       sort: undefined
     }
-
   ]
