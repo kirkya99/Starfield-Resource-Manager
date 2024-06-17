@@ -26,6 +26,7 @@ export const Columns:
     align?: 'left' | 'right' | 'center';
     sortable?: boolean;
     sort?: ((a: Modification, b: Modification, rowA: Modification, rowB: Modification) => number);
+    style: string;
   }[] =
   [
     {
@@ -35,7 +36,8 @@ export const Columns:
       required: false,
       align: 'left',
       sortable: false,
-      sort: undefined
+      sort: undefined,
+      style: 'width: 45%'
     },
     {
       name: 'type',
@@ -44,7 +46,8 @@ export const Columns:
       required: false,
       align: 'left',
       sortable: false,
-      sort: undefined
+      sort: undefined,
+      style: 'width: 25%'
     },
     {
       name: 'slot',
@@ -53,15 +56,17 @@ export const Columns:
       required: false,
       align: 'left',
       sortable: false,
-      sort: undefined
+      sort: undefined,
+      style: 'width: 25%'
     },
     {
       name: 'action',
-      label: 'Action',
+      label: '',
       field: 'Action',
       required: false,
       align: 'center',
       sortable: false,
-      sort: undefined
+      sort: undefined,
+      style: 'width: 5%'
     }
   ]

@@ -16,8 +16,8 @@ export default defineComponent({
       researchRoute: { name: 'Research', path: '/research', icon: 'science' },
       outpostModulesRoute: { name: 'Outpost modules', path: '/outpost', icon: 'flag' },
       profileRoute: { name: 'Profile', path: '/profile', icon: 'person' },
-      logoutRoute: { name: 'Logout', path: '/', icon: 'logout' }
-
+      logoutRoute: { name: 'Logout', path: '/', icon: 'logout' },
+      onLogoutOpened: false
     }
   },
   mounted () {
@@ -35,6 +35,9 @@ export default defineComponent({
     },
     checkRoute () {
       this.showHeaderAndDrawer = this.route.name !== 'Login'
+    },
+    logout () {
+      this.router.push(this.logoutRoute.path)
     }
 
   }
@@ -52,12 +55,12 @@ export default defineComponent({
           dense
           round
           icon="menu"
-          aria-label="Menu"
+          aria-label="Navigation Menu"
           @click="toggleLeftDrawer"
         />
 
-        <q-btn round icon="more_vert" unelevated>
-          <q-menu>
+        <q-btn round icon="more_vert" unelevated aria-label="Personal Menu">
+          <q-menu cover>
             <q-list>
               <q-item clickable v-close-popup @click="navigate(profileRoute.path)">
                 <q-item-section avatar>
@@ -66,7 +69,7 @@ export default defineComponent({
                 <q-item-section>{{ profileRoute.name }}</q-item-section>
               </q-item>
               <q-separator/>
-              <q-item clickable v-close-popup @click="navigate(logoutRoute.path)">
+              <q-item clickable v-close-popup @click="() => onLogoutOpened = true">
                 <q-item-section avatar>
                   <q-icon :name="logoutRoute.icon"/>
                 </q-item-section>
@@ -135,4 +138,19 @@ export default defineComponent({
       <router-view/>
     </q-page-container>
   </q-layout>
+
+  <q-dialog v-model="onLogoutOpened" persistent>
+    <q-card>
+      <q-card-section avatar class="row items-center">
+        <q-avatar icon="logout" text-color="primary"></q-avatar>
+        <span class="q-ml-sm">Do you want to logout?</span>
+      </q-card-section>
+
+      <q-card-actions align="right">
+        <q-btn flat label="Cancel" color="primary" v-close-popup></q-btn>
+        <q-btn label="Logout" color="primary" v-close-popup @click="logout"></q-btn>
+      </q-card-actions>
+    </q-card>
+  </q-dialog>
+
 </template>

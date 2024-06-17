@@ -16,18 +16,14 @@ export default defineComponent({
     onSubmit () {
       console.log(`Email: ${this.email}; Password: ${this.password}`)
       this.router.push('/home')
-    },
-    onReset () {
-      this.email = null
-      this.password = null
     }
   }
 })
 </script>
 
-<template >
+<template>
   <div class="row justify-center">
-  <q-card class="col-md-3">
+  <q-card class="col-md-2">
     <q-form @submit="onSubmit" class="q-ma-md q-gutter-y-md">
       <div class="text-h5">Login</div>
       <q-input v-model="email" filled type="email" dense label="Email" lazy-rules  :rules="[val => !!val || 'Email field is required']" />
@@ -42,7 +38,6 @@ export default defineComponent({
       </q-input>
       <div>
         <q-btn label="Login" type="submit" color="primary"/>
-        <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
       </div>
     </q-form>
   </q-card>
