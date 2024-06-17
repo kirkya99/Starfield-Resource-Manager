@@ -40,7 +40,7 @@ export const Columns:
     {
       name: 'type',
       label: 'Type',
-      field: 'Slot',
+      field: 'Type',
       required: false,
       align: 'left',
       sortable: false,

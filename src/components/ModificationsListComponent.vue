@@ -2,13 +2,9 @@
 import { defineComponent } from 'vue'
 import { Notify, useQuasar } from 'quasar'
 import { getModifications, Modification, Columns } from 'src/typescript/Modification'
-import DeleteRowDialogComponent from 'components/DialogComponent.vue'
 
 export default defineComponent({
   name: 'ModificationsListComponent',
-  components: {
-    DeleteRowDialogComponent
-  },
   data () {
     return {
       $q: useQuasar(),
@@ -126,11 +122,19 @@ export default defineComponent({
     </div>
   </div>
 
-  <DeleteRowDialogComponent :dialogConfirmText="'Delete'" :dialogCancelText="'Cancel'" :dialogConfirmColor="'negative'"
-                            :dialogCancelColor="'primary'"
-                            :dialogText="`Remove ${toBeDeletedName} from modifications list?`"
-                            :dialogOpened="deleteDialogOpened" @update:dialogOpened="deleteDialogOpened = $event"
-                            @onConfirmation="deleteRow"/>
+  <q-dialog v-model="deleteDialogOpened" persistent>
+    <q-card>
+      <q-card-section avatar class="row items-center">
+        <q-avatar icon="delete" text-color="negative"></q-avatar>
+        <span class="q-ml-sm">{{ `Remove ${toBeDeletedName} from modifications list?` }}</span>
+      </q-card-section>
+
+      <q-card-actions align="right">
+        <q-btn flat label="Cancel" color="primary" v-close-popup></q-btn>
+        <q-btn label="Delete" color="negative" v-close-popup @click="deleteRow"></q-btn>
+      </q-card-actions>
+    </q-card>
+  </q-dialog>
 
 </template>
 

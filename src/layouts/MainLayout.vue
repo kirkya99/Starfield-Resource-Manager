@@ -57,7 +57,7 @@ export default defineComponent({
         />
 
         <q-btn round icon="person" unelevated>
-          <q-menu>
+          <q-menu fit anchor="top right" self="top right">
             <q-list>
               <q-item clickable v-close-popup @click="navigate(profileRoute.path)">
                 <q-item-section avatar>
