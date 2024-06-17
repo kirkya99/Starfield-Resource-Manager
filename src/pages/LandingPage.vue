@@ -23,8 +23,8 @@ export default defineComponent({
       <div class="text-h4 col-12 text-center">Starfield Resource Manager</div>
       <div class="col-md-2 q-pt-md q-mt-md">
       <q-btn-group outline spread>
-        <q-btn :outline="!loginSelected" color="primary" label="Login" @click="() => loginSelected = !loginSelected" />
-        <q-btn :outline="loginSelected" color="primary" label="Register" @click="() => loginSelected = !loginSelected" />
+        <q-btn :outline="!loginSelected" color="primary" label="Login" @click="() => loginSelected = true" />
+        <q-btn :outline="loginSelected" color="primary" label="Register" @click="() => loginSelected = false" />
       </q-btn-group>
       </div>
       <div class="col-12 q-pt-md q-mt-md">

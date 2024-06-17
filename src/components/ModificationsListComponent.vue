@@ -9,9 +9,10 @@ export default defineComponent({
     return {
       $q: useQuasar(),
       modifications: [] as Modification[],
+      filteredModifications: [] as Modification[],
       selectedItem: null as Modification | null,
       myModifications: [] as Modification[],
-      filterValue: null as string | null,
+      filterValue: '',
       modsColumns: Columns,
       initialPagination: {
         sortBy: 'desc',
@@ -94,7 +95,7 @@ export default defineComponent({
     <div class="col-md-9 col-y-xs-12">
       <q-form @submit="onSubmit" @reset="() => selectedItem = null" class="row text-body1 q-gutter-sm">
         <q-select outlined v-model="selectedItem" use-input input-debounce="0" label="Modifications"
-                  :options="modifications" option-label="Modification" clearable dense style="width: 60%"/>
+                  :options="modifications" option-label="Modification" clearable dense style="width: 60%" />
         <q-btn align="around" type="submit" label="Add" color="primary" icon="add"/>
       </q-form>
     </div>
