@@ -56,8 +56,8 @@ export default defineComponent({
           @click="toggleLeftDrawer"
         />
 
-        <q-btn round icon="person" unelevated>
-          <q-menu fit anchor="top right" self="top right">
+        <q-btn round icon="more_vert" unelevated>
+          <q-menu>
             <q-list>
               <q-item clickable v-close-popup @click="navigate(profileRoute.path)">
                 <q-item-section avatar>
