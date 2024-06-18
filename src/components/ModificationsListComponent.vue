@@ -154,10 +154,5 @@ function filterFn (val: string, update: (callback: () => void) => void, abort: (
 </template>
 
 <style scoped>
-.sticky-header {
-  position: sticky;
-  top: 0;
-  background-color: white;
-  z-index: 1;
-}
+
 </style>
