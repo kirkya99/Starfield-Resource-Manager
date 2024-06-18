@@ -1,46 +1,43 @@
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, onMounted, ref } from 'vue'
 import { Notify, useQuasar } from 'quasar'
 import { getModifications, Modification, Columns } from 'src/typescript/Modification'
 
 export default defineComponent({
   name: 'ModificationsListComponent',
-  data () {
-    return {
-      $q: useQuasar(),
-      modifications: [] as Modification[],
-      filteredModifications: [] as Modification[],
-      selectedItem: null as Modification | null,
-      myModifications: [] as Modification[],
-      filterValue: '',
-      modsColumns: Columns,
-      initialPagination: {
-        sortBy: 'desc',
-        descending: false,
-        rowsPerPage: 20
-      },
-      deleteDialogOpened: false,
-      toBeDeletedName: null as string | null,
-      selectedButton: false
-    }
-  },
-  created () {
-    this.modifications = getModifications()
-  },
-  methods: {
-    onSubmit () {
-      if (this.selectedItem != null) {
-        this.myModifications.push(this.selectedItem)
+  setup () {
+    const $q = useQuasar()
+    const modifications = ref<Modification[]>([])
+    const selectedItem = ref<Modification | null>(null)
+    const myModifications = ref<Modification[]>([])
+    const searchTerm = ref<string>('')
+    const modsColumns = ref<typeof Columns>(Columns)
+    const initialPagination = ref({
+      sortBy: 'desc',
+      descending: false,
+      rowsPerPage: 20
+    })
+    const deleteDialogOpened = ref(false)
+    const toBeDeletedName = ref<string | null>(null)
+    const selectedButton = ref(false)
+
+    onMounted(() => {
+      modifications.value = getModifications()
+    })
+
+    const onSubmit = () => {
+      if (selectedItem.value != null) {
+        myModifications.value.push(selectedItem.value)
         Notify.create({
           type: 'positive',
-          message: `${this.selectedItem.Modification} added to modifications list`,
+          message: `${selectedItem.value.Modification} added to modifications list`,
           actions: [
             {
               icon: 'close',
               color: 'white'
             }]
         })
-        this.selectedItem = null
+        selectedItem.value = null
       } else {
         Notify.create({
           type: 'negative',
@@ -52,19 +49,21 @@ export default defineComponent({
             }]
         })
       }
-    },
-    callDeleteDialog (row: { key: string }) {
-      this.toBeDeletedName = row.key
-      this.deleteDialogOpened = true
-    },
-    deleteRow () {
-      const toBeRemovedModificationIndex: number | null = this.myModifications.findIndex(modification => modification.Modification === this.toBeDeletedName)
+    }
+
+    const callDeleteDialog = (row: { key: string }) => {
+      toBeDeletedName.value = row.key
+      deleteDialogOpened.value = true
+    }
+
+    const deleteRow = () => {
+      const toBeRemovedModificationIndex: number | null = myModifications.value.findIndex(modification => modification.Modification === toBeDeletedName.value)
 
       if (toBeRemovedModificationIndex !== -1) {
-        this.myModifications.splice(toBeRemovedModificationIndex, 1)
+        myModifications.value.splice(toBeRemovedModificationIndex, 1)
         Notify.create({
           type: 'positive',
-          message: `${this.toBeDeletedName} removed from modifications list`,
+          message: `${toBeDeletedName.value} removed from modifications list`,
           actions: [
             {
               icon: 'close',
@@ -83,6 +82,30 @@ export default defineComponent({
         })
       }
     }
+
+    function filterFn (val: string, update: (callback: () => void) => void) {
+      update(() => {
+        const needle = val.toLocaleLowerCase()
+        modifications.value = getModifications().filter(m => m.Modification.toLocaleLowerCase().includes(needle))
+      })
+    }
+
+    return {
+      $q,
+      selectedItem,
+      myModifications,
+      searchTerm,
+      modsColumns,
+      initialPagination,
+      deleteDialogOpened,
+      toBeDeletedName,
+      selectedButton,
+      onSubmit,
+      callDeleteDialog,
+      deleteRow,
+      filterFn,
+      modifications
+    }
   }
 })
 </script>
@@ -95,8 +118,17 @@ export default defineComponent({
     <div class="col-md-9 col-y-xs-12">
       <q-form @submit="onSubmit" @reset="() => selectedItem = null" class="row text-body1 q-gutter-sm">
         <q-select outlined v-model="selectedItem" use-input input-debounce="0" label="Modifications"
-                  :options="modifications" option-label="Modification" clearable dense style="width: 60%" />
-        <q-btn align="around" type="submit" label="Add" color="primary" icon="add"/>
+                  :options="modifications" option-label="Modification"
+                  clearable dense @filter="filterFn" style="width: 100%">
+          <template v-slot:no-option>
+            <q-item>
+              <q-item-section class="text-grey">
+                No results
+              </q-item-section>
+            </q-item>
+          </template>
+        </q-select>
+        <q-btn align="around" type="submit" label="Add" color="primary" icon="add" :disabled="selectedItem === null"/>
       </q-form>
     </div>
     <div class="col-md-9 col-xs-12 q-mt-md">
