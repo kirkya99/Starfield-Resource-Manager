@@ -37,6 +37,8 @@ export default route(function (/* { store, ssrContext } */) {
     if (to.meta.requiresAuth) {
       if (!authorized && to.name !== 'Login') {
         return { name: 'Login' }
+      } else  if (authorized && to.name === 'Login') {
+        return { name: 'Home' }
       }
     }
   })
