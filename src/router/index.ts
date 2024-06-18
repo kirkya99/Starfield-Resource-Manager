@@ -38,6 +38,9 @@ export default route(function (/* { store, ssrContext } */) {
       if (!authorized && to.name !== 'Login') {
         return { name: 'Login' }
       }
+      if (authorized && to.name === 'Login') {
+        return { name: 'Home' }
+      }
     }
   })
 
