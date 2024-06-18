@@ -1,20 +1,9 @@
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
+import { ref } from 'vue'
 import LoginComponent from 'components/LoginComponent.vue'
 import RegisterComponent from 'components/RegisterComponent.vue'
 
-export default defineComponent({
-  name: 'LoginPage',
-  components: {
-    RegisterComponent,
-    LoginComponent
-  },
-  data () {
-    return {
-      loginSelected: true
-    }
-  }
-})
+const loginSelected = ref<boolean>(true)
 </script>
 
 <template>

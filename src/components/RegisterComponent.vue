@@ -1,24 +1,16 @@
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
+import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
-export default defineComponent({
-  name: 'RegisterComponent',
-  data () {
-    return {
-      router: useRouter(),
-      email: null as string | null,
-      password: null as string | null,
-      isPwd: true
-    }
-  },
-  methods: {
-    onSubmit () {
-      console.log(`Email: ${this.email}; Password: ${this.password}`)
-      this.router.push('/home')
-    }
-  }
-})
+const router = useRouter()
+const email = ref<string | null>(null)
+const password = ref<string | null>(null)
+const isPwd = ref<boolean>(true)
+
+const onSubmit = () => {
+  console.log(`Email: ${email.value}; Password: ${password.value}`)
+  router.push('/home')
+}
 </script>
 
 <template>

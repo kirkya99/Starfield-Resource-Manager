@@ -1,46 +1,46 @@
-<script lang="ts">
-import { defineComponent } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
+<script setup lang="ts">
+import { onMounted, ref } from 'vue'
+import { useRouter, useRoute, RouteLocationNormalized } from 'vue-router'
 
-export default defineComponent({
-  name: 'MainLayout',
-  data () {
-    return {
-      router: useRouter(),
-      route: useRoute(),
-      showHeaderAndDrawer: true,
-      leftDrawerOpen: false,
-      homeRoute: { name: 'Home', path: '/home', icon: 'home' },
-      shoppingListRoute: { name: 'Shopping list', path: '/shoppingList', icon: 'shopping_cart' },
-      modsRoute: { name: 'Modifications', path: '/mods', icon: 'build' },
-      researchRoute: { name: 'Research', path: '/research', icon: 'science' },
-      outpostModulesRoute: { name: 'Outpost modules', path: '/outpost', icon: 'flag' },
-      profileRoute: { name: 'Profile', path: '/profile', icon: 'person' },
-      logoutRoute: { name: 'Logout', path: '/', icon: 'logout' },
-      onLogoutOpened: false
-    }
-  },
-  mounted () {
-    this.checkRoute()
-  },
-  updated () {
-    this.checkRoute()
-  },
-  methods: {
-    toggleLeftDrawer () {
-      this.leftDrawerOpen = !this.leftDrawerOpen
-    },
-    navigate (path: string) {
-      this.router.push(path)
-    },
-    checkRoute () {
-      this.showHeaderAndDrawer = this.route.name !== 'Login'
-    },
-    logout () {
-      this.router.push(this.logoutRoute.path)
-    }
+const router = useRouter()
+const route = useRoute()
+const showHeaderAndDrawer = ref<boolean>(true)
+const leftDrawerOpen = ref<boolean>(false)
+const onLogoutOpened = ref<boolean>(false)
 
-  }
+interface routeDef {
+  name: string;
+  path: string;
+  icon: string;
+}
+const homeRoute = ref<routeDef>({ name: 'Home', path: '/home', icon: 'home' })
+const shoppingListRoute = ref<routeDef>({ name: 'Shopping list', path: '/shoppingList', icon: 'shopping_cart' })
+const modsRoute = ref<routeDef>({ name: 'Modifications', path: '/mods', icon: 'build' })
+const researchRoute = ref<routeDef>({ name: 'Research', path: '/research', icon: 'science' })
+const outpostModulesRoute = ref<routeDef>({ name: 'Outpost modules', path: '/outpost', icon: 'flag' })
+const profileRoute = ref<routeDef>({ name: 'Profile', path: '/profile', icon: 'person' })
+const logoutRoute = ref<routeDef>({ name: 'Logout', path: '/', icon: 'logout' })
+
+const toggleLeftDrawer = () => {
+  leftDrawerOpen.value = !leftDrawerOpen.value
+}
+
+const navigate = (path: string) => {
+  router.push(path)
+}
+
+const checkRoute = () => {
+  showHeaderAndDrawer.value = route.name !== 'Login'
+}
+
+const logout = () => {
+  router.push(logoutRoute.value.path)
+}
+
+onMounted(() => checkRoute())
+
+router.beforeEach((to: RouteLocationNormalized) => {
+  showHeaderAndDrawer.value = to.name !== 'Login'
 })
 
 </script>

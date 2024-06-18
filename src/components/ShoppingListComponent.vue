@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  $END$
+  Shopping List
 </template>
 
 <style scoped>

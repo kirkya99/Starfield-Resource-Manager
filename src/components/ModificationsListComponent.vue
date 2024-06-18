@@ -1,113 +1,93 @@
-<script lang="ts">
-import { defineComponent, onMounted, ref } from 'vue'
-import { Notify, useQuasar } from 'quasar'
+<script setup lang="ts">
+import { onMounted, ref } from 'vue'
+import { Notify } from 'quasar'
 import { getModifications, Modification, Columns } from 'src/typescript/Modification'
 
-export default defineComponent({
-  name: 'ModificationsListComponent',
-  setup () {
-    const $q = useQuasar()
-    const modifications = ref<Modification[]>([])
-    const selectedItem = ref<Modification | null>(null)
-    const myModifications = ref<Modification[]>([])
-    const searchTerm = ref<string>('')
-    const modsColumns = ref<typeof Columns>(Columns)
-    const initialPagination = ref({
-      sortBy: 'desc',
-      descending: false,
-      rowsPerPage: 20
-    })
-    const deleteDialogOpened = ref(false)
-    const toBeDeletedName = ref<string | null>(null)
-    const selectedButton = ref(false)
-
-    onMounted(() => {
-      modifications.value = getModifications()
-    })
-
-    const onSubmit = () => {
-      if (selectedItem.value != null) {
-        myModifications.value.push(selectedItem.value)
-        Notify.create({
-          type: 'positive',
-          message: `${selectedItem.value.Modification} added to modifications list`,
-          actions: [
-            {
-              icon: 'close',
-              color: 'white'
-            }]
-        })
-        selectedItem.value = null
-      } else {
-        Notify.create({
-          type: 'negative',
-          message: 'Error: No modification selected.',
-          actions: [
-            {
-              icon: 'close',
-              color: 'white'
-            }]
-        })
-      }
-    }
-
-    const callDeleteDialog = (row: { key: string }) => {
-      toBeDeletedName.value = row.key
-      deleteDialogOpened.value = true
-    }
-
-    const deleteRow = () => {
-      const toBeRemovedModificationIndex: number | null = myModifications.value.findIndex(modification => modification.Modification === toBeDeletedName.value)
-
-      if (toBeRemovedModificationIndex !== -1) {
-        myModifications.value.splice(toBeRemovedModificationIndex, 1)
-        Notify.create({
-          type: 'positive',
-          message: `${toBeDeletedName.value} removed from modifications list`,
-          actions: [
-            {
-              icon: 'close',
-              color: 'white'
-            }]
-        })
-      } else {
-        Notify.create({
-          type: 'negative',
-          message: 'Error while removing: Failed to remove item from modifications list',
-          actions: [
-            {
-              icon: 'close',
-              color: 'white'
-            }]
-        })
-      }
-    }
-
-    function filterFn (val: string, update: (callback: () => void) => void) {
-      update(() => {
-        const needle = val.toLocaleLowerCase()
-        modifications.value = getModifications().filter(m => m.Modification.toLocaleLowerCase().includes(needle))
-      })
-    }
-
-    return {
-      $q,
-      selectedItem,
-      myModifications,
-      searchTerm,
-      modsColumns,
-      initialPagination,
-      deleteDialogOpened,
-      toBeDeletedName,
-      selectedButton,
-      onSubmit,
-      callDeleteDialog,
-      deleteRow,
-      filterFn,
-      modifications
-    }
-  }
+const modifications = ref<Modification[]>([])
+const selectedItem = ref<Modification | null>(null)
+const myModifications = ref<Modification[]>([])
+const modsColumns = ref<typeof Columns>(Columns)
+const initialPagination = ref({
+  sortBy: 'desc',
+  descending: false,
+  rowsPerPage: 20
 })
+const deleteDialogOpened = ref(false)
+const toBeDeletedName = ref<string | null>(null)
+
+onMounted(() => {
+  modifications.value = getModifications()
+})
+
+const onSubmit = () => {
+  if (selectedItem.value != null) {
+    myModifications.value.push(selectedItem.value)
+    Notify.create({
+      type: 'positive',
+      message: `${selectedItem.value.Modification} added to modifications list`,
+      actions: [
+        {
+          icon: 'close',
+          color: 'white'
+        }]
+    })
+    selectedItem.value = null
+  } else {
+    Notify.create({
+      type: 'negative',
+      message: 'Error: No modification selected.',
+      actions: [
+        {
+          icon: 'close',
+          color: 'white'
+        }]
+    })
+  }
+}
+
+const callDeleteDialog = (row: { key: string }) => {
+  toBeDeletedName.value = row.key
+  deleteDialogOpened.value = true
+}
+
+const deleteRow = () => {
+  const toBeRemovedModificationIndex: number | null = myModifications.value.findIndex(modification => modification.Modification === toBeDeletedName.value)
+
+  if (toBeRemovedModificationIndex !== -1) {
+    myModifications.value.splice(toBeRemovedModificationIndex, 1)
+    Notify.create({
+      type: 'positive',
+      message: `${toBeDeletedName.value} removed from modifications list`,
+      actions: [
+        {
+          icon: 'close',
+          color: 'white'
+        }]
+    })
+  } else {
+    Notify.create({
+      type: 'negative',
+      message: 'Error while removing: Failed to remove item from modifications list',
+      actions: [
+        {
+          icon: 'close',
+          color: 'white'
+        }]
+    })
+  }
+}
+
+function filterFn (val: string, update: (callback: () => void) => void, abort: () => void) {
+  if (val.length < 2) {
+    abort()
+    return
+  }
+
+  update(() => {
+    const needle = val.toLocaleLowerCase()
+    modifications.value = getModifications().filter(m => m.Modification.toLocaleLowerCase().includes(needle))
+  })
+}
 </script>
 
 <template>
@@ -117,7 +97,7 @@ export default defineComponent({
     </div>
     <div class="col-md-9 col-y-xs-12">
       <q-form @submit="onSubmit" @reset="() => selectedItem = null" class="row text-body1 q-gutter-sm">
-        <q-select outlined v-model="selectedItem" use-input input-debounce="0" label="Modifications"
+        <q-select v-model="selectedItem" use-input input-debounce="0" label="Modifications"
                   :options="modifications" option-label="Modification"
                   clearable dense @filter="filterFn" style="width: 100%">
           <template v-slot:no-option>
@@ -155,6 +135,7 @@ export default defineComponent({
     </div>
   </div>
 
+  <!-- Delete dialog -->
   <q-dialog v-model="deleteDialogOpened" persistent>
     <q-card>
       <q-card-section avatar class="row items-center">
@@ -169,6 +150,7 @@ export default defineComponent({
     </q-card>
   </q-dialog>
 
+<!-- TODO: Add Details dialog -->
 </template>
 
 <style scoped>
