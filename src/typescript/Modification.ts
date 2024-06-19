@@ -35,7 +35,7 @@ export const Columns:
       field: 'Modification',
       required: false,
       align: 'left',
-      sortable: false,
+      sortable: true,
       sort: undefined,
       style: 'width: 45%'
     },
@@ -45,7 +45,7 @@ export const Columns:
       field: 'Type',
       required: false,
       align: 'left',
-      sortable: false,
+      sortable: true,
       sort: undefined,
       style: 'width: 25%'
     },
@@ -55,7 +55,7 @@ export const Columns:
       field: 'Slot',
       required: false,
       align: 'left',
-      sortable: false,
+      sortable: true,
       sort: undefined,
       style: 'width: 25%'
     },
