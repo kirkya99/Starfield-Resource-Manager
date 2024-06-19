@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import { useRouter, useRoute, RouteLocationNormalized } from 'vue-router'
+import { useSessionStore } from 'stores/useSessionStore'
 
+const sessionStore = useSessionStore()
 const router = useRouter()
 const route = useRoute()
 const showHeaderAndDrawer = ref<boolean>(true)
@@ -13,6 +15,7 @@ interface routeDef {
   path: string;
   icon: string;
 }
+
 const homeRoute = ref<routeDef>({ name: 'Home', path: '/home', icon: 'home' })
 const shoppingListRoute = ref<routeDef>({ name: 'Shopping list', path: '/shoppingList', icon: 'shopping_cart' })
 const modsRoute = ref<routeDef>({ name: 'Modifications', path: '/mods', icon: 'build' })
@@ -34,7 +37,8 @@ const checkRoute = () => {
 }
 
 const logout = () => {
-  router.push(logoutRoute.value.path)
+  sessionStore
+    .router.push(logoutRoute.value.path)
 }
 
 onMounted(() => checkRoute())

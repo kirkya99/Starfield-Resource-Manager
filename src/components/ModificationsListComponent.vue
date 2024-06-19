@@ -2,10 +2,11 @@
 import { onMounted, ref } from 'vue'
 import { Notify } from 'quasar'
 import { getModifications, Modification, Columns } from 'src/typescript/Modification'
+import { useSessionStore } from 'stores/useSessionStore'
 
+const store = useSessionStore()
 const modifications = ref<Modification[]>([])
 const selectedItem = ref<Modification | null>(null)
-const myModifications = ref<Modification[]>([])
 const modsColumns = ref<typeof Columns>(Columns)
 const initialPagination = ref({
   sortBy: 'desc',
@@ -21,7 +22,7 @@ onMounted(() => {
 
 const onSubmit = () => {
   if (selectedItem.value != null) {
-    myModifications.value.push(selectedItem.value)
+    store.addModification(selectedItem.value)
     Notify.create({
       type: 'positive',
       message: `${selectedItem.value.Modification} added to modifications list`,
@@ -51,10 +52,8 @@ const callDeleteDialog = (row: { key: string }) => {
 }
 
 const deleteRow = () => {
-  const toBeRemovedModificationIndex: number | null = myModifications.value.findIndex(modification => modification.Modification === toBeDeletedName.value)
-
-  if (toBeRemovedModificationIndex !== -1) {
-    myModifications.value.splice(toBeRemovedModificationIndex, 1)
+  if (toBeDeletedName.value) {
+    store.removeModification(toBeDeletedName.value)
     Notify.create({
       type: 'positive',
       message: `${toBeDeletedName.value} removed from modifications list`,
@@ -112,7 +111,7 @@ function filterFn (val: string, update: (callback: () => void) => void, abort: (
       </q-form>
     </div>
     <div class="col-md-9 col-xs-12 q-mt-md">
-      <q-table flat bordered :rows="myModifications" :columns="modsColumns" row-key="Modification"
+      <q-table flat bordered :rows="store.modifications" :columns="modsColumns" row-key="Modification"
                :pagination="initialPagination" style="max-height: 70vh">
         <template v-slot:header="props">
           <q-tr :props="props">
