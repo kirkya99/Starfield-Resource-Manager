@@ -5,3 +5,7 @@
   background-color: white;
   z-index: 1;
 }
+
+.text-12px {
+  font-size: 12px;
+}

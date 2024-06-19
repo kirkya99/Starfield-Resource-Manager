@@ -4,6 +4,7 @@ import { onMounted, ref } from 'vue'
 
 export const useSessionStore = defineStore('session', () => {
   const modifications = ref<Modification[]>([])
+  const userId = ref<string>('')
 
   const addModification = (modification: Modification) => {
     modifications.value.push(modification)
@@ -31,17 +32,46 @@ export const useSessionStore = defineStore('session', () => {
 
   const clearModifications = () => {
     modifications.value = []
-    persistModifications()
+    localStorage.removeItem('modifications')
   }
 
-  onMounted(() => hydrateModifications())
+  const setUserId = (id: string) => {
+    userId.value = id
+    persistUserId()
+  }
+
+  const clearUserId = () => {
+    userId.value = ''
+    persistUserId()
+  }
+
+  const persistUserId = () => {
+    if (userId.value !== '') {
+      localStorage.setItem('userId', userId.value)
+    } else {
+      localStorage.removeItem('userId')
+    }
+  }
+
+  const hydrateUserId = () => {
+    const value: string | null = localStorage.getItem('userId')
+    if (value) {
+      userId.value = value
+    }
+  }
+
+  onMounted(() => {
+    hydrateModifications()
+    hydrateUserId()
+  })
 
   return {
     modifications,
     addModification,
     removeModification,
-    persistModifications,
-    hydrateModifications,
-    clearModifications
+    clearModifications,
+    userId,
+    setUserId,
+    clearUserId
   }
 })

@@ -37,8 +37,9 @@ const checkRoute = () => {
 }
 
 const logout = () => {
-  sessionStore
-    .router.push(logoutRoute.value.path)
+  sessionStore.clearModifications()
+  sessionStore.clearUserId()
+  router.push(logoutRoute.value.path)
 }
 
 onMounted(() => checkRoute())
@@ -63,7 +64,12 @@ router.beforeEach((to: RouteLocationNormalized) => {
           @click="toggleLeftDrawer"
         />
 
-        <q-btn round icon="more_vert" unelevated aria-label="Personal Menu">
+        <q-btn round icon="login" v-if="sessionStore.userId === ''" unelevated aria-label="Login" @click="() => sessionStore.setUserId('name')">
+          <q-tooltip class="text-12px">
+            Login or register to access your resource management from multiple devices
+          </q-tooltip>
+        </q-btn>
+        <q-btn round icon="person" v-if="sessionStore.userId !== ''" unelevated aria-label="Personal Menu">
           <q-menu cover>
             <q-list>
               <q-item clickable v-close-popup @click="navigate(profileRoute.path)">
