@@ -16,13 +16,14 @@ interface routeDef {
   icon: string;
 }
 
-const homeRoute = ref<routeDef>({ name: 'Home', path: '/home', icon: 'home' })
+const homeRoute = ref<routeDef>({ name: 'Home', path: '/', icon: 'home' })
 const shoppingListRoute = ref<routeDef>({ name: 'Shopping list', path: '/shoppingList', icon: 'shopping_cart' })
 const modsRoute = ref<routeDef>({ name: 'Modifications', path: '/mods', icon: 'build' })
 const researchRoute = ref<routeDef>({ name: 'Research', path: '/research', icon: 'science' })
 const outpostModulesRoute = ref<routeDef>({ name: 'Outpost modules', path: '/outpost', icon: 'flag' })
 const profileRoute = ref<routeDef>({ name: 'Profile', path: '/profile', icon: 'person' })
 const logoutRoute = ref<routeDef>({ name: 'Logout', path: '/', icon: 'logout' })
+const loginRoute = ref<routeDef>({ name: 'Logout', path: '/login', icon: 'logout' })
 
 const toggleLeftDrawer = () => {
   leftDrawerOpen.value = !leftDrawerOpen.value
@@ -34,6 +35,10 @@ const navigate = (path: string) => {
 
 const checkRoute = () => {
   showHeaderAndDrawer.value = route.name !== 'Login'
+}
+
+const login = () => {
+  router.push(loginRoute.value.path)
 }
 
 const logout = () => {
@@ -52,7 +57,7 @@ router.beforeEach((to: RouteLocationNormalized) => {
 
 <template>
 
-  <q-layout view="hHh Lpr lFf">
+  <q-layout view="hHh LpR fff">
     <q-header v-if="showHeaderAndDrawer" elevated>
       <q-toolbar class="row justify-between">
         <q-btn
@@ -64,7 +69,7 @@ router.beforeEach((to: RouteLocationNormalized) => {
           @click="toggleLeftDrawer"
         />
 
-        <q-btn round icon="login" v-if="sessionStore.userId === ''" unelevated aria-label="Login" @click="() => sessionStore.setUserId('name')">
+        <q-btn round icon="login" v-if="sessionStore.userId === ''" unelevated aria-label="Login" @click="login">
           <q-tooltip class="text-12px">
             Login or register to access your resource management from multiple devices
           </q-tooltip>
@@ -103,8 +108,7 @@ router.beforeEach((to: RouteLocationNormalized) => {
               {{ homeRoute.name }}
             </q-item-section>
           </q-item>
-          <q-item clickable @click="navigate(homeRoute.path)" :active="shoppingListRoute.name === route.name"
-                  v-ripple>
+          <q-item clickable @click="navigate(shoppingListRoute.path)" :active="shoppingListRoute.name === route.name" v-ripple>
             <q-item-section avatar>
               <q-icon :name="shoppingListRoute.icon"/>
             </q-item-section>
@@ -147,6 +151,11 @@ router.beforeEach((to: RouteLocationNormalized) => {
     <q-page-container>
       <router-view/>
     </q-page-container>
+
+    <q-footer elevated class="bg-grey-8 text-white">
+      <q-toolbar>
+      </q-toolbar>
+    </q-footer>
   </q-layout>
 
   <q-dialog v-model="onLogoutOpened" persistent>

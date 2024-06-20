@@ -21,11 +21,12 @@ onMounted(() => {
 })
 
 const onSubmit = () => {
-  if (selectedItem.value != null) {
+  if (selectedItem.value !== null) {
     store.addModification(selectedItem.value)
+    store.addResourceToShoppingList(selectedItem.value.resources)
     Notify.create({
       type: 'positive',
-      message: `${selectedItem.value.Modification} added to modifications list`,
+      message: `${selectedItem.value.modification} added to modifications list`,
       actions: [
         {
           icon: 'close',
@@ -84,7 +85,7 @@ function filterFn (val: string, update: (callback: () => void) => void, abort: (
 
   update(() => {
     const needle = val.toLocaleLowerCase()
-    modifications.value = getModifications().filter(m => m.Modification.toLocaleLowerCase().includes(needle))
+    modifications.value = getModifications().filter(m => m.modification.toLocaleLowerCase().includes(needle))
   })
 }
 </script>
@@ -97,7 +98,7 @@ function filterFn (val: string, update: (callback: () => void) => void, abort: (
     <div class="col-md-9 col-y-xs-12">
       <q-form @submit="onSubmit" @reset="() => selectedItem = null" class="row text-body1 q-gutter-sm">
         <q-select v-model="selectedItem" use-input input-debounce="0" label="Modifications"
-                  :options="modifications" option-label="Modification"
+                  :options="modifications" option-label="modification"
                   clearable dense @filter="filterFn" style="width: 100%">
           <template v-slot:no-option>
             <q-item>
@@ -111,8 +112,8 @@ function filterFn (val: string, update: (callback: () => void) => void, abort: (
       </q-form>
     </div>
     <div class="col-md-9 col-xs-12 q-mt-md">
-      <q-table flat bordered :rows="store.modifications" :columns="modsColumns" row-key="Modification"
-               :pagination="initialPagination" style="max-height: 70vh">
+      <q-table flat bordered :rows="store.modifications" :columns="modsColumns" row-key="modification"
+               :pagination="initialPagination" style="max-height: 65vh">
         <template v-slot:header="props">
           <q-tr :props="props">
             <q-th

@@ -7,34 +7,40 @@ const routes: RouteRecordRaw[] = [
     meta: { requiresAuth: false },
     children: [
       {
-        name: 'Login',
-        path: '',
-        component: () => import('pages/LandingPage.vue'),
+        name: 'Home',
+        path: '/',
+        component: () => import('pages/IndexPage.vue'),
         meta: { requiresAuth: false }
       },
       {
-        name: 'Home',
-        path: '/home',
-        component: () => import('pages/IndexPage.vue'),
-        meta: { requiresAuth: true }
+        name: 'Shopping list',
+        path: 'shoppingList',
+        component: () => import('pages/ShoppingListPage.vue'),
+        meta: { requiresAuth: false }
       },
       {
         name: 'Modifications',
         path: 'mods',
         component: () => import('pages/ModificationsPage.vue'),
-        meta: { requiresAuth: true }
+        meta: { requiresAuth: false }
       },
       {
         name: 'Research',
         path: 'research',
         component: () => import('pages/ResearchPage.vue'),
-        meta: { requiresAuth: true }
+        meta: { requiresAuth: false }
       },
       {
         name: 'Outpost modules',
         path: 'outpost',
         component: () => import('pages/OutpostModulesPage.vue'),
-        meta: { requiresAuth: true }
+        meta: { requiresAuth: false }
+      },
+      {
+        name: 'Login',
+        path: '/login',
+        component: () => import('pages/LandingPage.vue'),
+        meta: { requiresAuth: false }
       }
     ]
   },

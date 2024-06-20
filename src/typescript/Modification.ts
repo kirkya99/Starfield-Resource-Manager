@@ -2,18 +2,18 @@
 import modificationsJson from 'src/json/modifications.json'
 
 export interface Modification {
-  Modification: string;
-  Type: string;
-  Slot: string;
-  Resources: Map<string, number>
+  modification: string;
+  type: string;
+  slot: string;
+  resources: Map<string, number>
 }
 
 export function getModifications (): Modification[] {
   return modificationsJson.map(item => ({
-    Modification: item.Modification,
-    Type: item.Type,
-    Slot: item.Slot,
-    Resources: new Map<string, number>(Object.entries(item.Resources))
+    modification: item.Modification,
+    type: item.Type,
+    slot: item.Slot,
+    resources: new Map<string, number>(Object.entries(item.Resources))
   }))
 }
 
@@ -32,7 +32,7 @@ export const Columns:
     {
       name: 'modification',
       label: 'Modification',
-      field: 'Modification',
+      field: 'modification',
       required: false,
       align: 'left',
       sortable: true,
@@ -42,7 +42,7 @@ export const Columns:
     {
       name: 'type',
       label: 'Type',
-      field: 'Type',
+      field: 'type',
       required: false,
       align: 'left',
       sortable: true,
@@ -52,7 +52,7 @@ export const Columns:
     {
       name: 'slot',
       label: 'Slot',
-      field: 'Slot',
+      field: 'tlot',
       required: false,
       align: 'left',
       sortable: true,
@@ -62,7 +62,7 @@ export const Columns:
     {
       name: 'action',
       label: '',
-      field: 'Action',
+      field: 'action',
       required: false,
       align: 'center',
       sortable: false,

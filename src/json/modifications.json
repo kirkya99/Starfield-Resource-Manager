@@ -4,9 +4,9 @@
     "Type": "Weapon",
     "Slot": "Barrel",
     "Resources": {
-      "Nickel": 3,
+      "Nickel": 2,
       "Sealant": 1,
-      "Tungsten": 1
+      "Tungsten": 2
     }
   },
   {
