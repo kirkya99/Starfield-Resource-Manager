@@ -10,10 +10,10 @@ export interface Modification {
 
 export function getModifications (): Modification[] {
   return modificationsJson.map(item => ({
-    modification: item.Modification,
-    type: item.Type,
-    slot: item.Slot,
-    resources: new Map<string, number>(Object.entries(item.Resources))
+    modification: item.modification,
+    type: item.type,
+    slot: item.slot,
+    resources: new Map<string, number>(Object.entries(item.resources))
   }))
 }
 
@@ -52,7 +52,7 @@ export const Columns:
     {
       name: 'slot',
       label: 'Slot',
-      field: 'tlot',
+      field: 'slot',
       required: false,
       align: 'left',
       sortable: true,

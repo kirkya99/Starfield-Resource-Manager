@@ -24,6 +24,7 @@ const outpostModulesRoute = ref<routeDef>({ name: 'Outpost modules', path: '/out
 const profileRoute = ref<routeDef>({ name: 'Profile', path: '/profile', icon: 'person' })
 const logoutRoute = ref<routeDef>({ name: 'Logout', path: '/', icon: 'logout' })
 const loginRoute = ref<routeDef>({ name: 'Logout', path: '/login', icon: 'logout' })
+const settingsRoute = ref<routeDef>({ name: 'Settings', path: '/settings', icon: 'settings' })
 
 const toggleLeftDrawer = () => {
   leftDrawerOpen.value = !leftDrawerOpen.value
@@ -144,6 +145,16 @@ router.beforeEach((to: RouteLocationNormalized) => {
             </q-item-section>
           </q-item>
           <q-separator/>
+          <q-item clickable @click="navigate(settingsRoute.path)"
+                  :active="settingsRoute.name === route.name"
+                  v-ripple>
+            <q-item-section avatar>
+              <q-icon :name="settingsRoute.icon"/>
+            </q-item-section>
+            <q-item-section>
+              {{ settingsRoute.name }}
+            </q-item-section>
+          </q-item>
         </q-list>
       </q-scroll-area>
     </q-drawer>
