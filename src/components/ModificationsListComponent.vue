@@ -1,11 +1,26 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+
+import { ref, watch } from 'vue'
 import { Notify } from 'quasar'
-import { getModifications, Modification, Columns } from 'src/typescript/Modification'
+import { Columns, getModifications, Modification, ModificationType, radioOptions } from 'src/typescript/Modification'
 import { useSessionStore } from 'stores/useSessionStore'
+import typesJson from 'src/json/types.json'
+import slotsJson from 'src/json/slots.json'
+import resourcesJson from 'src/json/resources.json'
+import { Resource } from 'src/typescript/ShoppingList'
 
 const store = useSessionStore()
-const modifications = ref<Modification[]>([])
+
+const types = typesJson
+const slots = slotsJson
+const resources = resourcesJson
+
+const modificationOptions = ref<Modification[]>(getModifications())
+const modResourcesList = ref<Resource[]>([{ resource: '', amount: 0 }])
+const typesOptions = ref(types)
+const slotsOptions = ref(slots)
+const resourcesOptions = ref(resources)
+
 const selectedItem = ref<Modification | null>(null)
 const modsColumns = ref<typeof Columns>(Columns)
 const initialPagination = ref({
@@ -15,35 +30,75 @@ const initialPagination = ref({
 })
 const deleteDialogOpened = ref(false)
 const toBeDeletedName = ref<string | null>(null)
+const addDialogOpened = ref<boolean>(false)
+const radioOption = ref<ModificationType>(ModificationType.Existing)
 
-onMounted(() => {
-  modifications.value = getModifications()
-})
+const modName = ref<string>('')
+const modType = ref<string>('')
+const modSlot = ref<string>('')
+const modResources = ref<Map<string, number>>(new Map<string, number>())
 
 const onSubmit = () => {
-  if (selectedItem.value !== null) {
-    store.addModification(selectedItem.value)
-    store.addResourceToShoppingList(selectedItem.value.resources)
-    Notify.create({
-      type: 'positive',
-      message: `${selectedItem.value.modification} added to modifications list`,
-      actions: [
-        {
-          icon: 'close',
-          color: 'white'
-        }]
-    })
-    selectedItem.value = null
-  } else {
-    Notify.create({
-      type: 'negative',
-      message: 'Error: No modification selected.',
-      actions: [
-        {
-          icon: 'close',
-          color: 'white'
-        }]
-    })
+  switch (radioOption.value) {
+    case ModificationType.Existing:
+      if (selectedItem.value !== null) {
+        store.addModification(selectedItem.value)
+        store.addResourceToShoppingList(selectedItem.value.resources)
+        Notify.create({
+          type: 'positive',
+          message: `${selectedItem.value.modification} added to modifications list`,
+          actions: [
+            {
+              icon: 'close',
+              color: 'white'
+            }]
+        })
+        selectedItem.value = null
+      } else {
+        Notify.create({
+          type: 'negative',
+          message: 'Error: No modification selected.',
+          actions: [
+            {
+              icon: 'close',
+              color: 'white'
+            }]
+        })
+      }
+      break
+    case ModificationType.Custom:
+      if (modName.value !== '' && modType.value !== '' && modSlot.value !== '') {
+        selectedItem.value = {
+          modification: modName.value,
+          type: modType.value,
+          slot: modSlot.value,
+          resources: modResources.value
+        }
+
+        store.addModification(selectedItem.value)
+        store.addResourceToShoppingList(selectedItem.value.resources)
+        Notify.create({
+          type: 'positive',
+          message: `${selectedItem.value.modification} added to modifications list`,
+          actions: [
+            {
+              icon: 'close',
+              color: 'white'
+            }]
+        })
+        selectedItem.value = null
+      } else {
+        Notify.create({
+          type: 'negative',
+          message: 'Error: Input fields not correctly filled.',
+          actions: [
+            {
+              icon: 'close',
+              color: 'white'
+            }]
+        })
+      }
+      break
   }
 }
 
@@ -77,7 +132,7 @@ const deleteRow = () => {
   }
 }
 
-function filterFn (val: string, update: (callback: () => void) => void, abort: () => void) {
+function filterModifications (val: string, update: (callback: () => void) => void, abort: () => void) {
   if (val.length < 2) {
     abort()
     return
@@ -85,32 +140,81 @@ function filterFn (val: string, update: (callback: () => void) => void, abort: (
 
   update(() => {
     const needle = val.toLocaleLowerCase()
-    modifications.value = getModifications().filter(m => m.modification.toLocaleLowerCase().includes(needle))
+    modificationOptions.value = getModifications().filter(m => m.modification.toLocaleLowerCase().includes(needle))
   })
 }
+
+function filterTypes (val: string, update: (callback: () => void) => void, abort: () => void) {
+  if (val.length < 2) {
+    abort()
+    return
+  }
+
+  update(() => {
+    const needle = val.toLocaleLowerCase()
+    typesOptions.value = types.filter(r => r.toLowerCase().indexOf(needle) > -1)
+  })
+}
+
+function filterSlots (val: string, update: (callback: () => void) => void, abort: () => void) {
+  if (val.length < 2) {
+    abort()
+    return
+  }
+
+  update(() => {
+    const needle = val.toLocaleLowerCase()
+    slotsOptions.value = slots.filter(r => r.toLowerCase().indexOf(needle) > -1)
+  })
+}
+
+function filterResources (val: string, update: (callback: () => void) => void, abort: () => void) {
+  if (val.length < 2) {
+    abort()
+    return
+  }
+
+  update(() => {
+    const needle = val.toLocaleLowerCase()
+    resourcesOptions.value = resources.filter(r => r.toLowerCase().indexOf(needle) > -1)
+  })
+}
+
+function updateResourcesMap () {
+  const resMap = new Map<string, number>()
+  modResourcesList.value.forEach(value => {
+    if (value.resource !== '') {
+      resMap.set(value.resource, value.amount)
+    }
+  })
+  modResources.value = resMap
+  modResourcesList.value.push({ resource: '', amount: 0 })
+}
+
+function removeResFromList (index: number) {
+  modResourcesList.value.splice(index, 1)
+  updateResourcesMap()
+}
+
+watch(radioOption, () => {
+  selectedItem.value = null
+  modName.value = ''
+  modType.value = ''
+  modSlot.value = ''
+  modResourcesList.value = [{ resource: '', amount: 0 }]
+  modResources.value = new Map<string, number>()
+})
+
 </script>
 
 <template>
   <div class="row justify-center q-gutter-y-sm">
     <div class="col-md-9 col-xs-12 text-h5">
       Modifications
+      <q-btn align="around" label="Add" color="primary" icon="add" @click="() => addDialogOpened = true"
+             class="float-right"/>
     </div>
-    <div class="col-md-9 col-y-xs-12">
-      <q-form @submit="onSubmit" @reset="() => selectedItem = null" class="row text-body1 q-gutter-sm">
-        <q-select v-model="selectedItem" use-input input-debounce="0" label="Modifications"
-                  :options="modifications" option-label="modification"
-                  clearable dense @filter="filterFn" style="width: 100%">
-          <template v-slot:no-option>
-            <q-item>
-              <q-item-section class="text-grey">
-                No results
-              </q-item-section>
-            </q-item>
-          </template>
-        </q-select>
-        <q-btn align="around" type="submit" label="Add" color="primary" icon="add" :disabled="selectedItem === null"/>
-      </q-form>
-    </div>
+
     <div class="col-md-9 col-xs-12 q-mt-md">
       <q-table flat bordered :rows="store.modifications" :columns="modsColumns" row-key="modification"
                :pagination="initialPagination" style="max-height: 65vh">
@@ -150,7 +254,88 @@ function filterFn (val: string, update: (callback: () => void) => void, abort: (
     </q-card>
   </q-dialog>
 
-<!-- TODO: Add Details dialog -->
+  <!--  Add Dialog -->
+  <q-dialog v-model="addDialogOpened" persistent>
+    <q-card class="max-width">
+      <q-form @submit="onSubmit">
+        <q-card-section>
+          <div class="q-col-gutter-y-md">
+            <div class="text-h6">Add Modification</div>
+
+            <div>
+              <div class="text-body1">Select modification type</div>
+              <q-option-group :options="radioOptions" v-model="radioOption" type="radio"/>
+            </div>
+
+            <div>
+              <div class="text-body1 disabled" v-show="radioOption === ModificationType.Custom">Select existing
+                modification
+              </div>
+              <div class="text-body1" v-show="radioOption === ModificationType.Existing">Select existing modification
+              </div>
+              <q-select v-model="selectedItem" use-input input-debounce="0" label="Modifications"
+                        :options="modificationOptions" option-label="modification"
+                        clearable dense @filter="filterModifications"
+                        :disable="radioOption === ModificationType.Custom">
+                <template v-slot:no-option>
+                  <q-item>
+                    <q-item-section class="text-grey">
+                      No results
+                    </q-item-section>
+                  </q-item>
+                </template>
+              </q-select>
+            </div>
+
+            <div>
+              <div class="text-body1 disabled " v-show="radioOption === ModificationType.Existing">Create custom
+                modification
+              </div>
+              <div class="text-body1" v-show="radioOption === ModificationType.Custom">Create custom modification</div>
+              <q-input v-model="modName" label="Name" clearable :disable="radioOption === ModificationType.Existing"/>
+              <q-select v-model="modType" use-input input-debounce="0" label="Type" :options="typesOptions"
+                        @filter="filterTypes" :disable="radioOption === ModificationType.Existing" new-value-mode="add"
+                        @on-new-value="(value: string) => modType = value" clearable/>
+              <q-select v-model="modSlot" use-input input-debounce="0" label="Slot" :options="slotsOptions"
+                        @filter="filterSlots" :disable="radioOption === ModificationType.Existing"
+                        new-value-mode="add" @on-new-value="(value: string) => modSlot = value" clearable/>
+
+              <div v-for="(resource, index) in modResourcesList" :key="index" class="row justify-between">
+                <div class="col-7">
+                  <q-select v-model="resource.resource" use-input input-debounce="0" label="Resource"
+                            :options="resourcesOptions"
+                            @filter="filterResources" :disable="radioOption === ModificationType.Existing"
+                            new-value-mode="add" @on-new-value="(value: string) => resource.resource = value"
+                            clearable emit-value map-options/>
+                </div>
+                <div class="col-2">
+                  <q-input
+                    v-model="resource.amount"
+                    type="number"
+                    label="Amount"
+                    :disable="radioOption === ModificationType.Existing"/>
+                </div>
+                <div class="col-2 column items-center">
+                  <q-btn flat class="max-dim" icon="delete" @click="removeResFromList(index)"/>
+                </div>
+              </div>
+              <div class="col-12 q-pt-sm">
+                <q-btn :disable="radioOption === ModificationType.Existing" class="bg-primary" icon="add"
+                       style="width: 100%" @click="updateResourcesMap"/>
+              </div>
+            </div>
+          </div>
+        </q-card-section>
+
+        <q-card-actions align="right">
+          <q-btn flat label="Cancel" color="primary" v-close-popup></q-btn>
+          <q-btn type="submit" label="Save" color="primary" v-close-popup :disable="selectedItem === null"></q-btn>
+        </q-card-actions>
+      </q-form>
+    </q-card>
+  </q-dialog>
+
+  <!-- TODO: Add Details dialog -->
 </template>
 
 <style scoped>

@@ -1,4 +1,4 @@
-// src/types/Modification.ts
+// src/types.json/Modification.ts
 import modificationsJson from 'src/json/modifications.json'
 
 export interface Modification {
@@ -70,3 +70,13 @@ export const Columns:
       style: 'width: 5%'
     }
   ]
+
+export enum ModificationType {
+  Existing,
+  Custom
+}
+
+export const radioOptions = [
+  { label: 'Existing modification', value: ModificationType.Existing },
+  { label: 'Custom modification', value: ModificationType.Custom }
+]

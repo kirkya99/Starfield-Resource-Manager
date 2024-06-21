@@ -49,9 +49,9 @@ const deleteRow = () => {
     <div class="col-md-9 col-xs-12 text-h5">
       Shopping list
     </div>
-    <div class="col-md-9 col-y-xs-12">
+    <div class="col-md-9 col-xs-12 q-mt-md">
       <q-table flat bordered :rows="sessionStore.shoppingList" :columns="columns" row-key="resource"
-               :pagination="initialPagination" style="max-height: 65vh">
+               :pagination="initialPagination" style="max-height: 65vh" class="sticky-header">
         <template v-slot:header="props">
           <q-tr :props="props">
             <q-th

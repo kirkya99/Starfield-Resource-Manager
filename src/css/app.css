@@ -9,3 +9,17 @@
 .text-12px {
   font-size: 12px;
 }
+
+.max-width {
+  width: 90%;
+  max-width: 100%;
+}
+
+.text-h7 {
+  font-size: 14px;
+}
+
+.max-dim {
+  height: 100%;
+  width: 100%;
+}
