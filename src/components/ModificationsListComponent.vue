@@ -53,6 +53,7 @@ const onSubmit = () => {
               color: 'white'
             }]
         })
+        onClose()
         selectedItem.value = null
       } else {
         Notify.create({
@@ -67,14 +68,7 @@ const onSubmit = () => {
       }
       break
     case ModificationType.Custom:
-      if (modName.value !== '' && modType.value !== '' && modSlot.value !== '') {
-        selectedItem.value = {
-          modification: modName.value,
-          type: modType.value,
-          slot: modSlot.value,
-          resources: modResources.value
-        }
-
+      if (selectedItem.value) {
         store.addModification(selectedItem.value)
         store.addResourceToShoppingList(selectedItem.value.resources)
         Notify.create({
@@ -189,11 +183,38 @@ function updateResourcesMap () {
   })
   modResources.value = resMap
   modResourcesList.value.push({ resource: '', amount: 0 })
+
+  selectedItem.value = {
+    modification: modName.value,
+    type: modType.value,
+    slot: modSlot.value,
+    description: `${modName.value} is a custom modification`,
+    resources: resMap
+  }
 }
 
 function removeResFromList (index: number) {
   modResourcesList.value.splice(index, 1)
-  updateResourcesMap()
+
+  const resMap = new Map<string, number>()
+  modResourcesList.value.forEach(value => {
+    if (value.resource !== '') {
+      resMap.set(value.resource, value.amount)
+    }
+  })
+  modResources.value = resMap
+
+  selectedItem.value = {
+    modification: modName.value,
+    type: modType.value,
+    slot: modSlot.value,
+    description: `${modName.value} is a custom modification`,
+    resources: resMap
+  }
+}
+
+const onClose = () => {
+  radioOption.value = ModificationType.Existing
 }
 
 watch(radioOption, () => {
@@ -217,19 +238,7 @@ watch(radioOption, () => {
 
     <div class="col-md-9 col-xs-12 q-mt-md">
       <q-table flat bordered :rows="store.modifications" :columns="modsColumns" row-key="modification"
-               :pagination="initialPagination" style="max-height: 65vh">
-        <template v-slot:header="props">
-          <q-tr :props="props">
-            <q-th
-              v-for="col in props.cols"
-              :key="col.name"
-              :props="props"
-              class="sticky-header"
-            >
-              {{ col.label }}
-            </q-th>
-          </q-tr>
-        </template>
+               :pagination="initialPagination" style="max-height: 65vh" class="table-preset" dark>
         <template v-slot:body-cell-action="props">
           <q-td key="action" :props="props">
             <q-btn flat round icon="delete" @click="callDeleteDialog(props)"></q-btn>
@@ -275,8 +284,8 @@ watch(radioOption, () => {
               </div>
               <q-select v-model="selectedItem" use-input input-debounce="0" label="Modifications"
                         :options="modificationOptions" option-label="modification"
-                        clearable dense @filter="filterModifications"
-                        :disable="radioOption === ModificationType.Custom">
+                        clearable @filter="filterModifications"
+                        :disable="radioOption === ModificationType.Custom" :hide-selected="radioOption === ModificationType.Custom">
                 <template v-slot:no-option>
                   <q-item>
                     <q-item-section class="text-grey">
@@ -288,8 +297,8 @@ watch(radioOption, () => {
             </div>
 
             <div>
-              <div class="text-body1 disabled " v-show="radioOption === ModificationType.Existing">Create custom
-                modification
+              <div class="text-body1 disabled " v-show="radioOption === ModificationType.Existing">
+                  Create custom modification
               </div>
               <div class="text-body1" v-show="radioOption === ModificationType.Custom">Create custom modification</div>
               <q-input v-model="modName" label="Name" clearable :disable="radioOption === ModificationType.Existing"/>
@@ -316,11 +325,11 @@ watch(radioOption, () => {
                     :disable="radioOption === ModificationType.Existing"/>
                 </div>
                 <div class="col-2 column items-center">
-                  <q-btn flat class="max-dim" icon="delete" @click="removeResFromList(index)"/>
+                  <q-btn flat :disable="radioOption === ModificationType.Existing || modResourcesList.length === 1" class="max-dim" icon="delete" color="primary" @click="removeResFromList(index)"/>
                 </div>
               </div>
               <div class="col-12 q-pt-sm">
-                <q-btn :disable="radioOption === ModificationType.Existing" class="bg-primary" icon="add"
+                <q-btn :disable="radioOption === ModificationType.Existing" color="primary" icon="add"
                        style="width: 100%" @click="updateResourcesMap"/>
               </div>
             </div>
@@ -334,8 +343,6 @@ watch(radioOption, () => {
       </q-form>
     </q-card>
   </q-dialog>
-
-  <!-- TODO: Add Details dialog -->
 </template>
 
 <style scoped>

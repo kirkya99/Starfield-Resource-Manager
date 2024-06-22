@@ -60,7 +60,7 @@ router.beforeEach((to: RouteLocationNormalized) => {
 
   <q-layout view="hHh LpR fff">
     <q-header v-if="showHeaderAndDrawer" elevated>
-      <q-toolbar class="row justify-between">
+      <q-toolbar>
         <q-btn
           flat
           dense
@@ -69,6 +69,8 @@ router.beforeEach((to: RouteLocationNormalized) => {
           aria-label="Navigation Menu"
           @click="toggleLeftDrawer"
         />
+
+        <q-space />
 
         <q-btn round icon="login" v-if="sessionStore.userId === ''" unelevated aria-label="Login" @click="login">
           <q-tooltip class="text-12px">
@@ -163,8 +165,9 @@ router.beforeEach((to: RouteLocationNormalized) => {
       <router-view/>
     </q-page-container>
 
-    <q-footer elevated class="bg-grey-8 text-white">
+    <q-footer elevated class="text-white">
       <q-toolbar>
+
       </q-toolbar>
     </q-footer>
   </q-layout>

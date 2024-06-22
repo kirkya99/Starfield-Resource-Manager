@@ -23,3 +23,53 @@
   height: 100%;
   width: 100%;
 }
+
+.table-preset {
+  /* height or max-height is important */
+  /*height: 310px;*/
+  height: 65vh;
+}
+
+.table-preset q-td {
+  background-color: white;
+}
+.table-preset .q-table__top,
+.table-preset .q-table__bottom,
+.table-preset thead tr:first-child th {
+  /* bg color is important for th; just specify one */
+  color: #f4f5f7;
+  background-color: #304c7a;
+}
+
+ {
+  background-color: #f4f5f7;
+}
+
+.table-preset thead tr th {
+  position: sticky;
+  z-index: 1;
+}
+
+.table-preset td {
+  color: #304c7a;
+}
+
+.table-preset thead tr:first-child th {
+  top: 0;
+}
+
+/* this is when the loading indicator appears */
+.table-preset.q-table--loading thead tr:last-child th {
+  /* height of all previous header rows */
+  top: 48px;
+}
+
+/* prevent scrolling behind sticky top row on focus */
+.table-preset tbody {
+  /* height of all previous header rows */
+  scroll-margin-top: 48px;
+}
+
+.menu q-item:active {
+  color: red;
+}

@@ -51,19 +51,7 @@ const deleteRow = () => {
     </div>
     <div class="col-md-9 col-xs-12 q-mt-md">
       <q-table flat bordered :rows="sessionStore.shoppingList" :columns="columns" row-key="resource"
-               :pagination="initialPagination" style="max-height: 65vh" class="sticky-header">
-        <template v-slot:header="props">
-          <q-tr :props="props">
-            <q-th
-              v-for="col in props.cols"
-              :key="col.name"
-              :props="props"
-              class="sticky-header"
-            >
-              {{ col.label }}
-            </q-th>
-          </q-tr>
-        </template>
+               :pagination="initialPagination" style="max-height: 65vh" class="table-preset" dark>
         <template v-slot:body-cell-action="props">
           <q-td key="action" :props="props">
             <q-btn flat round icon="delete" @click="callDeleteDialog(props)"></q-btn>
@@ -77,7 +65,7 @@ const deleteRow = () => {
     <q-card>
       <q-card-section avatar class="row items-center">
         <q-avatar icon="delete" text-color="negative"></q-avatar>
-        <span class="q-ml-sm">{{ `Remove ${toBeDeletedName} from shopping list?` }}</span>
+        <span class="q-ml-sm text-primary">{{ `Remove ${toBeDeletedName} from shopping list?` }}</span>
       </q-card-section>
 
       <q-card-actions align="right">

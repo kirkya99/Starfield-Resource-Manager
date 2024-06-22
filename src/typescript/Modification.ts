@@ -5,6 +5,7 @@ export interface Modification {
   modification: string;
   type: string;
   slot: string;
+  description: string;
   resources: Map<string, number>
 }
 
@@ -13,21 +14,23 @@ export function getModifications (): Modification[] {
     modification: item.modification,
     type: item.type,
     slot: item.slot,
+    description: item.description,
     resources: new Map<string, number>(Object.entries(item.resources))
   }))
 }
 
-export const Columns:
-  {
-    name: string;
-    label: string;
-    field: string | ((row: Modification) => Modification);
-    required?: boolean;
-    align?: 'left' | 'right' | 'center';
-    sortable?: boolean;
-    sort?: ((a: Modification, b: Modification, rowA: Modification, rowB: Modification) => number);
-    style: string;
-  }[] =
+export interface Column {
+  name: string;
+  label: string;
+  field: string | ((row: Modification) => Modification);
+  required?: boolean;
+  align?: 'left' | 'right' | 'center';
+  sortable?: boolean;
+  sort?: ((a: Modification, b: Modification, rowA: Modification, rowB: Modification) => number);
+  style: string;
+}
+
+export const Columns: Column[] =
   [
     {
       name: 'modification',
