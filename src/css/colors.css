@@ -1,0 +1,40 @@
+.text-common {
+  color: #bbb;
+}
+
+.text-unique {
+  color: #6fb374;
+}
+
+.text-uncommon {
+  color: #6db5c5;
+}
+
+.text-rare {
+  color: #a179d1;
+}
+
+.text-exotic {
+  color: #cbb784;
+}
+
+.bg-common {
+  background-color: #bbb;
+}
+
+.bg-unique {
+  background-color: #6fb374;
+}
+
+.bg-uncommon {
+  background-color: #6db5c5;
+}
+
+
+.bg-rare {
+  background-color: #a179d1;
+}
+
+.bg-exotic {
+  background-color: #cbb784;
+}

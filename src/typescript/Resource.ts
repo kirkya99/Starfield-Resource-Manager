@@ -1,8 +1,15 @@
 import { Modification } from 'src/typescript/Modification'
+import resourcesJson from 'src/json/resources.json'
 
 export interface Resource {
   resource: string,
   amount: number
+}
+
+export interface ResourceItem {
+  name: string;
+  rarity: string;
+  type: string;
 }
 
 export const addResources = (resources: Map<string, number>, shoppingList: Resource[]): Resource[] => {
@@ -62,3 +69,7 @@ export const columns:
       style: 'width: 5%'
     }
   ]
+
+export function getResources (): string[] {
+  return resourcesJson.map(item => item.name)
+}

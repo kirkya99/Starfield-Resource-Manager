@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useSessionStore } from 'stores/useSessionStore'
-import { columns } from 'src/typescript/ShoppingList'
+import { columns } from 'src/typescript/Resource'
 import { Notify } from 'quasar'
 import { ref } from 'vue'
 

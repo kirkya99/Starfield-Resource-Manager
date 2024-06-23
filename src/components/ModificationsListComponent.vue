@@ -6,20 +6,18 @@ import { Columns, getModifications, Modification, ModificationType, radioOptions
 import { useSessionStore } from 'stores/useSessionStore'
 import typesJson from 'src/json/types.json'
 import slotsJson from 'src/json/slots.json'
-import resourcesJson from 'src/json/resources.json'
-import { Resource } from 'src/typescript/ShoppingList'
+import { getResources, Resource } from 'src/typescript/Resource'
 
 const store = useSessionStore()
 
 const types = typesJson
 const slots = slotsJson
-const resources = resourcesJson
 
 const modificationOptions = ref<Modification[]>(getModifications())
 const modResourcesList = ref<Resource[]>([{ resource: '', amount: 0 }])
 const typesOptions = ref(types)
 const slotsOptions = ref(slots)
-const resourcesOptions = ref(resources)
+const resourcesOptions = ref<string[]>(getResources())
 
 const selectedItem = ref<Modification | null>(null)
 const modsColumns = ref<typeof Columns>(Columns)
@@ -70,7 +68,6 @@ const onSubmit = () => {
     case ModificationType.Custom:
       if (selectedItem.value) {
         store.addModification(selectedItem.value)
-        store.addResourceToShoppingList(selectedItem.value.resources)
         Notify.create({
           type: 'positive',
           message: `${selectedItem.value.modification} added to modifications list`,
@@ -170,7 +167,7 @@ function filterResources (val: string, update: (callback: () => void) => void, a
 
   update(() => {
     const needle = val.toLocaleLowerCase()
-    resourcesOptions.value = resources.filter(r => r.toLowerCase().indexOf(needle) > -1)
+    resourcesOptions.value = getResources().filter(r => r.toLowerCase().indexOf(needle) > -1)
   })
 }
 

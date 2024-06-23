@@ -1,0 +1,272 @@
+[
+  {
+    "name": "Adaptive Frame",
+    "rarity": "Common",
+    "resources": {
+      "Aluminium": 1,
+      "Iron": 1
+    }
+  },
+  {
+    "name": "Aldumite Drilling Rig",
+    "rarity": "Unique",
+    "resources": {
+      "Aldumite": 4,
+      "Caesium": 2,
+      "Drilling Rig": 1,
+      "Microsecond Regulator": 1
+    }
+  },
+  {
+    "name": "Austenitic Manifold",
+    "rarity": "Uncommon",
+    "resources": {
+      "Iron": 2,
+      "Nickel": 2,
+      "Reactive Gauge": 1
+    }
+  },
+  {
+    "name": "Comm Relay",
+    "rarity": "Uncommon",
+    "resources": {
+      "Isocentered Magnet": 1,
+      "Tau Grade Rheostat": 1
+    }
+  },
+  {
+    "name": "Control Rod",
+    "rarity": "Exotic",
+    "resources": {
+      "Austenitic Manifold": 1,
+      "Dysprosium": 3,
+      "Isotopic Coolant": 1
+    }
+  },
+  {
+    "name": "Drilling Rig",
+    "rarity": "Rare",
+    "resources": {
+      "Lubricant": 2,
+      "Reactive Gauge": 1,
+      "Tungsten": 3
+    }
+  },
+  {
+    "name": "Indicite Wafer",
+    "rarity": "Unique",
+    "resources": {
+      "Caesium": 2,
+      "Indicite": 4,
+      "Semimetal Wafer": 1,
+      "Solvent": 2
+    }
+  },
+  {
+    "name": "Isocentered Magnet",
+    "rarity": "Common",
+    "resources": {
+      "Cobalt": 1,
+      "Nickel": 1
+    }
+  },
+  {
+    "name": "Isotopic Coolant",
+    "rarity": "Common",
+    "resources": {
+      "Ionic Liquids": 1,
+      "Tetrafluorides": 1
+    }
+  },
+  {
+    "name": "Mag Pressure Tank",
+    "rarity": "Uncommon",
+    "resources": {
+      "Aluminium": 2,
+      "Nickel": 1
+    }
+  },
+  {
+    "name": "Microsecond Regulator",
+    "rarity": "Exotic",
+    "resources": {
+      "Europium": 4,
+      "Lithium": 2,
+      "Supercooled Magnet": 1,
+      "Tau Grade Rheostat": 1
+    }
+  },
+  {
+    "name": "Molecular Sieve",
+    "rarity": "Rare",
+    "resources": {
+      "Ionic Liquids": 2,
+      "Mag Pressure Tank": 1,
+      "Membrane": 2
+    }
+  },
+  {
+    "name": "Monopropellant",
+    "rarity": "Uncommon",
+    "resources": {
+      "Alkanes": 2,
+      "Mag Pressure Tank": 1,
+      "Reactive Gauge": 1
+    }
+  },
+  {
+    "name": "Nuclear Fuel Rod",
+    "rarity": "Exotic",
+    "resources": {
+      "Semimetal Wafer": 1,
+      "Solvent": 2,
+      "Uranium": 3
+    }
+  },
+  {
+    "name": "Paramagnon Conductor",
+    "rarity": "Rare",
+    "resources": {
+      "Gold": 1,
+      "Neodyium": 1,
+      "Zero Wire": 3
+    }
+  },
+  {
+    "name": "Polytextile",
+    "rarity": "Uncommon",
+    "resources": {
+      "Cosmetic": 1,
+      "Fiber": 2
+    }
+  },
+  {
+    "name": "Positron Battery",
+    "rarity": "Rare",
+    "resources": {
+      "Antimony": 2,
+      "Tau Grade Rheostat": 1,
+      "Vanadium": 2
+    }
+  },
+  {
+    "name": "Power Circuit",
+    "rarity": "Exotic",
+    "resources": {
+      "Palladium": 4,
+      "Paramagnon Conductor": 1,
+      "Polymer": 2,
+      "Positron Battery": 1
+    }
+  },
+  {
+    "name": "Reactive Gauge",
+    "rarity": "Common",
+    "resources": {
+      "Aluminium": 2,
+      "Copper": 1
+    }
+  },
+  {
+    "name": "Rothicite Magnet",
+    "rarity": "Unique",
+    "resources": {
+      "Lithium": 2,
+      "Rothicite": 4,
+      "Semimetal Wafer": 1,
+      "Supercooled Magnet": 1
+    }
+  },
+  {
+    "name": "Semimetal Wafer",
+    "rarity": "Rare",
+    "resources": {
+      "Antimony": 2,
+      "Gold": 2,
+      "Zero Wire": 1
+    }
+  },
+  {
+    "name": "Sterile Nanotubes",
+    "rarity": "Exotic",
+    "resources": {
+      "Molecular Sieve": 1,
+      "Solvent": 2,
+      "Vanadium": 2
+    }
+  },
+  {
+    "name": "Substrate Molecule Sieve",
+    "rarity": "Unique",
+    "resources": {
+      "Biosuppressant": 2,
+      "Memory Substrate": 3,
+      "Molecular Sieve": 1,
+      "Sterile Nanotubes": 2
+    }
+  },
+  {
+    "name": "Supercooled Magnet",
+    "rarity": "Rare",
+    "resources": {
+      "Isocentered Magnet": 1,
+      "Isotopic Coolant": 1,
+      "Neodymium": 3
+    }
+  },
+  {
+    "name": "Tasine Superconductor",
+    "rarity": "Unique",
+    "resources": {
+      "Palladium": 2,
+      "Paramagnon Conductor": 1,
+      "Polymer": 2,
+      "Tasine": 4
+    }
+  },
+  {
+    "name": "Tau Grade Rheostat",
+    "rarity": "Uncommon",
+    "resources": {
+      "Beryllium": 1,
+      "Copper": 1
+    }
+  },
+  {
+    "name": "Veryl-Treated Manifold",
+    "rarity": "Unique",
+    "resources": {
+      "Austenitic Manifold": 1,
+      "Lubricant": 2,
+      "Veryl": 4,
+      "Ytterbium": 2
+    }
+  },
+  {
+    "name": "Vytinium Fuel Rod",
+    "rarity": "Unique",
+    "resources": {
+      "Indicite Wafer": 1,
+      "Nuclear Fuel Rod": 1,
+      "Plutonium": 2,
+      "Vytinium": 4
+    }
+  },
+  {
+    "name": "Zero Wire",
+    "rarity": "Common",
+    "resources": {
+      "Copper": 1,
+      "Silver": 1
+    }
+  },
+  {
+    "name": "Zero-G Gimbal",
+    "rarity": "Rare",
+    "resources": {
+      "Isocentered Magnet": 1,
+      "Lubricant": 2,
+      "Tantalum": 2
+    }
+  }
+]

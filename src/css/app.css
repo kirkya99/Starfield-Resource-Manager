@@ -28,6 +28,7 @@
   /* height or max-height is important */
   /*height: 310px;*/
   height: 65vh;
+  background-color: #f4f5f7;
 }
 
 .table-preset q-td {

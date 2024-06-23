@@ -1,17 +1,31 @@
 import { Modification } from 'src/typescript/Modification'
 import { defineStore } from 'pinia'
 import { onMounted, ref } from 'vue'
-import { addResources, Resource } from 'src/typescript/ShoppingList'
+import { addResources, Resource } from 'src/typescript/Resource'
+import { CraftableResource, getCraftableResource } from 'src/typescript/CraftableResource'
 
 export const useSessionStore = defineStore('session', () => {
   // Attributes
   const modifications = ref<Modification[]>([])
   const userId = ref<string>('')
   const shoppingList = ref<Resource[]>([])
+  const craftableResources = ref <CraftableResource[]>([])
 
   // Setter
   const addModification = (modification: Modification) => {
     modifications.value.push(modification)
+    const nonCraftable: Map<string, number> = new Map<string, number>()
+
+    modification.resources.forEach((value, key) => {
+      const resource: CraftableResource | undefined = getCraftableResource(key)
+      if (resource) {
+        addCraftableResource(resource)
+      } else {
+        nonCraftable.set(key, value)
+      }
+    })
+
+    addResourceToShoppingList(nonCraftable)
     persistModifications()
   }
 
@@ -22,6 +36,25 @@ export const useSessionStore = defineStore('session', () => {
 
   const addResourceToShoppingList = (resources: Map<string, number>) => {
     shoppingList.value = addResources(resources, shoppingList.value)
+    persistShoppingList()
+  }
+
+  const addCraftableResource = (craftable: CraftableResource) => {
+    console.log(craftable.name)
+    craftableResources.value.push(craftable)
+    const nonCraftable: Map<string, number> = new Map<string, number>()
+
+    craftable.resources.forEach((value, key) => {
+      const resource: CraftableResource | undefined = getCraftableResource(key)
+      if (resource !== undefined) {
+        addCraftableResource(resource)
+      } else {
+        nonCraftable.set(key, value)
+      }
+    })
+
+    addResourceToShoppingList(nonCraftable)
+    persistCraftables()
     persistShoppingList()
   }
 
@@ -58,6 +91,10 @@ export const useSessionStore = defineStore('session', () => {
     localStorage.setItem('shoppingList', JSON.stringify(shoppingList.value))
   }
 
+  const persistCraftables = () => {
+    localStorage.setItem('craftableResources', JSON.stringify(craftableResources.value))
+  }
+
   // Local storage: Hydrate
   const hydrateModifications = () => {
     const storedModifications = localStorage.getItem('modifications')
@@ -77,6 +114,13 @@ export const useSessionStore = defineStore('session', () => {
     const storedMShoppingList = localStorage.getItem('shoppingList')
     if (storedMShoppingList) {
       shoppingList.value = JSON.parse(storedMShoppingList)
+    }
+  }
+
+  const hydrateCraftableResources = () => {
+    const storedModifications = localStorage.getItem('craftableResources')
+    if (storedModifications) {
+      craftableResources.value = JSON.parse(storedModifications)
     }
   }
 
@@ -100,6 +144,7 @@ export const useSessionStore = defineStore('session', () => {
     hydrateModifications()
     hydrateUserId()
     hydrateShoppingList()
+    hydrateCraftableResources()
   })
 
   return {

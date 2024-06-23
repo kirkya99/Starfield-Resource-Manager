@@ -21,10 +21,11 @@ const shoppingListRoute = ref<routeDef>({ name: 'Shopping list', path: '/shoppin
 const modsRoute = ref<routeDef>({ name: 'Modifications', path: '/mods', icon: 'build' })
 const researchRoute = ref<routeDef>({ name: 'Research', path: '/research', icon: 'science' })
 const outpostModulesRoute = ref<routeDef>({ name: 'Outpost modules', path: '/outpost', icon: 'flag' })
+const manufacturedResources = ref<routeDef>({ name: 'Manufactured resources', path: '/manufactured', icon: 'handyman' })
+const settingsRoute = ref<routeDef>({ name: 'Settings', path: '/settings', icon: 'settings' })
 const profileRoute = ref<routeDef>({ name: 'Profile', path: '/profile', icon: 'person' })
 const logoutRoute = ref<routeDef>({ name: 'Logout', path: '/', icon: 'logout' })
 const loginRoute = ref<routeDef>({ name: 'Logout', path: '/login', icon: 'logout' })
-const settingsRoute = ref<routeDef>({ name: 'Settings', path: '/settings', icon: 'settings' })
 
 const toggleLeftDrawer = () => {
   leftDrawerOpen.value = !leftDrawerOpen.value
@@ -144,6 +145,16 @@ router.beforeEach((to: RouteLocationNormalized) => {
             </q-item-section>
             <q-item-section>
               {{ outpostModulesRoute.name }}
+            </q-item-section>
+          </q-item>
+          <q-item clickable @click="navigate(manufacturedResources.path)"
+                  :active="manufacturedResources.name === route.name"
+                  v-ripple>
+            <q-item-section avatar>
+              <q-icon :name="manufacturedResources.icon"/>
+            </q-item-section>
+            <q-item-section>
+              {{ manufacturedResources.name }}
             </q-item-section>
           </q-item>
           <q-separator/>

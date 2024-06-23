@@ -25,7 +25,8 @@ module.exports = configure(function (/* ctx */) {
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#css
     css: [
-      'app.css'
+      'app.css',
+      'colors.css'
     ],
 
     // https://github.com/quasarframework/quasar/tree/dev/extras
@@ -96,8 +97,8 @@ module.exports = configure(function (/* ctx */) {
           secondary: '#f4f5f7',
           accent: '#e06236',
 
-          dark: '#f4f5f7',
-          'dark-page': '#f4f5f7',
+          dark: '#304c7a',
+          'dark-page': '#304c7a',
 
           positive: '#21BA45',
           negative: '#C10015',

@@ -4,7 +4,7 @@
 
 <template>
   <q-page padding>
-    Research
+    Settings
   </q-page>
 </template>
 

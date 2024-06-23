@@ -37,6 +37,18 @@ const routes: RouteRecordRaw[] = [
         meta: { requiresAuth: false }
       },
       {
+        name: 'Manufactured resources',
+        path: 'manufactured',
+        component: () => import('pages/ManufacturedResources.vue'),
+        meta: { requiresAuth: false }
+      },
+      {
+        name: 'Settings',
+        path: 'settings',
+        component: () => import('pages/SettingsPage.vue'),
+        meta: { requiresAuth: false }
+      },
+      {
         name: 'Login',
         path: '/login',
         component: () => import('pages/LandingPage.vue'),

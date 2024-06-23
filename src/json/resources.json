@@ -1,114 +1,562 @@
 [
-  "Adaptive Frame",
-  "Adhesive",
-  "Aldumite",
-  "Aldumite Drilling Rig",
-  "Alkanes",
-  "Aluminum",
-  "Amino Acids",
-  "Analgesic",
-  "Antimicrobial",
-  "Antimony",
-  "Aqueous Hematite",
-  "Argon",
-  "Aromatic",
-  "Austenitic Manifold",
-  "Benzene",
-  "Beryllium",
-  "Biosuppressant",
-  "Caelumite",
-  "Caesium",
-  "Carboxylic Acids",
-  "Charged Diodes",
-  "Chlorine",
-  "Chlorosilanes",
-  "Cobalt",
-  "Comm Relay",
-  "Control Rod",
-  "Copper",
-  "Cosmetic",
-  "Drilling Rig",
-  "Dysprosium",
-  "Europium",
-  "Fiber",
-  "Fluorine",
-  "Gastronomic Delight",
-  "Gold",
-  "Hallucinogen",
-  "Helium-3",
-  "High-Tensile Spidroin",
-  "Hypercatalyst",
-  "Immunostimulant",
-  "Indicite",
-  "Indicite Wafer",
-  "Ionic Liquids",
-  "Iridium",
-  "Iron",
-  "Isocentered Magnet",
-  "Isotopic Coolant",
-  "Large Round Primer",
-  "Lead",
-  "Lithium",
-  "Lubricant",
-  "Luxury Textile",
-  "Mag Pressure Tank",
-  "Magnetic Diodes",
-  "Membrane",
-  "Memory Substrate",
-  "Mercury",
-  "Metabolic Agent",
-  "Microsecond Regulator",
-  "Molecular Sieve",
-  "Monopropellant",
-  "Neodymium",
-  "Neon",
-  "Neurologic",
-  "Nickel",
-  "Nuclear Fuel Rod",
-  "Nutrient",
-  "Ornamental Material",
-  "Palladium",
-  "Paramagnon Conductor",
-  "Pigment",
-  "Platinum",
-  "Plutonium",
-  "Polymer",
-  "Polytextile",
-  "Positron Battery",
-  "Power Circuit",
-  "Quark-Degenerate Tissues",
-  "Reactive Gauge",
-  "Rothicite",
-  "Rothicite Magnet",
-  "Sealant",
-  "Sedative",
-  "Semimetal Wafer",
-  "Silver",
-  "Small Round Primer",
-  "Solvent",
-  "Spice",
-  "Sterile Nanotubes",
-  "Stimulant",
-  "Structural Material",
-  "Substrate Molecule Sieve",
-  "Supercooled Magnet",
-  "Tantalum",
-  "Tasine",
-  "Tasine Superconductor",
-  "Tau Grade Rheostat",
-  "Tetrafluorides",
-  "Titanium",
-  "Toxin",
-  "Tungsten",
-  "Uranium",
-  "Vanadium",
-  "Veryl",
-  "Veryl-Treated Manifold",
-  "Vytinium",
-  "Vytinium Fuel Rod",
-  "Water",
-  "Xenon",
-  "Ytterbium",
-  "Zero Wire",
-  "Zero-G Gimbal"
+  {
+    "name": "Adaptive Frame",
+    "rarity": "Common",
+    "type": "Manufactured"
+  },
+  {
+    "name": "Adhesive",
+    "rarity": "Rare",
+    "type": "Organic"
+  },
+  {
+    "name": "Aldumite",
+    "rarity": "Unique",
+    "type": "Inorganic"
+  },
+  {
+    "name": "Aldumite Drilling Rig",
+    "rarity": "Unique",
+    "type": "Manufactured"
+  },
+  {
+    "name": "Alkanes",
+    "rarity": "Uncommon",
+    "type": "Inorganic"
+  },
+  {
+    "name": "Aluminum",
+    "rarity": "Common",
+    "type": "Inorganic"
+  },
+  {
+    "name": "Amino Acids",
+    "rarity": "Rare",
+    "type": "Organic"
+  },
+  {
+    "name": "Analgesic",
+    "rarity": "Rare",
+    "type": "Organic"
+  },
+  {
+    "name": "Antimicrobial",
+    "rarity": "Uncommon",
+    "type": "Organic"
+  },
+  {
+    "name": "Antimony",
+    "rarity": "Exotic",
+    "type": "Inorganic"
+  },
+  {
+    "name": "Aqueous Hematite",
+    "rarity": "Unique",
+    "type": "Inorganic"
+  },
+  {
+    "name": "Argon",
+    "rarity": "Common",
+    "type": "Inorganic"
+  },
+  {
+    "name": "Aromatic",
+    "rarity": "Rare",
+    "type": "Organic"
+  },
+  {
+    "name": "Austenitic Manifold",
+    "rarity": "Uncommon",
+    "type": "Manufactured"
+  },
+  {
+    "name": "Benzene",
+    "rarity": "Uncommon",
+    "type": "Inorganic"
+  },
+  {
+    "name": "Beryllium",
+    "rarity": "Uncommon",
+    "type": "Inorganic"
+  },
+  {
+    "name": "Biosuppressant",
+    "rarity": "Exotic",
+    "type": "Organic"
+  },
+  {
+    "name": "Caelumite",
+    "rarity": "Unique",
+    "type": "Inorganic"
+  },
+  {
+    "name": "Caesium",
+    "rarity": "Exotic",
+    "type": "Inorganic"
+  },
+  {
+    "name": "Carboxylic Acids",
+    "rarity": "Rare",
+    "type": "Inorganic"
+  },
+  {
+    "name": "Charged Diodes",
+    "rarity": "Common",
+    "type": "Manufactured"
+  },
+  {
+    "name": "Chlorine",
+    "rarity": "Common",
+    "type": "Inorganic"
+  },
+  {
+    "name": "Chlorosilanes",
+    "rarity": "Uncommon",
+    "type": "Inorganic"
+  },
+  {
+    "name": "Cobalt",
+    "rarity": "Uncommon",
+    "type": "Inorganic"
+  },
+  {
+    "name": "Comm Relay",
+    "rarity": "Uncommon",
+    "type": "Manufactured"
+  },
+  {
+    "name": "Control Rod",
+    "rarity": "Exotic",
+    "type": "Manufactured"
+  },
+  {
+    "name": "Copper",
+    "rarity": "Common",
+    "type": "Inorganic"
+  },
+  {
+    "name": "Cosmetic",
+    "rarity": "Uncommon",
+    "type": "Organic"
+  },
+  {
+    "name": "Drilling Rig",
+    "rarity": "Rare",
+    "type": "Manufactured"
+  },
+  {
+    "name": "Dysprosium",
+    "rarity": "Exotic",
+    "type": "Inorganic"
+  },
+  {
+    "name": "Europium",
+    "rarity": "Exotic",
+    "type": "Inorganic"
+  },
+  {
+    "name": "Fiber",
+    "rarity": "Common",
+    "type": "Organic"
+  },
+  {
+    "name": "Fluorine",
+    "rarity": "Uncommon",
+    "type": "Inorganic"
+  },
+  {
+    "name": "Gastronomic Delight",
+    "rarity": "Unique",
+    "type": "Organic"
+  },
+  {
+    "name": "Gold",
+    "rarity": "Rare",
+    "type": "Inorganic"
+  },
+  {
+    "name": "Hallucinogen",
+    "rarity": "Rare",
+    "type": "Organic"
+  },
+  {
+    "name": "Helium-3",
+    "rarity": "Uncommon",
+    "type": "Inorganic"
+  },
+  {
+    "name": "High-Tensile Spidroin",
+    "rarity": "Unique",
+    "type": "Organic"
+  },
+  {
+    "name": "Hypercatalyst",
+    "rarity": "Exotic",
+    "type": "Organic"
+  },
+  {
+    "name": "Immunostimulant",
+    "rarity": "Unique",
+    "type": "Organic"
+  },
+  {
+    "name": "Indicite",
+    "rarity": "Unique",
+    "type": "Inorganic"
+  },
+  {
+    "name": "Indicite Wafer",
+    "rarity": "Unique",
+    "type": "Manufactured"
+  },
+  {
+    "name": "Ionic Liquids",
+    "rarity": "Exotic",
+    "type": "Inorganic"
+  },
+  {
+    "name": "Iridium",
+    "rarity": "Uncommon",
+    "type": "Inorganic"
+  },
+  {
+    "name": "Iron",
+    "rarity": "Common",
+    "type": "Inorganic"
+  },
+  {
+    "name": "Isocentered Magnet",
+    "rarity": "Common",
+    "type": "Manufactured"
+  },
+  {
+    "name": "Isotopic Coolant",
+    "rarity": "Common",
+    "type": "Manufactured"
+  },
+  {
+    "name": "Large Round Primer",
+    "rarity": "Common",
+    "type": "Manufactured"
+  },
+  {
+    "name": "Lead",
+    "rarity": "Common",
+    "type": "Inorganic"
+  },
+  {
+    "name": "Lithium",
+    "rarity": "Rare",
+    "type": "Inorganic"
+  },
+  {
+    "name": "Lubricant",
+    "rarity": "Exotic",
+    "type": "Organic"
+  },
+  {
+    "name": "Luxury Textile",
+    "rarity": "Unique",
+    "type": "Organic"
+  },
+  {
+    "name": "Mag Pressure Tank",
+    "rarity": "Uncommon",
+    "type": "Manufactured"
+  },
+  {
+    "name": "Magnetic Diodes",
+    "rarity": "Common",
+    "type": "Manufactured"
+  },
+  {
+    "name": "Membrane",
+    "rarity": "Uncommon",
+    "type": "Organic"
+  },
+  {
+    "name": "Memory Substrate",
+    "rarity": "Unique",
+    "type": "Organic"
+  },
+  {
+    "name": "Mercury",
+    "rarity": "Rare",
+    "type": "Inorganic"
+  },
+  {
+    "name": "Metabolic Agent",
+    "rarity": "Common",
+    "type": "Organic"
+  },
+  {
+    "name": "Microsecond Regulator",
+    "rarity": "Exotic",
+    "type": "Manufactured"
+  },
+  {
+    "name": "Molecular Sieve",
+    "rarity": "Rare",
+    "type": "Manufactured"
+  },
+  {
+    "name": "Monopropellant",
+    "rarity": "Uncommon",
+    "type": "Manufactured"
+  },
+  {
+    "name": "Neodymium",
+    "rarity": "Rare",
+    "type": "Inorganic"
+  },
+  {
+    "name": "Neon",
+    "rarity": "Exotic",
+    "type": "Inorganic"
+  },
+  {
+    "name": "Neurologic",
+    "rarity": "Unique",
+    "type": "Organic"
+  },
+  {
+    "name": "Nickel",
+    "rarity": "Common",
+    "type": "Inorganic"
+  },
+  {
+    "name": "Nuclear Fuel Rod",
+    "rarity": "Exotic",
+    "type": "Manufactured"
+  },
+  {
+    "name": "Nutrient",
+    "rarity": "Common",
+    "type": "Organic"
+  },
+  {
+    "name": "Ornamental Material",
+    "rarity": "Uncommon",
+    "type": "Organic"
+  },
+  {
+    "name": "Palladium",
+    "rarity": "Exotic",
+    "type": "Inorganic"
+  },
+  {
+    "name": "Paramagnon Conductor",
+    "rarity": "Rare",
+    "type": "Manufactured"
+  },
+  {
+    "name": "Pigment",
+    "rarity": "Uncommon",
+    "type": "Organic"
+  },
+  {
+    "name": "Platinum",
+    "rarity": "Rare",
+    "type": "Inorganic"
+  },
+  {
+    "name": "Plutonium",
+    "rarity": "Exotic",
+    "type": "Inorganic"
+  },
+  {
+    "name": "Polymer",
+    "rarity": "Exotic",
+    "type": "Organic"
+  },
+  {
+    "name": "Polytextile",
+    "rarity": "Uncommon",
+    "type": "Manufactured"
+  },
+  {
+    "name": "Positron Battery",
+    "rarity": "Rare",
+    "type": "Manufactured"
+  },
+  {
+    "name": "Power Circuit",
+    "rarity": "Exotic",
+    "type": "Manufactured"
+  },
+  {
+    "name": "Quark-Degenerate Tissues",
+    "rarity": "Unique",
+    "type": "Organic"
+  },
+  {
+    "name": "Reactive Gauge",
+    "rarity": "Common",
+    "type": "Manufactured"
+  },
+  {
+    "name": "Rothicite",
+    "rarity": "Unique",
+    "type": "Inorganic"
+  },
+  {
+    "name": "Rothicite Magnet",
+    "rarity": "Unique",
+    "type": "Manufactured"
+  },
+  {
+    "name": "Sealant",
+    "rarity": "Common",
+    "type": "Organic"
+  },
+  {
+    "name": "Sedative",
+    "rarity": "Rare",
+    "type": "Organic"
+  },
+  {
+    "name": "Semimetal Wafer",
+    "rarity": "Rare",
+    "type": "Manufactured"
+  },
+  {
+    "name": "Silver",
+    "rarity": "Uncommon",
+    "type": "Inorganic"
+  },
+  {
+    "name": "Small Round Primer",
+    "rarity": "Common",
+    "type": "Manufactured"
+  },
+  {
+    "name": "Solvent",
+    "rarity": "Exotic",
+    "type": "Organic"
+  },
+  {
+    "name": "Spice",
+    "rarity": "Uncommon",
+    "type": "Organic"
+  },
+  {
+    "name": "Sterile Nanotubes",
+    "rarity": "Exotic",
+    "type": "Manufactured"
+  },
+  {
+    "name": "Stimulant",
+    "rarity": "Exotic",
+    "type": "Organic"
+  },
+  {
+    "name": "Structural Material",
+    "rarity": "Common",
+    "type": "Organic"
+  },
+  {
+    "name": "Substrate Molecule Sieve",
+    "rarity": "Unique",
+    "type": "Manufactured"
+  },
+  {
+    "name": "Supercooled Magnet",
+    "rarity": "Rare",
+    "type": "Manufactured"
+  },
+  {
+    "name": "Tantalum",
+    "rarity": "Rare",
+    "type": "Inorganic"
+  },
+  {
+    "name": "Tasine",
+    "rarity": "Unique",
+    "type": "Inorganic"
+  },
+  {
+    "name": "Tasine Superconductor",
+    "rarity": "Unique",
+    "type": "Manufactured"
+  },
+  {
+    "name": "Tau Grade Rheostat",
+    "rarity": "Uncommon",
+    "type": "Manufactured"
+  },
+  {
+    "name": "Tetrafluorides",
+    "rarity": "Rare",
+    "type": "Inorganic"
+  },
+  {
+    "name": "Titanium",
+    "rarity": "Rare",
+    "type": "Inorganic"
+  },
+  {
+    "name": "Toxin",
+    "rarity": "Common",
+    "type": "Organic"
+  },
+  {
+    "name": "Tungsten",
+    "rarity": "Uncommon",
+    "type": "Inorganic"
+  },
+  {
+    "name": "Uranium",
+    "rarity": "Common",
+    "type": "Inorganic"
+  },
+  {
+    "name": "Vanadium",
+    "rarity": "Rare",
+    "type": "Inorganic"
+  },
+  {
+    "name": "Veryl",
+    "rarity": "Unique",
+    "type": "Inorganic"
+  },
+  {
+    "name": "Veryl-Treated Manifold",
+    "rarity": "Unique",
+    "type": "Manufactured"
+  },
+  {
+    "name": "Vytinium",
+    "rarity": "Unique",
+    "type": "Inorganic"
+  },
+  {
+    "name": "Vytinium Fuel Rod",
+    "rarity": "Unique",
+    "type": "Manufactured"
+  },
+  {
+    "name": "Water",
+    "rarity": "Common",
+    "type": "Inorganic"
+  },
+  {
+    "name": "Xenon",
+    "rarity": "Exotic",
+    "type": "Inorganic"
+  },
+  {
+    "name": "Ytterbium",
+    "rarity": "Exotic",
+    "type": "Inorganic"
+  },
+  {
+    "name": "Zero Wire",
+    "rarity": "Common",
+    "type": "Manufactured"
+  },
+  {
+    "name": "Zero-G Gimbal",
+    "rarity": "Rare",
+    "type": "Manufactured"
+  }
 ]

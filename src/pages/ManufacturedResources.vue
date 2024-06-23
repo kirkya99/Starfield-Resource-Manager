@@ -4,7 +4,7 @@
 
 <template>
   <q-page padding>
-    Research
+    Manufactured resources
   </q-page>
 </template>
 
