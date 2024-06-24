@@ -41,7 +41,7 @@ export const useSessionStore = defineStore('session', () => {
   }
 
   const addCraftableResource = (craftable: CraftableResource) => {
-    craftable.resources.forEach((value, key) => console.log(`${key}: ${value}`))
+    console.log(craftable)
     craftableResources.value.push(craftable)
     const nonCraftable: Map<string, number> = new Map<string, number>()
 
