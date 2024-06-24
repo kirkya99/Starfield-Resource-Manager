@@ -47,7 +47,7 @@ export const useSessionStore = defineStore('session', () => {
 
     craftable.resources.forEach((value, key) => {
       const resource: CraftableResource | undefined = getCraftableResource(key)
-      if (resource !== undefined) {
+      if (resource) {
         addCraftableResource(resource)
       } else {
         nonCraftable.set(key, value)
