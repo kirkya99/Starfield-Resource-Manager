@@ -1,10 +1,11 @@
 <script setup lang="ts">
 
+import CraftableResourceListComponent from 'components/CraftableResourceListComponent.vue'
 </script>
 
 <template>
   <q-page padding>
-    Manufactured resources
+    <CraftableResourceListComponent/>
   </q-page>
 </template>
 

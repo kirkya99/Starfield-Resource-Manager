@@ -1184,328 +1184,501 @@
     "type": "Weapon",
     "slot": "Receiver",
     "description": "Receiver that fires once per trigger pull.",
-    "resources": {}
+    "resources": {
+      "Copper": 2,
+      "Nickel": 2,
+      "Sealant": 2,
+      "Titanium": 3
+    }
   },
   {
     "modification": "Sensor Array",
     "type": "Spacesuit",
     "slot": "Helmet",
     "description": "Increases the range for enemy detection on the Compass",
-    "resources": {}
+    "resources": {
+      "Adhesive": 2,
+      "Positron Battery": 1,
+      "Zero Wire": 1
+    }
   },
   {
     "modification": "Shielded Grip",
     "type": "Weapon",
     "slot": "Stock and grips",
     "description": "A shielded grip to increase Recoil Control at the cost of Aim Down Sights speed. Slightly increases long-range Accuracy.",
-    "resources": {}
+    "resources": {
+      "Adhesive": 2,
+      "Tungsten": 2
+    }
   },
   {
     "modification": "Shielded Tool Grip",
     "type": "Weapon",
     "slot": "Stock and grips",
     "description": "A shielded grip to vastly increase Recoil Control at the cost of Aim Down Sights speed. Slightly increases long-range Accuracy.",
-    "resources": {}
+    "resources": {
+      "Adhesive": 2,
+      "Tungsten": 2
+    }
   },
   {
     "modification": "Shock Charge Band",
     "type": "Weapon",
     "slot": "Muzzle",
     "description": "Electrified device that attaches an electric burst of energy to rounds passed through it.",
-    "resources": {}
+    "resources": {
+      "Adhesive": 2,
+      "Polymer": 1,
+      "Titanium": 4,
+      "Ytterbium": 2
+    }
   },
   {
     "modification": "Short Barrel",
     "type": "Weapon",
     "slot": "Barrel",
     "description": "Increases Aiming speed at the cost of Accuracy, Recoil control, and Magazine size.",
-    "resources": {}
+    "resources": {
+      "Iron": 1,
+      "Nickel": 1
+    }
   },
   {
     "modification": "Short Barrel with Laser Sight",
     "type": "Weapon",
     "slot": "Barrel",
     "description": "Increases Aiming speed at the cost of Accuracy, Recoil control, and Magazine size. Adds a Laser Sight.",
-    "resources": {}
+    "resources": {
+      "Helium-3": 1,
+      "Iron": 1,
+      "Neon": 1,
+      "Nickel": 1
+    }
   },
   {
     "modification": "Short Scope",
     "type": "Weapon",
     "slot": "Optics",
     "description": "Short scope for 2x magnified view.",
-    "resources": {}
+    "resources": {
+      "Adhesive": 1,
+      "Chlorosilanes": 2,
+      "Titanium": 2
+    }
   },
   {
     "modification": "Short Supressor",
     "type": "Weapon",
     "slot": "Muzzle",
     "description": "Vastly reduces acoustic intensity and slightly increases Accuracy at the cost of Range.",
-    "resources": {}
+    "resources": {
+      "Sealant": 2,
+      "Tantalum": 2,
+      "Tungsten": 1
+    }
   },
   {
     "modification": "Skip Capacity Boostpack",
     "type": "Spacesuit",
     "slot": "Pack",
     "description": "Bootspack with low-duration, high-intensity output, sacrificing boost height for mobility.",
-    "resources": {}
+    "resources": {
+      "Beryllium": 2,
+      "Monopropellant": 2,
+      "Zero-G Gimbal": 1
+    }
   },
   {
     "modification": "Slug Shots",
     "type": "Weapon",
     "slot": "Magazine and battery",
     "description": "Single, large projectiles that can be fired much further and do vastly more Damage.",
-    "resources": {}
+    "resources": {
+      "Copper": 2,
+      "Lead": 2,
+      "Polymer": 1
+    }
   },
   {
     "modification": "Small Battery",
     "type": "Weapon",
     "slot": "Magazine and battery",
     "description": "Increases Aim Down Sight speed and Reload speed at the cost of Ammo Capacity.",
-    "resources": {}
+    "resources": {
+      "Cobalt": 1,
+      "Sealant": 1,
+      "Tungsten": 1
+    }
   },
   {
     "modification": "Small Magazine",
     "type": "Weapon",
     "slot": "Magazine and battery",
     "description": "Increases Aim Down Sight speed and Reload speed at the cost of Ammo Capacity.",
-    "resources": {}
+    "resources": {
+      "Lead": 1,
+      "Sealant": 1,
+      "Tungsten": 1
+    }
   },
   {
     "modification": "Spread Nozzle",
     "type": "Weapon",
     "slot": "Muzzle",
     "description": "Changes shots to fire in a shotgun-like spread.",
-    "resources": {}
+    "resources": {
+      "Argon": 2,
+      "Sealant": 2,
+      "Tungsten": 4,
+      "Zero Wire": 1
+    }
   },
   {
     "modification": "Stabilizing Barrel",
     "type": "Weapon",
     "slot": "Barrel",
     "description": "Specialized, mag-assisted barrels vastly increases Accuracy and Recoil control at the cost of Aim Down Sights speed while standing still.",
-    "resources": {}
+    "resources": {
+      "Lubricant": 1,
+      "Nickel": 2,
+      "Tungsten": 2
+    }
   },
   {
     "modification": "Stabilizing Stock",
     "type": "Weapon",
     "slot": "Stock and grips",
     "description": "Specialized, mag-assisted grips vastly increases Accuracy and Recoil control at the cost of Aim Down Sights speed while standing still.",
-    "resources": {}
+    "resources": {
+      "Adhesive": 3,
+      "Neodymium": 2,
+      "Polymer": 2
+    }
   },
   {
     "modification": "Stainless Steel Blade",
     "type": "Weapon",
     "slot": "Blade",
     "description": "Ignores percentage of enemy armor.",
-    "resources": {}
+    "resources": {
+      "Iron": 2,
+      "Lead": 3,
+      "Titanium": 2
+    }
   },
   {
     "modification": "Standard Barrel",
     "type": "Weapon",
     "slot": "Barrel",
     "description": "Standard issue barrel.",
-    "resources": {}
+    "resources": {
+      "Iron": 1,
+      "Sealant": 1
+    }
   },
   {
     "modification": "Standard Barrel with Laser Sight",
     "type": "Weapon",
     "slot": "Barrel",
     "description": "Standard issue barrel with a Laser Sight for better target acquisition.",
-    "resources": {}
+    "resources": {
+      "Helium-3": 3,
+      "Iron": 2,
+      "Neon": 1
+    }
   },
   {
     "modification": "Standard Battery",
     "type": "Weapon",
     "slot": "Magazine and battery",
     "description": "Standard issue magazine.",
-    "resources": {}
+    "resources": {
+      "Cobalt": 1,
+      "Tungsten": 1
+    }
   },
   {
     "modification": "Standard Cover",
     "type": "Weapon",
     "slot": "Cover",
     "description": "Standard cover.",
-    "resources": {}
+    "resources": {
+      "Iron": 2,
+      "Nickel": 1
+    }
   },
   {
     "modification": "Standard Explosive Rounds",
     "type": "Weapon",
     "slot": "Magazine and battery",
     "description": "Standard issue magazine.",
-    "resources": {}
+    "resources": {
+      "Alkanes": 2,
+      "Lead": 2
+    }
   },
   {
     "modification": "Standard Flap",
     "type": "Weapon",
     "slot": "Muzzle",
     "description": "Standard issue barrel.",
-    "resources": {}
+    "resources": {
+      "Iron": 1,
+      "Sealant": 1
+    }
   },
   {
     "modification": "Standard Flechette Magazine",
     "type": "Weapon",
     "slot": "Magazine and battery",
     "description": "Standard issue magazine.",
-    "resources": {}
+    "resources": {
+      "Lead": 1,
+      "Tungsten": 1
+    }
   },
   {
     "modification": "Standard Foregrip",
     "type": "Weapon",
     "slot": "Laser",
     "description": "A forward grip that increases Stability and Recoil Control.",
-    "resources": {}
+    "resources": {
+      "Aluminium": 1,
+      "Sealant": 1
+    }
   },
   {
     "modification": "Standard Grip",
     "type": "Weapon",
     "slot": "Stock and grips",
     "description": "Standard issue grip.",
-    "resources": {}
+    "resources": {
+      "Aluminium": 1,
+      "Sealant": 1
+    }
   },
   {
     "modification": "Standard Grip and Stock",
     "type": "Weapon",
     "slot": "Stock and grips",
     "description": "Standard issue grip and stock.",
-    "resources": {}
+    "resources": {
+      "Aluminium": 1,
+      "Sealant": 1
+    }
   },
   {
     "modification": "Standard Magazine",
     "type": "Weapon",
     "slot": "Magazine and battery",
     "description": "Standard issue magazine.",
-    "resources": {}
+    "resources": {
+      "Lead": 1,
+      "Tungsten": 1
+    }
   },
   {
     "modification": "Standard Muzzle",
     "type": "Weapon",
     "slot": "Muzzle",
     "description": "Standard issue muzzle.",
-    "resources": {}
+    "resources": {
+      "Iron": 1,
+      "Nickel": 1
+    }
   },
   {
     "modification": "Standard Rounds",
     "type": "Weapon",
     "slot": "Magazine and battery",
     "description": "Standard issue magazine.",
-    "resources": {}
+    "resources": {
+      "Lead": 1,
+      "Tungsten": 1
+    }
   },
   {
     "modification": "Standard Shells",
     "type": "Weapon",
     "slot": "Magazine and battery",
     "description": "Standard issue magazine.",
-    "resources": {}
+    "resources": {
+      "Lead": 1,
+      "Tungsten": 1
+    }
   },
   {
     "modification": "Standard Stock",
     "type": "Weapon",
     "slot": "Stock and grips",
     "description": "Standard issue grip.",
-    "resources": {}
+    "resources": {
+      "Aluminium": 1,
+      "Sealant": 1
+    }
   },
   {
     "modification": "Standard Whitehot Rounds",
     "type": "Weapon",
     "slot": "Magazine and battery",
     "description": "Standard chemically-tipped rounds that burn on contact.",
-    "resources": {}
+    "resources": {
+      "Aluminum": 1,
+      "Iron": 1,
+      "Solvent": 1
+    }
   },
   {
     "modification": "Stealth Lasers",
     "type": "Weapon",
     "slot": "Muzzle",
     "description": "Reduces the visibility and acoustic intensity of lasers.",
-    "resources": {}
+    "resources": {
+      "Caesium": 3,
+      "Tantalum": 3,
+      "Titanium": 2,
+      "Zero Wire": 1
+    }
   },
   {
     "modification": "Stock",
     "type": "Weapon",
     "slot": "Stock and grips",
     "description": "A full stock for better Recoil management.",
-    "resources": {}
+    "resources": {
+      "Aluminum": 2,
+      "Sealant": 1
+    }
   },
   {
     "modification": "Supressor",
     "type": "Weapon",
     "slot": "Muzzle",
     "description": "Vastly reduces acoustic intensity while increasing Accuracy at the cost of Range.",
-    "resources": {}
+    "resources": {
+      "Polymer": 2,
+      "Tantalum": 3,
+      "Tungsten": 2
+    }
   },
   {
     "modification": "Supressor (barrel)",
     "type": "Weapon",
     "slot": "Barrel",
     "description": "Vastly reduces acoustic intensity while increasing Accuracy at the cost of Range.",
-    "resources": {}
+    "resources": {
+      "Polymer": 2,
+      "Tantalum": 3,
+      "Tungsten": 2
+    }
   },
   {
     "modification": "Tactical Battery",
     "type": "Weapon",
     "slot": "Magazine and battery",
     "description": "Lighter mag that vastly increases Aim Down Sight speed and Reload speed.",
-    "resources": {}
+    "resources": {
+      "Lithium": 1,
+      "Sealant": 1
+    }
   },
   {
     "modification": "Tactical Folding Stock",
     "type": "Weapon",
     "slot": "Stock and grips",
     "description": "Lighter folding stock for quicker Aim Down Sights speed and Stability.",
-    "resources": {}
+    "resources": {
+      "Aluminum": 1,
+      "Sealant": 1,
+      "Titanium": 1
+    }
   },
   {
     "modification": "Tactical Grip",
     "type": "Weapon",
     "slot": "Stock and grips",
     "description": "A lighter grip that increases Aim Down Sight speed, Reload speed, and Stability.",
-    "resources": {}
+    "resources": {
+      "Sealant": 1,
+      "Titanium": 1
+    }
   },
   {
     "modification": "Tactical Magazine",
     "type": "Weapon",
     "slot": "Magazine and battery",
     "description": "Lighter mag that vastly increases Aim Down Sight speed and Reload speed.",
-    "resources": {}
+    "resources": {
+      "Lead": 1,
+      "Sealant": 1
+    }
   },
   {
     "modification": "Tactical Stock",
     "type": "Weapon",
     "slot": "Stock and grips",
     "description": "Lighter stock for quicker Aim Down Sights speed and better Stability.",
-    "resources": {}
+    "resources": {
+      "Aluminium": 1,
+      "Sealant": 1,
+      "Titanium": 1
+    }
   },
   {
     "modification": "Tech Barrel",
     "type": "Weapon",
     "slot": "Barrel",
     "description": "Greatly increases Accuracy, Recoil Control, and Range at the cost of Aim Down Sight speed.",
-    "resources": {}
+    "resources": {
+      "Iron": 2,
+      "Nickel": 2,
+      "Sealant": 1
+    }
   },
   {
     "modification": "Tesla Pylons",
     "type": "Weapon",
     "slot": "Magazine and battery",
     "description": "Pylons that can be fired into surfaces that arc electricity between them. Mainly used for area denial.",
-    "resources": {}
+    "resources": {
+      "Adhesive": 2,
+      "Tau Grade Rheostat": 1,
+      "Zero Wire": 2
+    }
   },
   {
     "modification": "Venomous Blade",
     "type": "Weapon",
     "slot": "Blade",
     "description": "Adds Poison Damage.",
-    "resources": {}
+    "resources": {
+      "Iron": 2,
+      "Titanium": 3,
+      "Toxin": 4,
+      "Vanadium": 3
+    }
   },
   {
     "modification": "Weighted Handle",
     "type": "Weapon",
     "slot": "Handle",
     "description": "Raises Damage, Lowers Attack Speed.",
-    "resources": {}
+    "resources": {
+      "Iron": 2,
+      "Structural Material": 3,
+      "Vanadium": 1
+    }
   },
   {
     "modification": "Whitehot Rounds",
     "type": "Weapon",
     "slot": "Magazine and battery",
     "description": "Chemically-tipped rounds that burn on contact.",
-    "resources": {}
+    "resources": {
+      "Aluminum": 1,
+      "Iron": 1,
+      "Solvent": 1
+    }
   }
 ]

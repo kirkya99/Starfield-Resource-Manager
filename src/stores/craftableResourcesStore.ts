@@ -1,11 +1,11 @@
 import { defineStore } from 'pinia'
 import { onMounted, ref } from 'vue'
 import { CraftableResource, getCraftableResource } from 'src/typescript/CraftableResource'
-import { useShoppingListStore } from 'stores/shoppingListStore'
+import { StoreManager } from 'src/typescript/StoreManager'
 
 export const useCraftableResourceListStore = defineStore('craftableResourceList', () => {
   const craftableResourceList = ref <CraftableResource[]>([])
-  const shoppingListStore = useShoppingListStore()
+  const storeManager = new StoreManager()
 
   const addCraftableResource = (craftable: CraftableResource) => {
     console.log(craftable)
@@ -21,7 +21,7 @@ export const useCraftableResourceListStore = defineStore('craftableResourceList'
       }
     })
 
-    shoppingListStore.addResource(nonCraftableResourceList)
+    storeManager.shoppingListStore.addResource(nonCraftableResourceList)
     persistCraftableResourceList()
   }
 
