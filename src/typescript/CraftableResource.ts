@@ -10,7 +10,7 @@ export function getCraftableResources (): CraftableResource[] {
   return craftableResourcesJson.map(item => ({
     name: item.name,
     rarity: item.rarity,
-    resources: new Map<string, number>()
+    resources: new Map<string, number>(Object.entries(item.resources))
   }))
 }
 
