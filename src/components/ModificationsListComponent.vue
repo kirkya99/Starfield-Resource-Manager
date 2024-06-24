@@ -3,13 +3,12 @@
 import { ref, watch } from 'vue'
 import { Notify } from 'quasar'
 import { Columns, getModifications, Modification, ModificationType, radioOptions } from 'src/typescript/Modification'
-import { useSessionStore } from 'stores/useSessionStore'
 import typesJson from 'src/json/types.json'
 import slotsJson from 'src/json/slots.json'
 import { getResources, Resource } from 'src/typescript/Resource'
+import { StoreManager } from 'src/typescript/StoreManager'
 
-const store = useSessionStore()
-
+const storeManager = new StoreManager()
 const types = typesJson
 const slots = slotsJson
 
@@ -40,8 +39,7 @@ const onSubmit = () => {
   switch (radioOption.value) {
     case ModificationType.Existing:
       if (selectedItem.value !== null) {
-        store.addModification(selectedItem.value)
-        store.addResourceToShoppingList(selectedItem.value.resources)
+        storeManager.modificationListStore.addModification(selectedItem.value)
         Notify.create({
           type: 'positive',
           message: `${selectedItem.value.modification} added to modifications list`,
@@ -67,7 +65,7 @@ const onSubmit = () => {
       break
     case ModificationType.Custom:
       if (selectedItem.value) {
-        store.addModification(selectedItem.value)
+        storeManager.modificationListStore.addModification(selectedItem.value)
         Notify.create({
           type: 'positive',
           message: `${selectedItem.value.modification} added to modifications list`,
@@ -100,7 +98,7 @@ const callDeleteDialog = (row: { key: string }) => {
 
 const deleteRow = () => {
   if (toBeDeletedName.value) {
-    store.removeModification(toBeDeletedName.value)
+    storeManager.modificationListStore.removeModification(toBeDeletedName.value)
     Notify.create({
       type: 'positive',
       message: `${toBeDeletedName.value} removed from modifications list`,
@@ -234,7 +232,7 @@ watch(radioOption, () => {
     </div>
 
     <div class="col-md-9 col-xs-12 q-mt-md">
-      <q-table flat bordered :rows="store.modifications" :columns="modsColumns" row-key="modification"
+      <q-table flat bordered :rows="storeManager.modificationListStore.modificationList" :columns="modsColumns" row-key="modification"
                :pagination="initialPagination" style="max-height: 65vh" class="table-preset" dark>
         <template v-slot:body-cell-action="props">
           <q-td key="action" :props="props">

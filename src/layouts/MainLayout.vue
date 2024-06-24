@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import { useRouter, useRoute, RouteLocationNormalized } from 'vue-router'
-import { useSessionStore } from 'stores/useSessionStore'
+import { StoreManager } from 'src/typescript/StoreManager'
 
-const sessionStore = useSessionStore()
+const storeManager = new StoreManager()
 const router = useRouter()
 const route = useRoute()
 const showHeaderAndDrawer = ref<boolean>(true)
@@ -44,8 +44,10 @@ const login = () => {
 }
 
 const logout = () => {
-  sessionStore.clearModifications()
-  sessionStore.clearUserId()
+  storeManager.userStore.clearUserId()
+  storeManager.modificationListStore.clearModificationList()
+  storeManager.craftableResourceListStore.clearCraftableResourceList()
+  storeManager.shoppingListStore.clearShoppingList()
   router.push(logoutRoute.value.path)
 }
 
@@ -73,12 +75,12 @@ router.beforeEach((to: RouteLocationNormalized) => {
 
         <q-space />
 
-        <q-btn round icon="login" v-if="sessionStore.userId === ''" unelevated aria-label="Login" @click="login">
+        <q-btn round icon="login" v-if="storeManager.userStore.userId === ''" unelevated aria-label="Login" @click="login">
           <q-tooltip class="text-12px">
             Login or register to access your resource management from multiple devices
           </q-tooltip>
         </q-btn>
-        <q-btn round icon="person" v-if="sessionStore.userId !== ''" unelevated aria-label="Personal Menu">
+        <q-btn round icon="person" v-if="storeManager.userStore.userId !== ''" unelevated aria-label="Personal Menu">
           <q-menu cover>
             <q-list>
               <q-item clickable v-close-popup @click="navigate(profileRoute.path)">

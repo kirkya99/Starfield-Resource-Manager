@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { useSessionStore } from 'stores/useSessionStore'
+import { StoreManager } from 'src/typescript/StoreManager'
+
+const storeManager = new StoreManager()
 
 const router = useRouter()
 const email = ref<string | null>(null)
@@ -10,7 +12,7 @@ const isPwd = ref<boolean>(true)
 
 const onSubmit = () => {
   console.log(`Email: ${email.value}; Password: ${password.value}`)
-  useSessionStore().setUserId('userId')
+  storeManager.userStore.setUserId('userId')
   router.push('/')
 }
 </script>

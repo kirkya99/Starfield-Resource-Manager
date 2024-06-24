@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { useSessionStore } from 'stores/useSessionStore'
 import { columns } from 'src/typescript/Resource'
 import { Notify } from 'quasar'
 import { ref } from 'vue'
+import { StoreManager } from 'src/typescript/StoreManager'
 
-const sessionStore = useSessionStore()
+const storeManager = new StoreManager()
+
 const initialPagination = ref({
   sortBy: 'desc',
   descending: false,
@@ -20,7 +21,7 @@ const callDeleteDialog = (row: { key: string }) => {
 
 const deleteRow = () => {
   if (toBeDeletedName.value) {
-    sessionStore.removeResourceFromShoppingList(toBeDeletedName.value)
+    storeManager.shoppingListStore.removeResource(toBeDeletedName.value)
     Notify.create({
       type: 'positive',
       message: `${toBeDeletedName.value} removed from shopping list`,
@@ -50,7 +51,7 @@ const deleteRow = () => {
       Shopping list
     </div>
     <div class="col-md-9 col-xs-12 q-mt-md">
-      <q-table flat bordered :rows="sessionStore.shoppingList" :columns="columns" row-key="resource"
+      <q-table flat bordered :rows="storeManager.shoppingListStore.shoppingList" :columns="columns" row-key="resource"
                :pagination="initialPagination" style="max-height: 65vh" class="table-preset" dark>
         <template v-slot:body-cell-action="props">
           <q-td key="action" :props="props">
