@@ -16,7 +16,7 @@ export const useCraftableResourceListStore = defineStore('craftableResourceList'
       const resource: CraftableResource | undefined = getCraftableResource(key)
       if (resource) {
         for (let i = 0; i < value; i++) {
-        addCraftableResource(resource)
+          addCraftableResource(resource)
         }
       } else {
         nonCraftableResourceList.set(key, value)
