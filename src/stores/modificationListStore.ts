@@ -15,7 +15,9 @@ export const useModificationListStore = defineStore('modificationList', () => {
     modification.resources.forEach((value, key) => {
       const resource: CraftableResource | undefined = getCraftableResource(key)
       if (resource) {
+        for (let i = 0; i < value; i++) {
         storeManager.craftableResourceListStore.addCraftableResource(resource)
+        }
       } else {
         nonCraftableResourceList.set(key, value)
       }
