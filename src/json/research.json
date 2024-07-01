@@ -1,0 +1,1602 @@
+[
+  {
+    "name": "Medical Treatment 1",
+    "category": "Pharmacology research",
+    "resources": {
+      "Aluminum": 2,
+      "Amino Acids": 2,
+      "Antimicrobial": 3
+    },
+    "requirements": [],
+    "skills": [],
+    "unlocks": [
+      "Antibiotic Paste",
+      "Infused Bandages"
+    ]
+  },
+  {
+    "name": "Medical Treatment 2",
+    "category": "Pharmacology research",
+    "resources": {
+      "Amino Acids": 10,
+      "Analgesic": 10,
+      "Antimicrobial": 10,
+      "Battlestim": 5,
+      "Heart+": 5
+    },
+    "requirements": [
+      "Medical Treatment 1"
+    ],
+    "skills": [
+      "Chemistry 1"
+    ],
+    "unlocks": [
+      "Analgesic Poultice",
+      "Boudicca"
+    ]
+  },
+  {
+    "name": "Medical Treatment 3",
+    "category": "Pharmacology research",
+    "resources": {
+      "Antibiotics": 10,
+      "Metabolic Agent": 20,
+      "Sealant": 10,
+      "Sedative": 10
+    },
+    "requirements": [
+      "Medical Treatment 2"
+    ],
+    "skills": [
+      "Chemistry 2"
+    ],
+    "unlocks": [
+      "Antibiotic Injector",
+      "Repairing Immobilizer"
+    ]
+  },
+  {
+    "name": "Medical Treatment 4",
+    "category": "Pharmacology research",
+    "resources": {
+      "Heart+": 10,
+      "Immunostimulant": 5,
+      "Membrane": 20,
+      "Trauma Pack": 10
+    },
+    "requirements": [
+      "Medical Treatment 3"
+    ],
+    "skills": [
+      "Chemistry 3"
+    ],
+    "unlocks": [
+      "Junk Flush",
+      "Panacea"
+    ]
+  },
+  {
+    "name": "Performance Enhancement 1",
+    "category": "Pharmacology research",
+    "resources": {
+      "Argon": 2,
+      "Metabolic Agent": 3,
+      "Tetrafluorides": 2
+    },
+    "requirements": [],
+    "skills": [],
+    "unlocks": [
+      "Amp",
+      "Red Trench"
+    ]
+  },
+  {
+    "name": "Performance Enhancement 2",
+    "category": "Pharmacology research",
+    "resources": {
+      "Carboxylic Acids": 10,
+      "Hippolyta": 5,
+      "Infantry Alpha": 5,
+      "Membrane": 10,
+      "Solvent": 10
+    },
+    "requirements": [
+      "Performance Enhancement 1"
+    ],
+    "skills": [
+      "Chemistry 1"
+    ],
+    "unlocks": [
+      "Panopticon",
+      "Paramour"
+    ]
+  },
+  {
+    "name": "Performance Enhancement 3",
+    "category": "Pharmacology research",
+    "resources": {
+      "Ionic Liquids": 10,
+      "Squall": 5,
+      "Stimulant": 10,
+      "Synapse Alpha": 5,
+      "Toxin": 10
+    },
+    "requirements": [
+      "Performance Enhancement 2"
+    ],
+    "skills": [
+      "Chemistry 2"
+    ],
+    "unlocks": [
+      "Neurajack",
+      "Whiteout"
+    ]
+  },
+  {
+    "name": "Performance Enhancement 4",
+    "category": "Pharmacology research",
+    "resources": {
+      "Aurora": 10,
+      "CQB-X": 10,
+      "Squall": 10,
+      "Stimulant": 20,
+      "Whiteout": 8
+    },
+    "requirements": [
+      "Performance Enhancement 3"
+    ],
+    "skills": [
+      "Chemistry 3"
+    ],
+    "unlocks": [
+      "Frostwolf"
+    ]
+  },
+  {
+    "name": "Innovative Synthesis 1",
+    "category": "Pharmacology research",
+    "resources": {
+      "Alien Genetic Material": 3,
+      "Carboxylic Acids": 5,
+      "Mercury": 10,
+      "Solvent": 5,
+      "Tetrafluorides": 5
+    },
+    "requirements": [],
+    "skills": [],
+    "unlocks": [
+      "Giant Heart",
+      "Subgiant Heart"
+    ]
+  },
+  {
+    "name": "Innovative Synthesis 2",
+    "category": "Pharmacology research",
+    "resources": {
+      "Alien Genetic Material": 5,
+      "Aurora": 5,
+      "Carboxylic Acids": 10,
+      "Dwarf Star Heart": 5,
+      "Solvent": 5
+    },
+    "requirements": [
+      "Innovative Synthesis 1"
+    ],
+    "skills": [
+      "Chemistry 3",
+      "Special Projects 1"
+    ],
+    "unlocks": [
+      "Hypergiant Heart",
+      "Supermassive Black Heart"
+    ]
+  },
+  {
+    "name": "Innovative Synthesis 3",
+    "category": "Pharmacology research",
+    "resources": {
+      "Alien Genetic Material": 10,
+      "Black Hole Heart": 5,
+      "Carboxylic Acids": 10,
+      "Ionic Liquids": 8,
+      "Solvent": 10,
+      "Subgiant Heart": 5
+    },
+    "requirements": [
+      "Innovative Synthesis 2"
+    ],
+    "skills": [
+      "Chemistry 3",
+      "Special Projects 1"
+    ],
+    "unlocks": []
+  },
+  {
+    "name": "Old Earth Cuisine 1",
+    "category": "Food and drink research",
+    "resources": {
+      "Bread": 3,
+      "Cheese": 2,
+      "Red Meat": 2
+    },
+    "requirements": [],
+    "skills": [],
+    "unlocks": [
+      "Meatloaf",
+      "Reuben"
+    ]
+  },
+  {
+    "name": "Old Earth Cuisine 2",
+    "category": "Food and drink research",
+    "resources": {
+      "Butter": 5,
+      "Cheese": 5,
+      "Egg": 5,
+      "Poultry": 5,
+      "Spice": 5
+    },
+    "requirements": [
+      "Old Earth Cuisine 1"
+    ],
+    "skills": [
+      "Gastronomy 1"
+    ],
+    "unlocks": [
+      "Chicken Marsala",
+      "Latkes",
+      "Spaghetti Carbonara"
+    ]
+  },
+  {
+    "name": "Old Earth Cuisine 3",
+    "category": "Food and drink research",
+    "resources": {
+      "Beer": 10,
+      "Dairy": 10,
+      "Egg": 10,
+      "Nutrient": 20,
+      "Poultry": 10,
+      "Spice": 10
+    },
+    "requirements": [
+      "Old Earth Cuisine 2"
+    ],
+    "skills": [
+      "Gastronomy 2"
+    ],
+    "unlocks": [
+      "Barbacoa Wrap",
+      "Chapaguri",
+      "Chicken Tikka"
+    ]
+  },
+  {
+    "name": "Old Earth Cuisine 4",
+    "category": "Food and drink research",
+    "resources": {
+      "Beans": 10,
+      "Bread": 10,
+      "Butter": 10,
+      "Noodles": 10,
+      "Nutrient": 40,
+      "Poultry": 10,
+      "Spice": 20
+    },
+    "requirements": [
+      "Old Earth Cuisine 3"
+    ],
+    "skills": [
+      "Gastronomy 3"
+    ],
+    "unlocks": [
+      "Dal Makhani",
+      "Doro Wat",
+      "Pappardelle Bolognese"
+    ]
+  },
+  {
+    "name": "Exotic Recipes 1",
+    "category": "Food and drink research",
+    "resources": {
+      "Aromatic": 8,
+      "Fiber": 10,
+      "Noodles": 5,
+      "Nutrient": 8,
+      "Spice": 8
+    },
+    "requirements": [],
+    "skills": [],
+    "unlocks": [
+      "Alien Stew",
+      "Creature Jam",
+      "Xenowurst"
+    ]
+  },
+  {
+    "name": "Exotic Recipes 2",
+    "category": "Food and drink research",
+    "resources": {
+      "Aromatic": 10,
+      "Egg": 8,
+      "Membrane": 10,
+      "Red Meat": 8,
+      "Spice": 10,
+      "Wine": 5
+    },
+    "requirements": [
+      "Exotic Recipes 1"
+    ],
+    "skills": [
+      "Gastronomy 4"
+    ],
+    "unlocks": [
+      "Alien Pie",
+      "Star Cluster Marsala",
+      "Stellar Kebabs"
+    ]
+  },
+  {
+    "name": "Exotic Recipes 3",
+    "category": "Food and drink research",
+    "resources": {
+      "Aromatic": 10,
+      "Butter": 10,
+      "Fiber": 20,
+      "Quark-Degenerate Tissues": 5,
+      "Wine": 10
+    },
+    "requirements": [
+      "Exotic Recipes 2"
+    ],
+    "skills": [
+      "Gastronomy 4"
+    ],
+    "unlocks": [
+      "Galaxy Lo Mein",
+      "Nebula Wat"
+    ]
+  },
+  {
+    "name": "Exotic Recipes 4",
+    "category": "Food and drink research",
+    "resources": {
+      "Beans": 10,
+      "Bread": 10,
+      "Egg": 20,
+      "Noodles": 20,
+      "Nutrient": 40,
+      "Quark-Degenerate Tissues": 10,
+      "Spice": 30
+    },
+    "requirements": [
+      "Exotic Recipes 3"
+    ],
+    "skills": [
+      "Gastronomy 4"
+    ],
+    "unlocks": []
+  },
+  {
+    "name": "Beverage Development 1",
+    "category": "Food and drink research",
+    "resources": {
+      "Fiber": 3,
+      "Spice": 2,
+      "Water": 3
+    },
+    "requirements": [],
+    "skills": [],
+    "unlocks": [
+      "Alien Tonic",
+      "Boba Alien Tea",
+      "Yellow Giant Splash"
+    ]
+  },
+  {
+    "name": "Beverage Development 2",
+    "category": "Food and drink research",
+    "resources": {
+      "Aromatic": 5,
+      "Benzene": 5,
+      "Metabolic Agent": 10,
+      "Spice": 5,
+      "Tranquilitea Sunray": 5
+    },
+    "requirements": [
+      "Beverage Development 1"
+    ],
+    "skills": [
+      "Gastronomy 1"
+    ],
+    "unlocks": [
+      "Alien Energy Drink",
+      "Sunray Tonic"
+    ]
+  },
+  {
+    "name": "Beverage Development 3",
+    "category": "Food and drink research",
+    "resources": {
+      "Coffee": 10,
+      "Dairy": 10,
+      "Fiber": 20,
+      "Nutrient": 10,
+      "Spice": 10,
+      "Water": 20
+    },
+    "requirements": [
+      "Beverage Development 2"
+    ],
+    "skills": [
+      "Gastronomy 2"
+    ],
+    "unlocks": [
+      "Alien Broth",
+      "Bullet Coffee"
+    ]
+  },
+  {
+    "name": "Beverage Development 4",
+    "category": "Food and drink research",
+    "resources": {
+      "Boom Pop! Black Licorice": 10,
+      "Boom Pop! Cola": 10,
+      "Boom Pop! Root Beer": 10,
+      "Spice": 30,
+      "Tea": 10,
+      "Water": 30
+    },
+    "requirements": [
+      "Beverage Development 3"
+    ],
+    "skills": [
+      "Gastronomy 3"
+    ],
+    "unlocks": [
+      "Boom Pop! Dynamite",
+      "Chai Latte"
+    ]
+  },
+  {
+    "name": "Mixology 1",
+    "category": "Food and drink research",
+    "resources": {
+      "Alkanes": 2,
+      "Aromatic": 2,
+      "Spice": 3
+    },
+    "requirements": [],
+    "skills": [],
+    "unlocks": [
+      "Alien Liquor"
+    ]
+  },
+  {
+    "name": "Mixology 2",
+    "category": "Food and drink research",
+    "resources": {
+      "Aromatic": 10,
+      "CAN-uck! Poutine": 5,
+      "Liquor": 5,
+      "Spice": 10
+    },
+    "requirements": [
+      "Mixology 1"
+    ],
+    "skills": [
+      "Gastronomy 1"
+    ],
+    "unlocks": [
+      "Colonel's Choice",
+      "Lumberjack Julep"
+    ]
+  },
+  {
+    "name": "Mixology 3",
+    "category": "Food and drink research",
+    "resources": {
+      "Aromatic": 20,
+      "Dairy": 10,
+      "Liquor": 10,
+      "Soda": 10
+    },
+    "requirements": [
+      "Mixology 2"
+    ],
+    "skills": [
+      "Gastronomy 2"
+    ],
+    "unlocks": [
+      "Disastrous Shipwreck",
+      "Very Heavy Water"
+    ]
+  },
+  {
+    "name": "Mixology 4",
+    "category": "Food and drink research",
+    "resources": {
+      "Liquor": 20,
+      "Spice": 25,
+      "Tomato": 10
+    },
+    "requirements": [
+      "Mixology 3"
+    ],
+    "skills": [
+      "Gastronomy 3"
+    ],
+    "unlocks": [
+      "Fully-Loaded Bloody Mary"
+    ]
+  },
+  {
+    "name": "Decoration 1",
+    "category": "Outpost development research",
+    "resources": {
+      "Fiber": 3,
+      "Ornamental Material": 2,
+      "Structural Material": 3
+    },
+    "requirements": [],
+    "skills": [],
+    "unlocks": [
+      "Bar Table",
+      "Bed 1",
+      "Bench 2",
+      "Bookcase",
+      "Bunk Bed (variant)",
+      "Chair 3",
+      "Chair 4",
+      "Chair 5",
+      "Chair 6",
+      "Cleaning",
+      "Coffee Maker",
+      "Coffee Table (variant)",
+      "Console Desks",
+      "Couch 1",
+      "Couch 2",
+      "Drink Machine",
+      "Hanging Rug",
+      "Mannequins (variant 1)",
+      "Navigation Consoles",
+      "Planters",
+      "Posters (variant 1)",
+      "Room Dividers",
+      "Shelf",
+      "Side Table",
+      "Side Table (variant)",
+      "Stool 3",
+      "Surgical Bed",
+      "Surgical Bed (variant)",
+      "Table 1",
+      "Trash Cans",
+      "Wall Monitor",
+      "Water Cooler",
+      "Weapon Display Case"
+    ]
+  },
+  {
+    "name": "Decoration 2",
+    "category": "Outpost development research",
+    "resources": {
+      "Adhesive": 10,
+      "Aluminum": 10,
+      "Fiber": 10,
+      "Pigment": 10,
+      "Structural Material": 10
+    },
+    "requirements": [
+      "Decoration 1"
+    ],
+    "skills": [
+      "Outpost Engineering 1"
+    ],
+    "unlocks": [
+      "Bed 2",
+      "Bench 3",
+      "Bench 4",
+      "Chair 10",
+      "Chair 7",
+      "Chair 8",
+      "Chair 9",
+      "Conference Table",
+      "Containers (safe)",
+      "Couch 3",
+      "Desk",
+      "Display Case",
+      "Display Shelf (variant)",
+      "Earth Globe",
+      "End Table",
+      "End Table (variant)",
+      "Mannequins (variant 2)",
+      "Model Ship (starship)",
+      "Mounted Beetle Crab",
+      "Mounted Lock Jaw",
+      "Mounted Radar Face",
+      "Mounted Sea Bat",
+      "Oval Rug",
+      "Pedestals (empty)",
+      "Posters (variant 2)",
+      "Round Rug",
+      "Rug",
+      "Sculpture",
+      "Shelf (variant)",
+      "Standing Mirror",
+      "Stool 4",
+      "Table 2"
+    ]
+  },
+  {
+    "name": "Decoration 3",
+    "category": "Outpost development research",
+    "resources": {
+      "Adhesive": 30,
+      "Aluminum": 30,
+      "Fiber": 20,
+      "Luxury Textile": 5,
+      "Nickel": 20,
+      "Structural Material": 30
+    },
+    "requirements": [
+      "Decoration 2"
+    ],
+    "skills": [
+      "Outpost Engineering 2"
+    ],
+    "unlocks": [
+      "Animal Hide Rug",
+      "Bed 3",
+      "Bench 5",
+      "Bench 6",
+      "Chair 11",
+      "Chair 12",
+      "Chair 13",
+      "Coffee Table",
+      "Desk (variant)",
+      "Fancy Sofa",
+      "Long Oval Table",
+      "Long Table",
+      "Mannequins (variant 3)",
+      "Metal Sculpture",
+      "Model Ship (wooden)",
+      "Old Computer",
+      "Orrery Table",
+      "Pedestals",
+      "Plant Shelf",
+      "Punching Bag",
+      "Rectangle Rug",
+      "Rug (variant)",
+      "Statues",
+      "Stool 5",
+      "Tables",
+      "Weight Bench"
+    ]
+  },
+  {
+    "name": "Domestication 1",
+    "category": "Outpost development research",
+    "resources": {
+      "Adaptive Frame": 10,
+      "Adhesive": 10,
+      "Aluminum": 30,
+      "Molecular Sieve": 5,
+      "Sealant": 10
+    },
+    "requirements": [],
+    "skills": [
+      "Outpost Engineering 1",
+      "Zoology 1"
+    ],
+    "unlocks": [
+      "Animal Husbandry Facility - Commercial"
+    ]
+  },
+  {
+    "name": "Domestication 2",
+    "category": "Outpost development research",
+    "resources": {
+      "Adaptive Frame": 20,
+      "Adhesive": 30,
+      "Aluminum": 40,
+      "Hypercatalyst": 10,
+      "Sealant": 30,
+      "Substrate Molecule Sieve": 8
+    },
+    "requirements": [
+      "Domestication 1"
+    ],
+    "skills": [
+      "Outpost Engineering 2",
+      "Zoology 1"
+    ],
+    "unlocks": [
+      "Animal Husbandry Facility - Industrial"
+    ]
+  },
+  {
+    "name": "Horticulture 1",
+    "category": "Outpost development research",
+    "resources": {
+      "Adaptive Frame": 10,
+      "Mag Pressure Tank": 8,
+      "Metabolic Agent": 10,
+      "Nutrient": 10,
+      "Tungsten": 10
+    },
+    "requirements": [],
+    "skills": [
+      "Botany 1",
+      "Outpost Engineering 1"
+    ],
+    "unlocks": [
+      "Greenhouse - Commercial"
+    ]
+  },
+  {
+    "name": "Horticulture 2",
+    "category": "Outpost development research",
+    "resources": {
+      "Adaptive Frame": 20,
+      "Amino Acids": 10,
+      "Mag Pressure Tank": 10,
+      "Metabolic Agent": 30,
+      "Nutrient": 30,
+      "Tungsten": 20
+    },
+    "requirements": [
+      "Horticulture 1"
+    ],
+    "skills": [
+      "Botany 1",
+      "Outpost Engineering 2"
+    ],
+    "unlocks": [
+      "Greenhouse - Industrial"
+    ]
+  },
+  {
+    "name": "Manufacturing 1",
+    "category": "Outpost development research",
+    "resources": {
+      "Adaptive Frame": 3,
+      "Iron": 3,
+      "Sealant": 3,
+      "Zero Wire": 2
+    },
+    "requirements": [],
+    "skills": [],
+    "unlocks": [
+      "Cargo Link",
+      "Simple Fabricator",
+      "Warehouse - Small"
+    ]
+  },
+  {
+    "name": "Manufacturing 2",
+    "category": "Outpost development research",
+    "resources": {
+      "Adaptive Frame": 10,
+      "Iron": 30,
+      "Lubricant": 10,
+      "Reactive Gauge": 5,
+      "Sealant": 20,
+      "Tungsten": 20,
+      "Zero Wire": 10
+    },
+    "requirements": [
+      "Manufacturing 1"
+    ],
+    "skills": [
+      "Outpost Engineering 1"
+    ],
+    "unlocks": [
+      "Compound Fabricator",
+      "Storage - Gas - Medium",
+      "Storage - Liquid - Medium",
+      "Storage - Solid - Medium",
+      "Warehouse - Medium"
+    ]
+  },
+  {
+    "name": "Manufacturing 3",
+    "category": "Outpost development research",
+    "resources": {
+      "Adaptive Frame": 30,
+      "Iron": 40,
+      "Lubricant": 10,
+      "Positron Battery": 5,
+      "Reactive Gauge": 10,
+      "Sealant": 30,
+      "Tungsten": 30,
+      "Zero Wire": 20
+    },
+    "requirements": [
+      "Manufacturing 2"
+    ],
+    "skills": [
+      "Outpost Engineering 2"
+    ],
+    "unlocks": [
+      "Multiplex Fabricator",
+      "Storage - Gas - Large",
+      "Storage - Liquid - Large",
+      "Storage - Solid - Large",
+      "Warehouse - Large"
+    ]
+  },
+  {
+    "name": "Outpost Defense 1",
+    "category": "Outpost development research",
+    "resources": {
+      "Aluminum": 30,
+      "Copper": 5,
+      "Fluorine": 5,
+      "Positron Battery": 3,
+      "Titanium": 10,
+      "Zero Wire": 8
+    },
+    "requirements": [],
+    "skills": [
+      "Robots 2",
+      "Outpost Engineering 2"
+    ],
+    "unlocks": [
+      "Ballistic Turret Mk II",
+      "Laser Turret Mk II",
+      "Security Mini Bot"
+    ]
+  },
+  {
+    "name": "Outpost Defense 2",
+    "category": "Outpost development research",
+    "resources": {
+      "Aluminum": 40,
+      "Copper": 10,
+      "Neon": 10,
+      "Positron Battery": 8,
+      "Power Circuit": 2,
+      "Titanium": 30,
+      "Veryl-Treated Manifold": 3
+    },
+    "requirements": [
+      "Outpost Defense 1"
+    ],
+    "skills": [
+      "Outpost Engineering 3"
+    ],
+    "unlocks": [
+      "Ballistic Turret Mk III",
+      "Laser Turret Mk III",
+      "Security Robot",
+      "Security Robot (armored)"
+    ]
+  },
+  {
+    "name": "Power Generation 1",
+    "category": "Outpost development research",
+    "resources": {
+      "Adaptive Frame": 10,
+      "Cobalt": 10,
+      "Copper": 20,
+      "Isocentered Magnet": 8,
+      "Silver": 30,
+      "Zero Wire": 10
+    },
+    "requirements": [],
+    "skills": [
+      "Outpost Engineering 1"
+    ],
+    "unlocks": [
+      "Wind Turbine - Advanced"
+    ]
+  },
+  {
+    "name": "Power Generation 2",
+    "category": "Outpost development research",
+    "resources": {
+      "Beryllium": 30,
+      "Caesium": 20,
+      "Power Circuit": 3,
+      "Supercooled Magnet": 3,
+      "Tau Grade Rheostat": 5,
+      "Titanium": 30,
+      "Zero Wire": 20
+    },
+    "requirements": [
+      "Power Generation 1"
+    ],
+    "skills": [
+      "Outpost Engineering 2"
+    ],
+    "unlocks": [
+      "Solar Dome"
+    ]
+  },
+  {
+    "name": "Power Generation 3",
+    "category": "Outpost development research",
+    "resources": {
+      "Control Rod": 8,
+      "Isotopic Coolant": 10,
+      "Lead": 30,
+      "Nuclear Fuel Rod": 10,
+      "Paramagnon Conductor": 10,
+      "Power Circuit": 5,
+      "Supercooled Magnet": 5,
+      "Tau Grade Rheostat": 10,
+      "Tungsten": 30
+    },
+    "requirements": [
+      "Power Generation 2"
+    ],
+    "skills": [
+      "Outpost Engineering 3"
+    ],
+    "unlocks": [
+      "Reactor"
+    ]
+  },
+  {
+    "name": "Power Generation 4",
+    "category": "Outpost development research",
+    "resources": {
+      "Control Rod": 10,
+      "Isotopic Coolant": 20,
+      "Lead": 50,
+      "Power Circuit": 10,
+      "Rothicite Magnet": 5,
+      "Tasine Superconductor": 8,
+      "Tau Grade Rheostat": 30,
+      "Tungsten": 40,
+      "Vytinium Fuel Rod": 10
+    },
+    "requirements": [
+      "Power Generation 3"
+    ],
+    "skills": [
+      "Outpost Engineering 3",
+      "Special Projects 1"
+    ],
+    "unlocks": [
+      "Reactor - Advanced"
+    ]
+  },
+  {
+    "name": "Resource Extraction 1",
+    "category": "Outpost development research",
+    "resources": {
+      "Adaptive Frame": 10,
+      "Aluminum": 30,
+      "Chlorosilanes": 10,
+      "Copper": 20,
+      "Drilling Rig": 5,
+      "Mag Pressure Tank": 8
+    },
+    "requirements": [],
+    "skills": [
+      "Outpost Engineering 1"
+    ],
+    "unlocks": [
+      "Extractor - Aldumite - Commercial",
+      "Extractor - Alkanes - Commercial",
+      "Extractor - Alkanes Vapor - Commercial",
+      "Extractor - Aluminum - Commercial",
+      "Extractor - Antimony - Commercial",
+      "Extractor - Argon - Commercial",
+      "Extractor - Benzene - Commercial",
+      "Extractor - Benzene Vapor - Commercial",
+      "Extractor - Beryllium - Commercial",
+      "Extractor - Caesium - Commercial",
+      "Extractor - Carboxylic Acids - Commercial",
+      "Extractor - Chlorine - Commercial",
+      "Extractor - Chlorine Vapor - Commercial",
+      "Extractor - Chlorosilanes - Commercial",
+      "Extractor - Cobalt - Commercial",
+      "Extractor - Copper - Commercial",
+      "Extractor - Dysprosium - Commercial",
+      "Extractor - Europium - Commercial",
+      "Extractor - Fluorine - Commercial",
+      "Extractor - Fluorine Vapor - Commercial",
+      "Extractor - Gold - Commercial",
+      "Extractor - Helium-3 - Commercial",
+      "Extractor - Helium-3 Vapor - Commercial",
+      "Extractor - Indicite - Commercial",
+      "Extractor - Ionic Liquids - Commercial",
+      "Extractor - Iridium - Commercial",
+      "Extractor - Iron - Commercial",
+      "Extractor - Lead - Commercial",
+      "Extractor - Lithium - Commercial",
+      "Extractor - Mercury - Commercial",
+      "Extractor - Neodymium - Commercial",
+      "Extractor - Neon - Commercial",
+      "Extractor - Nickel - Commercial",
+      "Extractor - Palladium - Commercial",
+      "Extractor - Platinum - Commercial",
+      "Extractor - Plutonium - Commercial",
+      "Extractor - Rothicite - Industrial",
+      "Extractor - Silver - Commercial",
+      "Extractor - Tantalum - Commercial",
+      "Extractor - Tasine - Commercial",
+      "Extractor - Tetrafluorides - Commercial",
+      "Extractor - Titanium - Commercial",
+      "Extractor - Tungsten - Commercial",
+      "Extractor - Uranium - Commercial",
+      "Extractor - Vanadium - Commercial",
+      "Extractor - Veryl - Commercial",
+      "Extractor - Vytinium - Commercial",
+      "Extractor - Water - Commercial",
+      "Extractor - Water Vapor - Commercial",
+      "Extractor - Xenon - Commercial",
+      "Extractor - Ytterbium - Commercial"
+    ]
+  },
+  {
+    "name": "Resource Extraction 2",
+    "category": "Outpost development research",
+    "resources": {
+      "Adaptive Frame": 20,
+      "Aldumite Drilling Rig": 5,
+      "Aluminum": 40,
+      "Caesium": 20,
+      "Chlorosilanes": 20,
+      "Microsecond Regulator": 8
+    },
+    "requirements": [
+      "Resource Extraction 1"
+    ],
+    "skills": [
+      "Outpost Engineering 2"
+    ],
+    "unlocks": [
+      "Extractor - Aldumite - Industrial",
+      "Extractor - Alkanes - Industrial",
+      "Extractor - Alkanes Vapor - Industrial",
+      "Extractor - Aluminum - Industrial",
+      "Extractor - Antimony - Industrial",
+      "Extractor - Argon - Industrial",
+      "Extractor - Benzene - Industrial",
+      "Extractor - Benzene Vapor - Industrial",
+      "Extractor - Beryllium - Industrial",
+      "Extractor - Caesium - Industrial",
+      "Extractor - Carboxylic Acids - Industrial",
+      "Extractor - Chlorine - Industrial",
+      "Extractor - Chlorine Vapor - Industrial",
+      "Extractor - Chlorosilanes - Industrial",
+      "Extractor - Cobalt - Industrial",
+      "Extractor - Copper - Industrial",
+      "Extractor - Dysprosium - Industrial",
+      "Extractor - Europium - Industrial",
+      "Extractor - Fluorine - Industrial",
+      "Extractor - Fluorine Vapor - Industrial",
+      "Extractor - Gold - Industrial",
+      "Extractor - Helium-3 - Industrial",
+      "Extractor - Helium-3 Vapor - Industrial",
+      "Extractor - Indicite - Industrial",
+      "Extractor - Ionic Liquids - Industrial",
+      "Extractor - Iridium - Industrial",
+      "Extractor - Iron - Industrial",
+      "Extractor - Lead - Industrial",
+      "Extractor - Lithium - Industrial",
+      "Extractor - Mercury - Industrial",
+      "Extractor - Neodymium - Industrial",
+      "Extractor - Neon - Industrial",
+      "Extractor - Nickel - Industrial",
+      "Extractor - Palladium - Industrial",
+      "Extractor - Platinum - Industrial",
+      "Extractor - Plutonium - Industrial",
+      "Extractor - Rothicite - Commercial",
+      "Extractor - Silver - Industrial",
+      "Extractor - Tantalum - Industrial",
+      "Extractor - Tasine - Industrial",
+      "Extractor - Tetrafluorides - Industrial",
+      "Extractor - Titanium - Industrial",
+      "Extractor - Tungsten - Industrial",
+      "Extractor - Uranium - Industrial",
+      "Extractor - Vanadium - Industrial",
+      "Extractor - Veryl - Industrial",
+      "Extractor - Vytinium - Industrial",
+      "Extractor - Water - Industrial",
+      "Extractor - Water Vapor - Industrial",
+      "Extractor - Xenon - Industrial",
+      "Extractor - Ytterbium - Industrial"
+    ]
+  },
+  {
+    "name": "Robots 1",
+    "category": "Outpost development research",
+    "resources": {
+      "Aluminum": 3,
+      "Beryllium": 3,
+      "Zero Wire": 2
+    },
+    "requirements": [],
+    "skills": [],
+    "unlocks": [
+      "Engineering Robot",
+      "Garden Mini Bot",
+      "Sanitation Mini Bot"
+    ]
+  },
+  {
+    "name": "Robots 2",
+    "category": "Outpost development research",
+    "resources": {
+      "Austenitic Manifold": 8,
+      "Chlorosilanes": 30,
+      "Cobalt": 30,
+      "Polymer": 10,
+      "Positron Battery": 8,
+      "Titanium": 30,
+      "Zero Wire": 30
+    },
+    "requirements": [
+      "Robots 1"
+    ],
+    "skills": [
+      "Outpost Engineering 1"
+    ],
+    "unlocks": [
+      "Logistics Robot",
+      "Power Management Robot"
+    ]
+  },
+  {
+    "name": "Helmet Mods 1",
+    "category": "Equipment research",
+    "resources": {
+      "Cosmetic": 2,
+      "Polymer": 3,
+      "Tungsten": 3
+    },
+    "requirements": [],
+    "skills": [],
+    "unlocks": ["EM Shielding (helmet)", "Energy Shielding (helmet)"]
+  },
+  {
+    "name": "Helmet Mods 2",
+    "category": "Equipment research",
+    "resources": {
+      "Adhesive": 1,
+      "Positron Battery": 5,
+      "Sterile Nanotubes": 5,
+      "Titanium": 10,
+      "Zero Wire": 8
+    },
+    "requirements": ["Helmet Mods 1"],
+    "skills": ["Spacesuit Design 1"],
+    "unlocks": ["Explosive Shielding (helmet)", "Sensor Array"]
+  },
+  {
+    "name": "Helmet Mods 3",
+    "category": "Equipment research",
+    "resources": {
+      "Caelumite": 10,
+      "High-Tensile Spidroin": 8,
+      "Indicite Wafer": 5,
+      "Microsecond Regulator": 8,
+      "Polymer": 10,
+      "Tungsten": 30
+    },
+    "requirements": ["Helmet Mods 2"],
+    "skills": ["Spacesuit Design 2"],
+    "unlocks": ["Gravitic Composites (helmet)", "Heavy Shielding (helmet)"]
+  },
+  {
+    "name": "Pack Mods 1",
+    "category": "Equipment research",
+    "resources": {
+      "Aluminum": 10,
+      "Beryllium": 10,
+      "Mag Pressure Tank": 8,
+      "Monopropellant": 5
+    },
+    "requirements": [],
+    "skills": ["Spacesuit Design 1"],
+    "unlocks": ["Medic"]
+  },
+  {
+    "name": "Pack Mods 2",
+    "category": "Equipment research",
+    "resources": {
+      "Beryllium": 10,
+      "Monopropellant": 10,
+      "Polymer": 8,
+      "Sealant": 10,
+      "Zero-G Gimbal": 5
+    },
+    "requirements": ["Pack Mods 1"],
+    "skills": ["Spacesuit Design 2"],
+    "unlocks": ["Emergency Aid", "Extra Capacity", "Skip Capacity Boostpack"]
+  },
+  {
+    "name": "Pack Mods 3",
+    "category": "Equipment research",
+    "resources": {
+      "Amino Acids": 20,
+      "Beryllium": 20,
+      "Biosuppressant": 10,
+      "Monopropellant": 20,
+      "Tau Grade Rheostat": 10,
+      "Zero-G Gimbal": 10
+    },
+    "requirements": ["Pack Mods 2"],
+    "skills": ["Spacesuit Design 3", "Special Projects 1"],
+    "unlocks": ["Balanced Boostpack", "Hazard Protection", "Power Boostpack", "Regeneration"]
+  },
+  {
+    "name": "Spacesuit Mods 1",
+    "category": "Equipment research",
+    "resources": {
+      "Copper": 5,
+      "Cosmetic": 5,
+      "Polytextile": 8
+    },
+    "requirements": [],
+    "skills": ["Spacesuit Design 1"],
+    "unlocks": ["EM Shielding", "Energy Shielding"]
+  },
+  {
+    "name": "Spacesuit Mods 2",
+    "category": "Equipment research",
+    "resources": {
+      "Adhesive": 10,
+      "Polytextile": 10,
+      "Positron Battery": 5,
+      "Semimetal Wafer": 5,
+      "Titanium": 10
+    },
+    "requirements": ["Spacesuit Mods 1"],
+    "skills": ["Spacesuit Design 2"],
+    "unlocks": ["Exo Servos", "Explosive Shielding", "Pocketed"]
+  },
+  {
+    "name": "Spacesuit Mods 3",
+    "category": "Equipment research",
+    "resources": {
+      "Caelumite": 10,
+      "Indicite Wafer": 5,
+      "Lubricant": 20,
+      "Microsecond Regulator": 8,
+      "Positron Battery": 8,
+      "Tungsten": 30
+    },
+    "requirements": ["Spacesuit Mods 2"],
+    "skills": ["Spacesuit Design 3"],
+    "unlocks": ["Gravitic Composites", "Heavy Shielding", "Optimized Servos"]
+  },
+  {
+    "name": "Barrel Mods 1",
+    "category": "Weaponry research",
+    "resources": {
+      "Iron": 3,
+      "Nickel": 3,
+      "Sealant": 2
+    },
+    "requirements": [],
+    "skills": [],
+    "unlocks": ["Extended Barrel", "Fluted Barrel", "Long Barrel", "Long Barrel with Laser Sight", "Long Flap", "Short Barrel with Laser Sight"]
+  },
+  {
+    "name": "Barrel Mods 2",
+    "category": "Weaponry research",
+    "resources": {
+      "Lubricant": 5,
+      "Nickel": 10,
+      "Tungsten": 5
+    },
+    "requirements": ["Barrel Mods 1"],
+    "skills": ["Weapon Engineering 1"],
+    "unlocks": ["Bull Barrel", "Magnetic Rails", "Stabilizing Barrel", "Supressor (barrel)", "Tech Barrel"]
+  },
+  {
+    "name": "Grip and Stock Mods 1",
+    "category": "Weaponry research",
+    "resources": {
+      "Aluminum": 3,
+      "Nickel": 3,
+      "Sealant": 3
+    },
+    "requirements": [],
+    "skills": [],
+    "unlocks": ["Folding Stock", "Tactical Folding Stock", "Tactical Grip", "Tactical Stock"]
+  },
+  {
+    "name": "Grip and Stock Mods 2",
+    "category": "Weaponry research",
+    "resources": {
+      "Adhesive": 10,
+      "Polymer": 5,
+      "Tungsten": 8
+    },
+    "requirements": ["Grip and Stock Mods 1"],
+    "skills": ["Weapon Engineering 1"],
+    "unlocks": ["Shielded Grip", "Shielded Tool Grip"]
+  },
+  {
+    "name": "Grip and Stock Mods 3",
+    "category": "Weaponry research",
+    "resources": {
+      "Adhesive": 20,
+      "Polymer": 10,
+      "Titanium": 10
+    },
+    "requirements": ["Grip and Stock Mods 2"],
+    "skills": ["Weapon Engineering 2"],
+    "unlocks": ["Large Shielded Grip", "Stabilizing Stock"]
+  },
+  {
+    "name": "Internal Mods 1",
+    "category": "Weaponry research",
+    "resources": {
+      "Iridium": 8,
+      "Sealant": 10,
+      "Tungsten": 10,
+      "Zero Wire": 5
+    },
+    "requirements": [],
+    "skills": ["Weapon Engineering 2"],
+    "unlocks": ["Hair Trigger"]
+  },
+  {
+    "name": "Internal Mods 2",
+    "category": "Weaponry research",
+    "resources": {
+      "Adhesive": 10,
+      "Isocentered Magnet": 8,
+      "Tantalum": 10,
+      "Titanium": 10,
+      "Zero Wire": 8
+    },
+    "requirements": ["Internal Mods 1"],
+    "skills": ["Weapon Engineering 3"],
+    "unlocks": ["Amplifier", "High Velocity"]
+  },
+  {
+    "name": "Internal Mods 3",
+    "category": "Weaponry research",
+    "resources": {
+      "Europium": 20,
+      "Polymer": 10,
+      "Power Circuit": 2,
+      "Titanium": 20,
+      "Ytterbium": 10,
+      "Zero Wire": 10
+    },
+    "requirements": ["Internal Mods 2"],
+    "skills": ["Weapon Engineering 4"],
+    "unlocks": ["Bullet Hose", "High Powered", "Overclocked"]
+  },
+  {
+    "name": "Magazine and Battery Mods 1",
+    "category": "Weaponry research",
+    "resources": {
+      "Adhesive": 5,
+      "Lead": 8,
+      "Titanium": 5
+    },
+    "requirements": [],
+    "skills": ["Weapon Engineering 2"],
+    "unlocks": ["Flechette Large Magazine", "Large Battery", "Large Magazine", "Slug Shots", "Whitehot Rounds"]
+  },
+  {
+    "name": "Magazine and Battery Mods 2",
+    "category": "Weaponry research",
+    "resources": {
+      "Adhesive": 10,
+      "Isocentered Magnet": 8,
+      "Lead": 20,
+      "Tau Grade Rheostat": 8,
+      "Uranium": 10
+    },
+    "requirements": ["Magazine and Battery Mods 1"],
+    "skills": ["Weapon Engineering 3"],
+    "unlocks": ["Armor-piercing Rounds", "Depleted Uranium Rounds", "Drum Magazine", "Electromagnetic Beams", "EM-charged Shot", "Explosive Rounds", "Extra Large Magazine", "Flechette Drum Magazine", "Flechette Rounds"]
+  },
+  {
+    "name": "Magazine and Battery Mods 3",
+    "category": "Weaponry research",
+    "resources": {
+      "Adhesive": 20,
+      "Lead": 30,
+      "Positron Battery": 8,
+      "Toxin": 20,
+      "Ytterbium": 20
+    },
+    "requirements": ["Magazine and Battery Mods 2"],
+    "skills": ["Special Projects 1", "Weapon Engineering 3"],
+    "unlocks": ["Annihilator Rounds", "Gut Buster Rounds", "Hornet Nest", "Ignition Beams", "Penetrator Rounds", "Tesla Pylons"]
+  },
+  {
+    "name": "Muzzle Mods 1",
+    "category": "Weaponry research",
+    "resources": {
+      "Sealant": 5,
+      "Titanium": 5,
+      "Tungsten": 10
+    },
+    "requirements": [],
+    "skills": ["Weapon Engineering 1"],
+    "unlocks": ["Choke", "Muzzle Brake", "Short Supressor"]
+  },
+  {
+    "name": "Muzzle Mods 2",
+    "category": "Weaponry research",
+    "resources": {
+      "Polymer": 10,
+      "Tantalum": 10,
+      "Titanium": 10,
+      "Zero Wire": 8
+    },
+    "requirements": ["Muzzle Mods 1"],
+    "skills": ["Weapon Engineering 2"],
+    "unlocks": ["Focus Nozzle", "Large Muzzle Brake", "Spread Nozzle", "Stealth Lasers", "Supressor"]
+  },
+  {
+    "name": "Muzzle Mods 3",
+    "category": "Weaponry research",
+    "resources": {
+      "Adhesive": 20,
+      "Isotopic Coolant": 10,
+      "Polymer": 10,
+      "Titanium": 20,
+      "Ytterbium": 10
+    },
+    "requirements": ["Muzzle Mods 2"],
+    "skills": ["Special Projects 1", "Weapon Engineering 3"],
+    "unlocks": ["Double Barel Muzzle", "Shock Charge Band"]
+  },
+  {
+    "name": "Optics and Laser Mods 1",
+    "category": "Weaponry research",
+    "resources": {
+      "Aluminum": 3,
+      "Chlorosilanes": 2,
+      "Sealant": 3
+    },
+    "requirements": [],
+    "skills": [],
+    "unlocks": ["Holographic Sight", "Short Scope"]
+  },
+  {
+    "name": "Optics and Laser Mods 2",
+    "category": "Weaponry research",
+    "resources": {
+      "Adhesive": 8,
+      "Aluminum": 10,
+      "Chlorosilanes": 8,
+      "Zero Wire": 8
+    },
+    "requirements": ["Optics and Laser Mods 1"],
+    "skills": ["Weapon Engineering 1"],
+    "unlocks": ["Long Scope", "Medium Scope"]
+  },
+  {
+    "name": "Optics and Laser Mods 3",
+    "category": "Weaponry research",
+    "resources": {
+      "Adhesive": 16,
+      "Iridium": 16,
+      "Vanadium": 16,
+      "Zero Wire": 8
+    },
+    "requirements": ["Optics and Laser Mods 2"],
+    "skills": ["Weapon Engineering 2"],
+    "unlocks": ["Foregrip with Recon Laser Sight", "Recon Laser Sight", "Recon Scope"]
+  },
+  {
+    "name": "Receiver Mods 1",
+    "category": "Weaponry research",
+    "resources": {
+      "Isotopic Coolant": 5,
+      "Lubricant": 10,
+      "Microsecond Regulator": 3,
+      "Titanium": 30,
+      "Ytterbium": 10
+    },
+    "requirements": [],
+    "skills": ["Weapon Engineering 3"],
+    "unlocks": ["Burst Fire", "Semi-automatic"]
+  },
+  {
+    "name": "Receiver Mods 2",
+    "category": "Weaponry research",
+    "resources": {
+      "Isotopic Coolant": 8,
+      "Lubricant": 20,
+      "Microsecond Regulator": 5,
+      "Polymer": 20,
+      "Ytterbium": 20
+    },
+    "requirements": ["Receiver Mods 1"],
+    "skills": ["Weapon Engineering 4"],
+    "unlocks": ["Accelerant", "Binary Trigger", "Fully Automatic"]
+  },
+  {
+    "name": "Blade Mods 1",
+    "category": "Weaponry research",
+    "resources": {
+      "Iron": 5,
+      "Titanium": 3,
+      "Vanadium": 3
+    },
+    "requirements": [],
+    "skills": ["Weapon Engineering 1"],
+    "unlocks": ["Alloyed Steel Blade", "High Carbon Steel Blade", "Stainless Steel Blade"]
+  },
+  {
+    "name": "Blade Mods 2",
+    "category": "Weaponry research",
+    "resources": {
+      "Iron": 10,
+      "Tantalum": 4,
+      "Titanium": 6,
+      "Vanadium": 6
+    },
+    "requirements": ["Blade Mods 1"],
+    "skills": ["Weapon Engineering 1"],
+    "unlocks": ["Corroding Blade", "Irradiated Blade", "Venomous Blade"]
+  },
+  {
+    "name": "Handle Mods 1",
+    "category": "Weaponry research",
+    "resources": {
+      "Cosmetic": 4,
+      "Structural Material": 5,
+      "Titanium": 3
+    },
+    "requirements": [],
+    "skills": ["Weapon Engineering 1"],
+    "unlocks": ["Alloy Handle", "Ergonomic Handle", "Weighted Handle"]
+  },
+  {
+    "name": "Handle Mods 2",
+    "category": "Weaponry research",
+    "resources": {
+      "Cosmetic": 4,
+      "Structural Material": 5,
+      "Titanium": 3
+    },
+    "requirements": ["Handle Mods 1"],
+    "skills": ["Weapon Engineering 1"],
+    "unlocks": ["Experimental Alloy Handle", "Force-Extruded Handle", "Lightweight Handle"]
+  },
+  {
+    "name": "Ammunition 1",
+    "category": "Weaponry research",
+    "resources": {
+      "Copper": 7,
+      "Lead": 7,
+      "Small Round Primer": 5
+    },
+    "requirements": [],
+    "skills": [],
+    "unlocks": [".27 Caliber", ".45 Caliber ACP", "12g Shotgun Shell", "3KV LZR Cartridge", "6.5mm CT", "7.62x39mm", "7.77mm Caseless", "9x39mm"]
+  },
+  {
+    "name": "Ammunition 2",
+    "category": "Weaponry research",
+    "resources": {
+      "Copper": 10,
+      "Large Round Primer": 8,
+      "Lead": 10,
+      "Zero Wire": 8
+    },
+    "requirements": ["Ammunition 1"],
+    "skills": [],
+    "unlocks": [".43 MI Array", ".43 Ultramag", "1.5KV LZR Cartridge", "11mm Caseless", "12.5mm ST Rivet", "Caseless Shotgun Shell", "Light Particle Fuse"]
+  },
+  {
+    "name": "Ammunition 3",
+    "category": "Weaponry research",
+    "resources": {
+      "Charged Diodes": 10,
+      "Isocentered Magnet": 20,
+      "Magnetic Diodes": 10,
+      "Positron Battery": 20
+    },
+    "requirements": ["Ammunition 2"],
+    "skills": [],
+    "unlocks": [".50 Caliber Caseless", ".50 MI Array", "15x25 CLL Shotgun Shell", "40mm XPL", "6.5mm MI Array", "7.5mm Whitehot", "Heavy Particle Fuse"]
+  }
+]
