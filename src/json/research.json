@@ -3,7 +3,7 @@
     "name": "Medical Treatment 1",
     "category": "Pharmacology research",
     "resources": {
-      "Aluminum": 2,
+      "Aluminium": 2,
       "Amino Acids": 2,
       "Antimicrobial": 3
     },
@@ -581,7 +581,7 @@
     "category": "Outpost development research",
     "resources": {
       "Adhesive": 10,
-      "Aluminum": 10,
+      "Aluminium": 10,
       "Fiber": 10,
       "Pigment": 10,
       "Structural Material": 10
@@ -632,7 +632,7 @@
     "category": "Outpost development research",
     "resources": {
       "Adhesive": 30,
-      "Aluminum": 30,
+      "Aluminium": 30,
       "Fiber": 20,
       "Luxury Textile": 5,
       "Nickel": 20,
@@ -679,7 +679,7 @@
     "resources": {
       "Adaptive Frame": 10,
       "Adhesive": 10,
-      "Aluminum": 30,
+      "Aluminium": 30,
       "Molecular Sieve": 5,
       "Sealant": 10
     },
@@ -698,7 +698,7 @@
     "resources": {
       "Adaptive Frame": 20,
       "Adhesive": 30,
-      "Aluminum": 40,
+      "Aluminium": 40,
       "Hypercatalyst": 10,
       "Sealant": 30,
       "Substrate Molecule Sieve": 8
@@ -829,7 +829,7 @@
     "name": "Outpost Defense 1",
     "category": "Outpost development research",
     "resources": {
-      "Aluminum": 30,
+      "Aluminium": 30,
       "Copper": 5,
       "Fluorine": 5,
       "Positron Battery": 3,
@@ -851,7 +851,7 @@
     "name": "Outpost Defense 2",
     "category": "Outpost development research",
     "resources": {
-      "Aluminum": 40,
+      "Aluminium": 40,
       "Copper": 10,
       "Neon": 10,
       "Positron Battery": 8,
@@ -967,7 +967,7 @@
     "category": "Outpost development research",
     "resources": {
       "Adaptive Frame": 10,
-      "Aluminum": 30,
+      "Aluminium": 30,
       "Chlorosilanes": 10,
       "Copper": 20,
       "Drilling Rig": 5,
@@ -981,7 +981,7 @@
       "Extractor - Aldumite - Commercial",
       "Extractor - Alkanes - Commercial",
       "Extractor - Alkanes Vapor - Commercial",
-      "Extractor - Aluminum - Commercial",
+      "Extractor - Aluminium - Commercial",
       "Extractor - Antimony - Commercial",
       "Extractor - Argon - Commercial",
       "Extractor - Benzene - Commercial",
@@ -1037,7 +1037,7 @@
     "resources": {
       "Adaptive Frame": 20,
       "Aldumite Drilling Rig": 5,
-      "Aluminum": 40,
+      "Aluminium": 40,
       "Caesium": 20,
       "Chlorosilanes": 20,
       "Microsecond Regulator": 8
@@ -1052,7 +1052,7 @@
       "Extractor - Aldumite - Industrial",
       "Extractor - Alkanes - Industrial",
       "Extractor - Alkanes Vapor - Industrial",
-      "Extractor - Aluminum - Industrial",
+      "Extractor - Aluminium - Industrial",
       "Extractor - Antimony - Industrial",
       "Extractor - Argon - Industrial",
       "Extractor - Benzene - Industrial",
@@ -1106,7 +1106,7 @@
     "name": "Robots 1",
     "category": "Outpost development research",
     "resources": {
-      "Aluminum": 3,
+      "Aluminium": 3,
       "Beryllium": 3,
       "Zero Wire": 2
     },
@@ -1186,7 +1186,7 @@
     "name": "Pack Mods 1",
     "category": "Equipment research",
     "resources": {
-      "Aluminum": 10,
+      "Aluminium": 10,
       "Beryllium": 10,
       "Mag Pressure Tank": 8,
       "Monopropellant": 5
@@ -1293,7 +1293,7 @@
     "name": "Grip and Stock Mods 1",
     "category": "Weaponry research",
     "resources": {
-      "Aluminum": 3,
+      "Aluminium": 3,
       "Nickel": 3,
       "Sealant": 3
     },
@@ -1450,7 +1450,7 @@
     "name": "Optics and Laser Mods 1",
     "category": "Weaponry research",
     "resources": {
-      "Aluminum": 3,
+      "Aluminium": 3,
       "Chlorosilanes": 2,
       "Sealant": 3
     },
@@ -1463,7 +1463,7 @@
     "category": "Weaponry research",
     "resources": {
       "Adhesive": 8,
-      "Aluminum": 10,
+      "Aluminium": 10,
       "Chlorosilanes": 8,
       "Zero Wire": 8
     },

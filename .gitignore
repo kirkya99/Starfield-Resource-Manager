@@ -1,6 +1,11 @@
+# macOS files
 .DS_Store
 .thumbs.db
+
+# Node modules
 node_modules
+
+# VSCode files
 .vscode
 
 # Quasar core related directories
@@ -36,3 +41,77 @@ yarn-error.log*
 
 # local .env files
 .env.local*
+
+# Android Studio specific files
+# Gradle files
+.gradle/
+build/
+/local.properties
+
+# Android Studio specific files
+# IntelliJ IDEA files
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Generated binary files
+*.apk
+*.ap_
+*.aab
+
+# Generated build files
+/captures/
+/output/
+
+# Gradle Wrapper files
+!gradle/wrapper/gradle-wrapper.jar
+
+# Temporary files
+*.swp
+*.tmp
+
+# MacOS specific files
+._*
+.Spotlight-V100
+.Trashes
+
+# Compiled code
+*.class
+*.dex
+
+# Java virtual machine files
+*.jar
+*.war
+*.ear
+
+# Kotlin files
+*.kt.bak
+*.kotlin_metadata
+
+# ProGuard
+proguard/
+
+# Log files
+*.log
+
+# Miscellaneous
+*.orig
+*.merge_file
+
+# Temporary files created by Android Studio
+.idea/caches
+.idea/libraries
+.idea/modules.xml
+.idea/workspace.xml
+.idea/navEditor.xml
+.idea/assetWizardSettings.xml
+.idea/misc.xml
+.idea/gradle.xml
+.idea/dictionaries
+.idea/httpRequests
+.idea/shelf
+
+# Keystore files
+*.jks
+*.keystore

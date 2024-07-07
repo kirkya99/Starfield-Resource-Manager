@@ -1141,7 +1141,7 @@
     "slot": "Optics",
     "description": "Standard red dot sight for better target acquisition.",
     "resources": {
-      "Aluminum": 1,
+      "Aluminium": 1,
       "Helium-3": 1,
       "Neon": 1
     }
@@ -1153,7 +1153,7 @@
     "description": "Reflex sights for quicker target acquisition and visibility.",
     "resources": {
       "Adhesive": 1,
-      "Aluminum": 1,
+      "Aluminium": 1,
       "Chlorosilanes": 1
     }
   },
@@ -1175,7 +1175,7 @@
     "slot": "Cover",
     "description": "A removed cover plate. Reduces weight and lowers accuracy while increasing aiming speed.",
     "resources": {
-      "Aluminum": 1,
+      "Aluminium": 1,
       "Sealant": 1
     }
   },
@@ -1524,7 +1524,7 @@
     "slot": "Magazine and battery",
     "description": "Standard chemically-tipped rounds that burn on contact.",
     "resources": {
-      "Aluminum": 1,
+      "Aluminium": 1,
       "Iron": 1,
       "Solvent": 1
     }
@@ -1547,7 +1547,7 @@
     "slot": "Stock and grips",
     "description": "A full stock for better Recoil management.",
     "resources": {
-      "Aluminum": 2,
+      "Aluminium": 2,
       "Sealant": 1
     }
   },
@@ -1589,7 +1589,7 @@
     "slot": "Stock and grips",
     "description": "Lighter folding stock for quicker Aim Down Sights speed and Stability.",
     "resources": {
-      "Aluminum": 1,
+      "Aluminium": 1,
       "Sealant": 1,
       "Titanium": 1
     }
@@ -1676,7 +1676,7 @@
     "slot": "Magazine and battery",
     "description": "Chemically-tipped rounds that burn on contact.",
     "resources": {
-      "Aluminum": 1,
+      "Aluminium": 1,
       "Iron": 1,
       "Solvent": 1
     }
