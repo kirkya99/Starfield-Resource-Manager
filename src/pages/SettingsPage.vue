@@ -8,7 +8,7 @@
     <q-card>
       <div class="row q-ma-sm q-pa-md-sm q-col-gutter-sm">
         <div class="text-h6">Data</div>
-
+<!-- Tell if craftables should be bought or crafted -->
       </div>
     </q-card>
 

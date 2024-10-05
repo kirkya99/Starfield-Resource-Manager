@@ -19,7 +19,7 @@ export function getModifications (): Modification[] {
   }))
 }
 
-export interface Column {
+export interface Columns {
   name: string;
   label: string;
   field: string | ((row: Modification) => Modification);
@@ -30,7 +30,7 @@ export interface Column {
   style: string;
 }
 
-export const Columns: Column[] =
+export const columns: Columns[] =
   [
     {
       name: 'modification',

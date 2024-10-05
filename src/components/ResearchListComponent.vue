@@ -2,24 +2,20 @@
 
 import { ref, watch } from 'vue'
 import { Notify } from 'quasar'
-import { columns, getModifications, Modification, ModificationType, radioOptions } from 'src/typescript/Modification'
-import typesJson from 'src/json/types.json'
-import slotsJson from 'src/json/slots.json'
+import { getResearchItems, ResearchItem, columns, ResearchType, radioOptions } from 'src/typescript/Research'
+import researchCategories from 'src/json/reseach_categories.json'
 import { getResources, Resource } from 'src/typescript/Resource'
 import { StoreManager } from 'src/typescript/StoreManager'
 
 const storeManager = new StoreManager()
-const types = typesJson
-const slots = slotsJson
+const categories = researchCategories
 
-const modificationOptions = ref<Modification[]>(getModifications())
-const modResourcesList = ref<Resource[]>([{ resource: '', amount: 0 }])
-const typesOptions = ref(types)
-const slotsOptions = ref(slots)
-const resourcesOptions = ref<string[]>(getResources())
+const researchItemOptions = ref<ResearchItem[]>(getResearchItems())
+const researchResourcesList = ref<Resource[]>([{ resource: '', amount: 0 }])
+const categoriesOptions = ref(categories)
 
-const selectedItem = ref<Modification | null>(null)
-const modsColumns = ref<typeof columns>(columns)
+const selectedItem = ref<ResearchItem | null>(null)
+const researchColumns = ref<typeof columns>(columns)
 const initialPagination = ref({
   sortBy: 'desc',
   descending: false,
@@ -28,21 +24,21 @@ const initialPagination = ref({
 const deleteDialogOpened = ref(false)
 const toBeDeletedName = ref<string | null>(null)
 const addDialogOpened = ref<boolean>(false)
-const radioOption = ref<ModificationType>(ModificationType.Existing)
+const radioOption = ref<ResearchType>(ResearchType.Existing)
 
-const modName = ref<string>('')
-const modType = ref<string>('')
-const modSlot = ref<string>('')
-const modResources = ref<Map<string, number>>(new Map<string, number>())
+const researchName = ref<string>('')
+const researchCategory = ref<string>('')
+const researchResources = ref<Map<string, number>>(new Map<string, number>())
+const resourcesOptions = ref<string[]>(getResources())
 
 const onSubmit = () => {
   switch (radioOption.value) {
-    case ModificationType.Existing:
+    case ResearchType.Existing:
       if (selectedItem.value !== null) {
-        storeManager.modificationListStore.addModification(selectedItem.value)
+        storeManager.researchItemsListStore.addResearchItem(selectedItem.value)
         Notify.create({
           type: 'positive',
-          message: `${selectedItem.value.modification} added to modifications list`,
+          message: `${selectedItem.value.name} added to research items list`,
           actions: [
             {
               icon: 'close',
@@ -54,7 +50,7 @@ const onSubmit = () => {
       } else {
         Notify.create({
           type: 'negative',
-          message: 'Error: No modification selected.',
+          message: 'Error: No research item selected.',
           actions: [
             {
               icon: 'close',
@@ -63,12 +59,12 @@ const onSubmit = () => {
         })
       }
       break
-    case ModificationType.Custom:
+    case ResearchType.Custom:
       if (selectedItem.value) {
-        storeManager.modificationListStore.addModification(selectedItem.value)
+        storeManager.researchItemsListStore.addResearchItem(selectedItem.value)
         Notify.create({
           type: 'positive',
-          message: `${selectedItem.value.modification} added to modifications list`,
+          message: `${selectedItem.value.name} added to research items list`,
           actions: [
             {
               icon: 'close',
@@ -98,10 +94,10 @@ const callDeleteDialog = (row: { key: string }) => {
 
 const deleteRow = () => {
   if (toBeDeletedName.value) {
-    storeManager.modificationListStore.removeModification(toBeDeletedName.value)
+    storeManager.researchItemsListStore.removeResearchItem(toBeDeletedName.value)
     Notify.create({
       type: 'positive',
-      message: `${toBeDeletedName.value} removed from modifications list`,
+      message: `${toBeDeletedName.value} removed from research items list`,
       actions: [
         {
           icon: 'close',
@@ -111,7 +107,7 @@ const deleteRow = () => {
   } else {
     Notify.create({
       type: 'negative',
-      message: 'Error while removing: Failed to remove item from modifications list',
+      message: 'Error while removing: Failed to remove item from research items list',
       actions: [
         {
           icon: 'close',
@@ -121,7 +117,7 @@ const deleteRow = () => {
   }
 }
 
-function filterModifications (val: string, update: (callback: () => void) => void, abort: () => void) {
+function filterResearchItems (val: string, update: (callback: () => void) => void, abort: () => void) {
   if (val.length < 2) {
     abort()
     return
@@ -129,11 +125,11 @@ function filterModifications (val: string, update: (callback: () => void) => voi
 
   update(() => {
     const needle = val.toLocaleLowerCase()
-    modificationOptions.value = getModifications().filter(m => m.modification.toLocaleLowerCase().includes(needle))
+    researchItemOptions.value = getResearchItems().filter(m => m.name.toLocaleLowerCase().includes(needle))
   })
 }
 
-function filterTypes (val: string, update: (callback: () => void) => void, abort: () => void) {
+function filterCategories (val: string, update: (callback: () => void) => void, abort: () => void) {
   if (val.length < 2) {
     abort()
     return
@@ -141,19 +137,7 @@ function filterTypes (val: string, update: (callback: () => void) => void, abort
 
   update(() => {
     const needle = val.toLocaleLowerCase()
-    typesOptions.value = types.filter(r => r.toLowerCase().indexOf(needle) > -1)
-  })
-}
-
-function filterSlots (val: string, update: (callback: () => void) => void, abort: () => void) {
-  if (val.length < 2) {
-    abort()
-    return
-  }
-
-  update(() => {
-    const needle = val.toLocaleLowerCase()
-    slotsOptions.value = slots.filter(r => r.toLowerCase().indexOf(needle) > -1)
+    categoriesOptions.value = categoriesOptions.value.filter(r => r.toLowerCase().indexOf(needle) > -1)
   })
 }
 
@@ -171,54 +155,55 @@ function filterResources (val: string, update: (callback: () => void) => void, a
 
 function updateResourcesMap () {
   const resMap = new Map<string, number>()
-  modResourcesList.value.forEach(value => {
+  researchResourcesList.value.forEach(value => {
     if (value.resource !== '') {
       resMap.set(value.resource, value.amount)
     }
   })
-  modResources.value = resMap
-  modResourcesList.value.push({ resource: '', amount: 0 })
+  researchResources.value = resMap
+  researchResourcesList.value.push({ resource: '', amount: 0 })
 
   selectedItem.value = {
-    modification: modName.value,
-    type: modType.value,
-    slot: modSlot.value,
-    description: `${modName.value} is a custom modification`,
-    resources: resMap
+    name: researchName.value,
+    category: researchCategory.value,
+    resources: resMap,
+    requirements: [],
+    skills: [],
+    unlocks: []
   }
 }
 
 function removeResFromList (index: number) {
-  modResourcesList.value.splice(index, 1)
+  researchResourcesList.value.splice(index, 1)
 
   const resMap = new Map<string, number>()
-  modResourcesList.value.forEach(value => {
+  researchResourcesList.value.forEach(value => {
     if (value.resource !== '') {
       resMap.set(value.resource, value.amount)
     }
   })
-  modResources.value = resMap
+  researchResources.value = resMap
 
   selectedItem.value = {
-    modification: modName.value,
-    type: modType.value,
-    slot: modSlot.value,
-    description: `${modName.value} is a custom modification`,
-    resources: resMap
+    name: researchName.value,
+    category: researchCategory.value,
+    resources: resMap,
+    requirements: [],
+    skills: [],
+    unlocks: []
   }
 }
 
 const onClose = () => {
-  radioOption.value = ModificationType.Existing
+  radioOption.value = ResearchType.Existing
 }
 
 watch(radioOption, () => {
   selectedItem.value = null
-  modName.value = ''
-  modType.value = ''
-  modSlot.value = ''
-  modResourcesList.value = [{ resource: '', amount: 0 }]
-  modResources.value = new Map<string, number>()
+  researchName.value = ''
+  researchCategory.value = ''
+  researchResourcesList.value = [{ resource: '', amount: 0 }]
+  researchResources.value = new Map<string, number>()
 })
 
 </script>
@@ -226,13 +211,14 @@ watch(radioOption, () => {
 <template>
   <div class="row justify-center q-gutter-y-sm">
     <div class="col-md-9 col-xs-12 text-h5">
-      Modifications
+      Research
       <q-btn align="around" label="Add" color="primary" icon="add" @click="() => addDialogOpened = true"
              class="float-right"/>
     </div>
 
     <div class="col-md-9 col-xs-12 q-mt-md">
-      <q-table flat bordered :rows="storeManager.modificationListStore.modificationList" :columns="modsColumns" row-key="modification"
+      <q-table flat bordered :rows="storeManager.researchItemsListStore.researchItemsList" :columns="researchColumns"
+               row-key="modification"
                :pagination="initialPagination" style="max-height: 65vh" class="table-preset" dark>
         <template v-slot:body-cell-action="props">
           <q-td key="action" :props="props">
@@ -248,7 +234,7 @@ watch(radioOption, () => {
     <q-card>
       <q-card-section avatar class="row items-center">
         <q-avatar icon="delete" text-color="negative"></q-avatar>
-        <span class="q-ml-sm">{{ `Remove ${toBeDeletedName} from modifications list?` }}</span>
+        <span class="q-ml-sm">{{ `Remove ${toBeDeletedName} from research items list?` }}</span>
       </q-card-section>
 
       <q-card-actions align="right">
@@ -264,23 +250,23 @@ watch(radioOption, () => {
       <q-form @submit="onSubmit">
         <q-card-section>
           <div class="q-col-gutter-y-md">
-            <div class="text-h6">Add Modification</div>
+            <div class="text-h6">Add Research item</div>
 
             <div>
-              <div class="text-body1">Select modification type</div>
+              <div class="text-body1">Select research item type</div>
               <q-option-group :options="radioOptions" v-model="radioOption" type="radio"/>
             </div>
 
             <div>
-              <div class="text-body1 disabled" v-show="radioOption === ModificationType.Custom">Select existing
-                modification
+              <div class="text-body1 disabled" v-show="radioOption === ResearchType.Custom">Select existing
+                research item
               </div>
-              <div class="text-body1" v-show="radioOption === ModificationType.Existing">Select existing modification
+              <div class="text-body1" v-show="radioOption === ResearchType.Existing">Select existing research item
               </div>
-              <q-select v-model="selectedItem" use-input input-debounce="0" label="Modifications"
-                        :options="modificationOptions" option-label="modification"
-                        clearable @filter="filterModifications"
-                        :disable="radioOption === ModificationType.Custom" :hide-selected="radioOption === ModificationType.Custom">
+              <q-select v-model="selectedItem" use-input input-debounce="0" label="Reseach item"
+                        :options="researchItemOptions" option-label="name"
+                        clearable @filter="filterResearchItems"
+                        :disable="radioOption === ResearchType.Custom" :hide-selected="radioOption === ResearchType.Custom">
                 <template v-slot:no-option>
                   <q-item>
                     <q-item-section class="text-grey">
@@ -292,23 +278,20 @@ watch(radioOption, () => {
             </div>
 
             <div>
-              <div class="text-body1 disabled " v-show="radioOption === ModificationType.Existing">
-                  Create custom modification
+              <div class="text-body1 disabled " v-show="radioOption === ResearchType.Existing">
+                Create custom research item
               </div>
-              <div class="text-body1" v-show="radioOption === ModificationType.Custom">Create custom modification</div>
-              <q-input v-model="modName" label="Name" clearable :disable="radioOption === ModificationType.Existing"/>
-              <q-select v-model="modType" use-input input-debounce="0" label="Type" :options="typesOptions"
-                        @filter="filterTypes" :disable="radioOption === ModificationType.Existing" new-value-mode="add"
-                        @on-new-value="(value: string) => modType = value" clearable/>
-              <q-select v-model="modSlot" use-input input-debounce="0" label="Slot" :options="slotsOptions"
-                        @filter="filterSlots" :disable="radioOption === ModificationType.Existing"
-                        new-value-mode="add" @on-new-value="(value: string) => modSlot = value" clearable/>
+              <div class="text-body1" v-show="radioOption === ResearchType.Custom">Create custom research item</div>
+              <q-input v-model="researchName" label="Name" clearable :disable="radioOption === ResearchType.Existing"/>
+              <q-select v-model="researchCategory" use-input input-debounce="0" label="Category" :options="categoriesOptions"
+                        @filter="filterCategories" :disable="radioOption === ResearchType.Existing" new-value-mode="add"
+                        @on-new-value="(value: string) => researchCategory = value" clearable/>
 
-              <div v-for="(resource, index) in modResourcesList" :key="index" class="row justify-between">
+              <div v-for="(resource, index) in researchResourcesList" :key="index" class="row justify-between">
                 <div class="col-7">
                   <q-select v-model="resource.resource" use-input input-debounce="0" label="Resource"
                             :options="resourcesOptions"
-                            @filter="filterResources" :disable="radioOption === ModificationType.Existing"
+                            @filter="filterResources" :disable="radioOption === ResearchType.Existing"
                             new-value-mode="add" @on-new-value="(value: string) => resource.resource = value"
                             clearable emit-value map-options/>
                 </div>
@@ -317,14 +300,14 @@ watch(radioOption, () => {
                     v-model="resource.amount"
                     type="number"
                     label="Amount"
-                    :disable="radioOption === ModificationType.Existing"/>
+                    :disable="radioOption === ResearchType.Existing"/>
                 </div>
                 <div class="col-2 column items-center">
-                  <q-btn flat :disable="radioOption === ModificationType.Existing || modResourcesList.length === 1" class="max-dim" icon="delete" color="primary" @click="removeResFromList(index)"/>
+                  <q-btn flat :disable="radioOption === ResearchType.Existing || researchResourcesList.length === 1" class="max-dim" icon="delete" color="primary" @click="removeResFromList(index)"/>
                 </div>
               </div>
               <div class="col-12 q-pt-sm">
-                <q-btn :disable="radioOption === ModificationType.Existing" color="primary" icon="add"
+                <q-btn :disable="radioOption === ResearchType.Existing" color="primary" icon="add"
                        style="width: 100%" @click="updateResourcesMap"/>
               </div>
             </div>

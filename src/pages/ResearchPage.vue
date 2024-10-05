@@ -1,10 +1,11 @@
 <script setup lang="ts">
 
+import ResearchListComponent from 'components/ResearchListComponent.vue'
 </script>
 
 <template>
   <q-page padding>
-    Research
+    <ResearchListComponent />
   </q-page>
 </template>
 
